@@ -1,0 +1,5 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Masters/Site.master" AutoEventWireup="true" CodeBehind="ArticleListMaster.master.cs" Inherits="TopSite.Masters.ArticleListMaster" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+</asp:Content>
