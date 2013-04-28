@@ -13,7 +13,6 @@ using System.Linq;
 using System.Text;
 using Db4objects.Db4o;
 using Db4objects.Db4o.CS;
-using WebSharing.IDAL;
 using Db4objects.Db4o.CS.Config;
 using Db4objects.Db4o.TA;
 

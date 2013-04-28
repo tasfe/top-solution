@@ -45,7 +45,7 @@
     <Compile Include="DataCacheManger.cs" />
     <Compile Include="LocalCacheKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SiteConifg.cs" />
+    <Compile Include="SiteConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enum\" />

@@ -12,10 +12,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Db4objects.Db4o;
+using Db4objects.Db4o.Linq;
 
 namespace WebSharing.DB4ODAL
 {
-    public class DB4ODALClient
+    public class DB4ODALClient:IDisposable
     {
         private IObjectContainer _IObjectContainer;
 
@@ -23,6 +24,43 @@ namespace WebSharing.DB4ODAL
         {
             get { return _IObjectContainer; }
             set { _IObjectContainer = value; }
+        }
+
+        /// <summary>
+        /// 保存
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        public void Save<T>(T obj)
+        {
+            IObjectContainer.Store(obj);
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        public void Delete<T>(T obj)
+        {
+            IObjectContainer.Delete(obj);
+        }
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public List<T> GetList<T>(Predicate<T> p)
+        {
+            var resultLinq = (from T d in IObjectContainer where p(d) select d);
+            return resultLinq.ToList();
+        }
+
+        public void Commit()
+        {
+            IObjectContainer.Commit();
         }
 
         public void Dispose()

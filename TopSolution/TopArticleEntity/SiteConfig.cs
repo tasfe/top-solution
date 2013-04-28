@@ -15,7 +15,7 @@ using System.Text;
 
 namespace TopArticleEntity
 {
-    public class SiteConifg
+    public class SiteConfig
     {
         private string _SiteName;
 
