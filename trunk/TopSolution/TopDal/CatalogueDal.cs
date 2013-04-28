@@ -15,7 +15,7 @@ using System.Text;
 
 namespace TopDal
 {
-    class CatalogueDal
+    public class CatalogueDal
     {
     }
 }

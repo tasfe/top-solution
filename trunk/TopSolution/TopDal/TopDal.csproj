@@ -31,6 +31,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Db4objects.Db4o">
+      <HintPath>C:\Program Files (x86)\db4o\db4o-8.0\bin\net-4.0\Db4objects.Db4o.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.CS">
+      <HintPath>C:\Program Files (x86)\db4o\db4o-8.0\bin\net-4.0\Db4objects.Db4o.CS.dll</HintPath>
+    </Reference>
+    <Reference Include="DB4objects.Db4o.CS.Optional">
+      <HintPath>C:\Program Files (x86)\db4o\db4o-8.0\bin\net-4.0\DB4objects.Db4o.CS.Optional.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.Data.Services">
+      <HintPath>C:\Program Files (x86)\db4o\db4o-8.0\bin\net-4.0\Db4objects.Db4o.Data.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.Linq">
+      <HintPath>C:\Program Files (x86)\db4o\db4o-8.0\bin\net-4.0\Db4objects.Db4o.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.NativeQueries">
+      <HintPath>C:\Program Files (x86)\db4o\db4o-8.0\bin\net-4.0\Db4objects.Db4o.NativeQueries.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +61,8 @@
     <Compile Include="ArticleDal.cs" />
     <Compile Include="CatalogueDal.cs" />
     <Compile Include="DataCacheCal.cs" />
+    <Compile Include="DB4ODALClient.cs" />
+    <Compile Include="DB4ODALServerHelper.cs" />
     <Compile Include="SiteConfigDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
