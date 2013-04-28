@@ -15,7 +15,31 @@ using System.Text;
 
 namespace TopArticleEntity
 {
-    class SiteConifg
+    public class SiteConifg
     {
+        private string _SiteName;
+
+        public string SiteName
+        {
+            get { return _SiteName; }
+            set { _SiteName = value; }
+        }
+
+        private string _KeyWords;
+
+        public string KeyWords
+        {
+            get { return _KeyWords; }
+            set { _KeyWords = value; }
+        }
+
+        private string _Summary;
+
+        public string Summary
+        {
+            get { return _Summary; }
+            set { _Summary = value; }
+        }
+        
     }
 }

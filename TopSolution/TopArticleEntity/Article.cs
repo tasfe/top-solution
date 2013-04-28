@@ -56,6 +56,22 @@ namespace TopArticleEntity
             get { return _CatalogueId; }
             set { _CatalogueId = value; }
         }
+
+        private string _KeyWords;
+
+        public string KeyWords
+        {
+            get { return _KeyWords; }
+            set { _KeyWords = value; }
+        }
+
+        private string _Summary;
+
+        public string Summary
+        {
+            get { return _Summary; }
+            set { _Summary = value; }
+        }
         
     }
 }

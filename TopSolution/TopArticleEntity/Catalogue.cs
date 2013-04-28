@@ -15,7 +15,7 @@ using System.Text;
 
 namespace TopArticleEntity
 {
-   public class Catalogue
+    public class Catalogue
     {
         private int _Order;
 
@@ -40,6 +40,21 @@ namespace TopArticleEntity
             get { return _Id; }
             set { _Id = value; }
         }
-        
+
+        private string _KeyWords;
+
+        public string KeyWords
+        {
+            get { return _KeyWords; }
+            set { _KeyWords = value; }
+        }
+
+        private string _Summary;
+
+        public string Summary
+        {
+            get { return _Summary; }
+            set { _Summary = value; }
+        }
     }
 }
