@@ -23,5 +23,10 @@ namespace TopSite.Account
         {
 
         }
+
+        protected void SaveSiteConfig_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
