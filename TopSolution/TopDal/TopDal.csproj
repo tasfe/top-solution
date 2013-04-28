@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{30A77456-5B13-4894-970E-6A53CD0DD964}</ProjectGuid>
+    <ProjectGuid>{36C72A84-BB06-4E7A-B024-5D4FFAAAD8DF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TopArticleEntity</RootNamespace>
-    <AssemblyName>TopArticleEntity</AssemblyName>
+    <RootNamespace>TopDal</RootNamespace>
+    <AssemblyName>TopDal</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,15 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Article.cs" />
-    <Compile Include="Catalogue.cs" />
-    <Compile Include="DataCacheManger.cs" />
-    <Compile Include="LocalCacheKeys.cs" />
+    <Compile Include="ArticleDal.cs" />
+    <Compile Include="CatalogueDal.cs" />
+    <Compile Include="DataCacheCal.cs" />
+    <Compile Include="SiteConfigDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SiteConifg.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enum\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
