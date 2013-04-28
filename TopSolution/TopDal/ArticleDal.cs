@@ -15,7 +15,7 @@ using System.Text;
 
 namespace TopDal
 {
-    class ArticleDal
+    public class ArticleDal
     {
     }
 }
