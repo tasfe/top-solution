@@ -34,8 +34,9 @@
             </p>
         </fieldset>
         <p class="submitButton">
-            <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="创建用户"
-                ValidationGroup="RegisterUserValidationGroup" />
+            <asp:Button ID="SaveSiteConfig" runat="server" CommandName="MoveNext" Text="保存设置"
+                ValidationGroup="RegisterUserValidationGroup" 
+                onclick="SaveSiteConfig_Click" />
         </p>
     </div>
 </asp:Content>
