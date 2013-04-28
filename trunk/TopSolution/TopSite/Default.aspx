@@ -11,6 +11,7 @@
         <ItemTemplate>
             <tr>
                 <td>
+                    <%#Container.ItemIndex + 1 %>
                 </td>
             </tr>
         </ItemTemplate>
