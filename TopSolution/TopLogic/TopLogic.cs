@@ -13,11 +13,11 @@ namespace TopLogic
         /// <summary>
         /// 获取淘宝客打折信息。
         /// </summary>
-        /// <param name="nick"></param>
-        /// <param name="outerCode"></param>
-        /// <param name="keyword"></param>
-        /// <param name="cid"></param>
-        /// <param name="sort"></param>
+        /// <param name="nick">淘宝会员名</param>
+        /// <param name="outerCode">输出码</param>
+        /// <param name="keyword">搜索关键词</param>
+        /// <param name="cid">类目CID</param>
+        /// <param name="sort">排序方式</param>
         /// <returns></returns>
         public TaobaokeItemsCouponGetResponse GetTaobaokeItemsCoupon(string nick, string outerCode, string keyword, long? cid, string sort)
         {
@@ -53,5 +53,7 @@ namespace TopLogic
 
             return result;
         }
+
+
     }
 }
