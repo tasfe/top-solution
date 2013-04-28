@@ -15,7 +15,18 @@ using System.Text;
 
 namespace TopArticleEntity
 {
-    class DataCacheManger
+    public class DataCacheManger
     {
+        private Dictionary<string, object> _CacheData;
+        
+        /// <summary>
+        /// 数据库中缓存的对象
+        /// </summary>
+        public Dictionary<string, object> CacheData
+        {
+            get { return _CacheData; }
+            set { _CacheData = value; }
+        }
+
     }
 }
