@@ -12,10 +12,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TopArticleEntity;
 
 namespace TopLogic
 {
-    class SiteLogic
+    public class SiteLogic : LogicBase<SiteConfig>
     {
     }
 }
