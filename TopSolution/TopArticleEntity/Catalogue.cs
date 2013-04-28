@@ -15,7 +15,31 @@ using System.Text;
 
 namespace TopArticleEntity
 {
-    class Catalogue
+   public class Catalogue
     {
+        private int _Order;
+
+        public int Order
+        {
+            get { return _Order; }
+            set { _Order = value; }
+        }
+
+        private string _Title;
+
+        public string Title
+        {
+            get { return _Title; }
+            set { _Title = value; }
+        }
+
+        private int _Id;
+
+        public int Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+        
     }
 }
