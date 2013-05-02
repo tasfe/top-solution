@@ -17,7 +17,7 @@ using WebSharing.DB4ODAL;
 namespace TopLogic
 {
 
-    public abstract class LogicBase<T>
+    public abstract class LogicBase<T> : IDisposable
     {
         protected static readonly string conn = "datasource=.;";
         protected DB4ODALClient GetDbClient()
@@ -25,27 +25,36 @@ namespace TopLogic
             return DB4ODALServerHelper.GetIDALClient(conn);
         }
 
+        private DB4ODALClient client = null;
+        public LogicBase()
+        {
+            client = GetDbClient();
+        }
+
+
         public virtual void Save(T obj)
         {
-            using (DB4ODALClient client = GetDbClient())
-            {
-                client.Save(obj);
-            }
+
+            client.Save(obj);
         }
 
         public virtual void Delete(T obj)
         {
-            using (DB4ODALClient client = GetDbClient())
-            {
-                client.Save(obj);
-            }
+            client.Save(obj);
         }
 
         public virtual List<T> GetList(Predicate<T> p)
         {
-            using (DB4ODALClient client = GetDbClient())
+
+            return client.GetList<T>(p);
+        }
+
+        public void Dispose()
+        {
+            if (client != null)
             {
-                return client.GetList<T>(p);
+                client.Dispose();
+                client = null;
             }
         }
     }

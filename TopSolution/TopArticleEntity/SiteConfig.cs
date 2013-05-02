@@ -40,6 +40,14 @@ namespace TopArticleEntity
             get { return _Summary; }
             set { _Summary = value; }
         }
+
+        private int _Id;
+
+        public int Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
         
     }
 }

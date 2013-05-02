@@ -276,6 +276,9 @@
     <Compile Include="ArticleShow.aspx.designer.cs">
       <DependentUpon>ArticleShow.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BasePages\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -337,6 +340,10 @@
     <ProjectReference Include="..\taobao-sdk-net-online_standard-20130423-source\TopSdk.csproj">
       <Project>{9C11CAE5-5188-4E71-825B-68FC3135728A}</Project>
       <Name>TopSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TopArticleEntity\TopArticleEntity.csproj">
+      <Project>{30A77456-5B13-4894-970E-6A53CD0DD964}</Project>
+      <Name>TopArticleEntity</Name>
     </ProjectReference>
     <ProjectReference Include="..\TopLogic\TopLogic.csproj">
       <Project>{B02CA3DA-C588-4A63-ABDD-64F1D8EA0D10}</Project>
