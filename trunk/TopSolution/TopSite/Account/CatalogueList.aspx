@@ -28,6 +28,7 @@
     <div class="accountInfo">
         <fieldset class="register">
             <legend>分类信息</legend>
+            <asp:HiddenField ID="txtId" runat="server" />
             <p>
                 <asp:Label ID="TitleLabel" runat="server" AssociatedControlID="txtTitle">分类名称:</asp:Label>
                 <asp:TextBox ID="txtTitle" runat="server" CssClass="textEntry"></asp:TextBox>
@@ -38,11 +39,9 @@
                 <asp:Label ID="Label1" runat="server" AssociatedControlID="KeyWords">排序:</asp:Label>
                 <asp:TextBox ID="Order" runat="server" CssClass="textEntry"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="OrderRequired" runat="server" ControlToValidate="Order"
-                    CssClass="failureNotification" ErrorMessage="必须填写“排序”。" ToolTip="必须填写“排序”。"
-                    ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="OrderRangeValidator" runat="server" 
-                    ControlToValidate="Order" CssClass="failureNotification" ErrorMessage="*" 
-                    ForeColor="Red" Type="Integer"></asp:RangeValidator>
+                    CssClass="failureNotification" ErrorMessage="必须填写“排序”。" ToolTip="必须填写“排序”。" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                <asp:RangeValidator ID="OrderRangeValidator" runat="server" ControlToValidate="Order"
+                    CssClass="failureNotification" ErrorMessage="*" ForeColor="Red" Type="Integer"></asp:RangeValidator>
             </p>
             <p>
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="KeyWords">关键词:</asp:Label>
@@ -61,9 +60,8 @@
             </p>
         </fieldset>
         <p class="submitButton">
-            <asp:Button ID="btnSaveSiteConfig" runat="server" CommandName="MoveNext" Text="保存分类"
-                ValidationGroup="RegisterUserValidationGroup" 
-                OnClick="SaveSiteConfig_Click" />
+            <asp:Button ID="btnSaveCatalogue" runat="server" CommandName="MoveNext" Text="保存分类"
+                ValidationGroup="RegisterUserValidationGroup" OnClick="btnSaveCatalogue_Click" />
         </p>
     </div>
 </asp:Content>

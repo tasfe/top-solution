@@ -16,6 +16,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TopLogic;
 using TopArticleEntity;
+using TopArticleEntity.Enum;
 
 namespace TopSite.Account
 {
@@ -33,22 +34,47 @@ namespace TopSite.Account
 
         private void ShowCatalogues()
         {
-            IEnumerable<Catalogue> list = CatalogueLogic.GetList(d => true).OrderBy(d=>d.Order);
+            IEnumerable<Catalogue> list = CatalogueLogic.GetList(d => true).OrderBy(d => d.Order);
             this.GridViewCatalogue.DataSource = list;
             this.GridViewCatalogue.DataBind();
         }
 
         protected void lbtnEdit_Click(object sender, EventArgs e)
         {
-
+            LinkButton linkbtn = sender as LinkButton;
+            if (linkbtn != null)
+            {
+                string strId = linkbtn.CommandArgument;
+                int id = 0;
+                if (int.TryParse(strId, out id))
+                {
+                    btnSaveCatalogue.CommandArgument = EditStateEnum.Old.ToString();
+                    Catalogue catalogue = CatalogueLogic.GetList(p => p.Id == id).FirstOrDefault();
+                    this.txtTitle.Text = catalogue.Title;
+                    this.Order.Text = catalogue.Order.ToString();
+                    this.KeyWords.Text = catalogue.KeyWords;
+                    this.Summary.Text = catalogue.Summary;
+                    this.txtId.Value = catalogue.Id.ToString();
+                }
+            }
         }
 
         protected void lbtnDel_Click(object sender, EventArgs e)
         {
             LinkButton linkbtn = sender as LinkButton;
             if (linkbtn != null)
-            { 
-            
+            {
+                string strId = linkbtn.CommandArgument;
+                int id = 0;
+                if (int.TryParse(strId, out id))
+                {
+                    Catalogue catalogue = CatalogueLogic.GetList(p => p.Id == id).FirstOrDefault();
+                    if (catalogue != null)
+                    {
+                        CatalogueLogic.Delete(catalogue);
+                        ShowCatalogues();
+                    }
+                }
             }
         }
 
@@ -57,6 +83,44 @@ namespace TopSite.Account
             base.OnUnload(e);
             CatalogueLogic.Dispose();
             CatalogueLogic = null;
+        }
+
+        private Catalogue GetCatalogueFrSave()
+        {
+            Catalogue result = null;
+
+            string str = btnSaveCatalogue.CommandArgument;
+            if (str == EditStateEnum.Old.ToString())
+            {
+                int id = 0;
+                if (int.TryParse(this.txtId.Value, out id))
+                {
+                    result = CatalogueLogic.GetList(p => p.Id == id).FirstOrDefault();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                result = new Catalogue();
+                result.Id = CatalogueLogic.GetNewIdentity();
+            }
+
+            result.Title = txtTitle.Text;
+            result.KeyWords = KeyWords.Text;
+            result.Summary = Summary.Text;
+            result.Order = int.Parse(Order.Text);
+
+            return result;
+        }
+
+        protected void btnSaveCatalogue_Click(object sender, EventArgs e)
+        {
+            Catalogue catalogue = GetCatalogueFrSave();
+            CatalogueLogic.Save(catalogue);
+            ShowCatalogues();
         }
     }
 }

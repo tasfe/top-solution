@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WebSharing.DB4ODAL;
+using TopDal.IdentiyHelper;
 
 namespace TopLogic
 {
@@ -47,6 +48,16 @@ namespace TopLogic
         {
 
             return client.GetList<T>(p);
+        }
+
+        /// <summary>
+        /// 获取新的自增Id
+        /// </summary>
+        /// <returns></returns>
+        public int GetNewIdentity()
+        {
+            Type type = typeof(T);
+            return IdentityHelper.GetNewIdentity(client, type);
         }
 
         public void Dispose()

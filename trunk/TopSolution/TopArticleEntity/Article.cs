@@ -7,6 +7,15 @@ namespace TopArticleEntity
 {
     public class Article
     {
+        private int _Id;
+
+        public int Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+        
+
         private string _Title;
 
         public string Title
