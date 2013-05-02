@@ -18,9 +18,19 @@
                     CssClass="failureNotification" ErrorMessage="必须填写“文章标题”。" ToolTip="文章标题" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
             </p>
             <p>
-                <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="KeyWords">关键词:</asp:Label>
+                <asp:Label ID="CatalogueLabel" runat="server" 
+                    AssociatedControlID="DropDownListCatalogue">栏目:</asp:Label>
+                <asp:DropDownList ID="DropDownListCatalogue" runat="server" DataTextField="Id" 
+                    DataValueField="Title">
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="CatalogueRequired" runat="server" ControlToValidate="DropDownListCatalogue"
+                    CssClass="failureNotification" ErrorMessage="必须填写“栏目”。" ToolTip="必须填写“栏目”。"
+                    ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+            </p>
+            <p>
+                <asp:Label ID="KeyWordsLabel" runat="server" AssociatedControlID="KeyWords">关键词:</asp:Label>
                 <asp:TextBox ID="KeyWords" runat="server" CssClass="textEntry"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="KeyWords"
+                <asp:RequiredFieldValidator ID="KeyWordsRequired" runat="server" ControlToValidate="KeyWords"
                     CssClass="failureNotification" ErrorMessage="必须填写“关键词”。" ToolTip="必须填写“关键词”。"
                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
             </p>
@@ -41,8 +51,7 @@
         </fieldset>
         <p class="submitButton">
             <asp:Button ID="btnSaveArticle" runat="server" CommandName="MoveNext" Text="保存文章"
-                ValidationGroup="RegisterUserValidationGroup" 
-                OnClick="btnSaveArticle_Click" />
+                ValidationGroup="RegisterUserValidationGroup" OnClick="btnSaveArticle_Click" />
         </p>
     </div>
 </asp:Content>
