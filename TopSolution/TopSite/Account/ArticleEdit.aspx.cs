@@ -23,5 +23,10 @@ namespace TopSite.Account
         {
 
         }
+
+        protected void btnSaveArticle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

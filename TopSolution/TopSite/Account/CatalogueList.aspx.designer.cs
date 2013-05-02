@@ -22,6 +22,15 @@ namespace TopSite.Account {
         protected global::System.Web.UI.WebControls.GridView GridViewCatalogue;
         
         /// <summary>
+        /// txtId 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField txtId;
+        
+        /// <summary>
         /// TitleLabel 控件。
         /// </summary>
         /// <remarks>
@@ -139,12 +148,12 @@ namespace TopSite.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator SummaryRequired;
         
         /// <summary>
-        /// btnSaveSiteConfig 控件。
+        /// btnSaveCatalogue 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveSiteConfig;
+        protected global::System.Web.UI.WebControls.Button btnSaveCatalogue;
     }
 }
