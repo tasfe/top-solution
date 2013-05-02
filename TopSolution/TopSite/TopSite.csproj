@@ -62,7 +62,6 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\SiteConfig.aspx" />
-    <Content Include="Account\WebForm1.aspx" />
     <Content Include="ArticleList.aspx" />
     <Content Include="ArticleShow.aspx" />
     <Content Include="editor\build-config.js" />
@@ -254,13 +253,6 @@
     </Compile>
     <Compile Include="Account\SiteConfig.aspx.designer.cs">
       <DependentUpon>SiteConfig.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="ArticleList.aspx.cs">
       <DependentUpon>ArticleList.aspx</DependentUpon>
