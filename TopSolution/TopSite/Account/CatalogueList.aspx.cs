@@ -48,7 +48,7 @@ namespace TopSite.Account
                 int id = 0;
                 if (int.TryParse(strId, out id))
                 {
-                    btnSaveCatalogue.CommandArgument = EditStateEnum.Old.ToString();
+                    btnSaveCatalogue.CommandArgument = EditStateEnum.Edit.ToString();
                     Catalogue catalogue = CatalogueLogic.GetList(p => p.Id == id).FirstOrDefault();
                     this.txtTitle.Text = catalogue.Title;
                     this.Order.Text = catalogue.Order.ToString();
@@ -90,7 +90,7 @@ namespace TopSite.Account
             Catalogue result = null;
 
             string str = btnSaveCatalogue.CommandArgument;
-            if (str == EditStateEnum.Old.ToString())
+            if (str == EditStateEnum.Edit.ToString())
             {
                 int id = 0;
                 if (int.TryParse(this.txtId.Value, out id))

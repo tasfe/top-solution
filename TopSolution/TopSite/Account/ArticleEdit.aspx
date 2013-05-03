@@ -12,7 +12,7 @@
     <script src="../editor/ckeditor.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<%--    <h2>
+    <%--    <h2>
         文章编辑
     </h2>--%>
     <div>
