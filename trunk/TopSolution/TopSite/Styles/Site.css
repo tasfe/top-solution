@@ -225,6 +225,13 @@ input.textEntry
     border: 1px solid #ccc;
 }
 
+textarea.textEntry 
+{
+    width: 320px;
+    height:100px;
+    border: 1px solid #ccc;
+}
+
 input.passwordEntry 
 {
     width: 320px;
