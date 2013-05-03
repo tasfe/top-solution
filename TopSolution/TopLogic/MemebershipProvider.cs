@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Configuration.Common;
+using System.Web.Security;
+using TopArticleEntity;
 
 
 namespace TopLogic
@@ -39,22 +41,105 @@ namespace TopLogic
 
         public override bool ChangePassword(string username, string oldPassword, string newPassword)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (MembershipUserLogic logic = new MembershipUserLogic())
+                {
+                    TopUser user;
+                    if (CheckUser(username, oldPassword, logic,out user))
+                    {
+                        user.Password = newPassword;
+                        logic.Save(user);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.ErrorException("修改密码错误。", ex);
+                return false;
+            }
         }
 
         public override bool ChangePasswordQuestionAndAnswer(string username, string password, string newPasswordQuestion, string newPasswordAnswer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (MembershipUserLogic logic = new MembershipUserLogic())
+                {
+                    TopUser user;
+                    if (CheckUser(username, password, logic, out user))
+                    {
+                        user.PasswordQuestion1 = newPasswordQuestion;
+                        user.PasswordAnswer = newPasswordAnswer;
+                        logic.Save(user);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.ErrorException("修改密码提示问题及答案错误。", ex);
+                return false;
+            }
         }
 
         public override System.Web.Security.MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out System.Web.Security.MembershipCreateStatus status)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (MembershipUserLogic logic = new MembershipUserLogic())
+                {
+                    TopUser user = new TopUser();
+
+                    user.UserName = username;
+                    user.Password = password;
+                    user.Email = email;
+                    user.PasswordQuestion1 = passwordQuestion;
+                    user.PasswordAnswer = passwordAnswer;
+                    user.IsApproved = isApproved;
+
+                    status = System.Web.Security.MembershipCreateStatus.Success;
+                    return user;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.ErrorException("创建用户错误。", ex);
+                status = System.Web.Security.MembershipCreateStatus.ProviderError;
+                return null;
+            }
         }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (MembershipUserLogic logic = new MembershipUserLogic())
+                {
+                    TopUser user = logic.GetList(p => p.UserName == username).FirstOrDefault();
+
+                    if (user != null)
+                    {
+                        logic.Delete(user);
+                    }
+
+                    return true; 
+                }
+            }
+            catch (Exception ex)
+            {
+                log.ErrorException("删除用户错误。", ex); 
+                return false;
+            }
         }
 
         public override bool EnablePasswordReset
@@ -129,7 +214,7 @@ namespace TopLogic
 
         public override System.Web.Security.MembershipPasswordFormat PasswordFormat
         {
-            get { return System.Web.Security.MembershipPasswordFormat.Hashed; }
+            get { return System.Web.Security.MembershipPasswordFormat.Clear; }
         }
 
         public override string PasswordStrengthRegularExpression
@@ -168,6 +253,27 @@ namespace TopLogic
         public override bool ValidateUser(string username, string password)
         {
             throw new NotImplementedException();
+        }
+
+        private bool CheckUser(string username,string password,MembershipUserLogic logic,out TopUser topuser)
+        {
+            TopUser user = logic.GetList(p => p.UserName == username).FirstOrDefault();
+            topuser = user;
+            if (user != null)
+            {
+                if (user.Password == password)
+                {                    
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
