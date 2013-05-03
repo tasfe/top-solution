@@ -12,10 +12,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Security;
+using TopArticleEntity;
 
 namespace TopLogic
 {
-    public class MembershipUserLogic : LogicBase<MembershipUser>
+    public class MembershipUserLogic : LogicBase<TopUser>
     {
     }
 }
