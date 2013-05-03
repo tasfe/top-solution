@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.Configuration.Common;
 
 
 namespace TopLogic
@@ -27,6 +28,7 @@ namespace TopLogic
         {
             get
             {
+               
                 throw new NotImplementedException();
             }
             set
@@ -47,7 +49,6 @@ namespace TopLogic
 
         public override System.Web.Security.MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out System.Web.Security.MembershipCreateStatus status)
         {
-            log.Error("创建用户失败。");
             throw new NotImplementedException();
         }
 
@@ -140,9 +141,17 @@ namespace TopLogic
         {
             get
             {
-                var ex = new NotImplementedException();
-                log.ErrorException("获取失败", ex);
-                throw ex;
+                try
+                {
+                    var ex = new NotImplementedException();
+
+                    throw ex;
+                }
+                catch (Exception e)
+                {
+                    log.ErrorException("获取失败", e);
+                }
+                return false;
             }
         }
 
