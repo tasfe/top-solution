@@ -54,7 +54,6 @@
     <Compile Include="ArticleLogic.cs" />
     <Compile Include="CatalogueLogic.cs" />
     <Compile Include="LogicBase.cs" />
-    <Compile Include="MemebershipProvider.cs" />
     <Compile Include="SiteLogic.cs" />
     <Compile Include="TopLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
