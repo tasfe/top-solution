@@ -107,6 +107,7 @@ namespace TopLogic
                     user.PasswordAnswer = passwordAnswer;
                     user.IsApproved = isApproved;
 
+                    logic.Save(user);
                     status = System.Web.Security.MembershipCreateStatus.Success;
                     return user;
                 }
@@ -252,7 +253,19 @@ namespace TopLogic
 
         public override bool ValidateUser(string username, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (MembershipUserLogic logic = new MembershipUserLogic())
+                {
+                    TopUser user = null;
+                    return CheckUser(username, password, logic,out user);
+                }
+            }
+            catch (Exception ex)
+            {
+                log.ErrorException("删除用户错误。", ex);
+                return false;
+            }
         }
 
         private bool CheckUser(string username,string password,MembershipUserLogic logic,out TopUser topuser)
