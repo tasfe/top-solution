@@ -42,7 +42,7 @@ namespace TopSite.Account
                 }
                 else
                 {
-                    btnSaveSiteConfig.CommandArgument = EditStateEnum.Old.ToString();
+                    btnSaveSiteConfig.CommandArgument = EditStateEnum.Edit.ToString();
                     this.SiteName.Text = config.SiteName;
                     this.KeyWords.Text = config.KeyWords;
                     this.Summary.Text = config.Summary;

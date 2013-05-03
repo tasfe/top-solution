@@ -24,6 +24,6 @@ namespace TopArticleEntity.Enum
         /// <summary>
         /// 对象是数据库存在的
         /// </summary>
-        Old
+        Edit
     }
 }
