@@ -316,7 +316,9 @@
     <Folder Include="Masters\Templates\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Web.config" />
+    <Content Include="Account\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Masters\Site.Master" />
   </ItemGroup>
   <ItemGroup>
