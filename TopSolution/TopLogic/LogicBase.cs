@@ -20,7 +20,7 @@ namespace TopLogic
 
     public abstract class LogicBase<T> : IDisposable
     {
-        protected static readonly string conn = "datasource=.;";
+        protected static readonly string conn = "datasource=.;dbpath="+System.Web.HttpContext.Current.Server.MapPath("~/App_Data/db.top");
         protected DB4ODALClient GetDbClient()
         {
             return DB4ODALServerHelper.GetIDALClient(conn);
