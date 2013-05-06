@@ -263,7 +263,7 @@ namespace TopLogic
             }
             catch (Exception ex)
             {
-                log.ErrorException("删除用户错误。", ex);
+                log.ErrorException("验证用户用户错误。", ex);
                 return false;
             }
         }
