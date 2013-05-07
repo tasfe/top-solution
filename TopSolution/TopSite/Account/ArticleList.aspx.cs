@@ -16,11 +16,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TopLogic;
 using TopArticleEntity;
+using NLog;
 
 namespace TopSite.Account
 {
     public partial class ArticleList : System.Web.UI.Page
     {
+        NLog.Logger log = NLog.LogManager.GetCurrentClassLogger();
         ArticleLogic articleLogic = new ArticleLogic();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -54,13 +56,13 @@ namespace TopSite.Account
             }
             catch (Exception ex)
             {
-
+                log.ErrorException("删除文章失败", ex);
             }
         }
 
         private void ShowList(int pageIndex = 0)
         {
-            IEnumerable<Article> articleList = articleLogic.GetList(p => true).OrderBy(p => p.CreateDate);
+            List<Article> articleList = articleLogic.GetList(p => true).OrderBy(p => p.CreateDate).ToList();
             this.GridViewArticleList.DataSource = articleList;
             this.GridViewArticleList.DataBind();
             if (GridViewArticleList.PageCount >= pageIndex)
@@ -79,6 +81,10 @@ namespace TopSite.Account
             ShowList(pageIndex);
         }
 
-
+        protected override void OnUnload(EventArgs e)
+        {
+            base.OnUnload(e);
+            articleLogic.Dispose();
+        }
     }
 }

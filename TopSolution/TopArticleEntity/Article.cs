@@ -26,7 +26,7 @@ namespace TopArticleEntity
 
         private int _ClickNum;
 
-        public int CilckNum
+        public int ClickNum
         {
             get { return _ClickNum; }
             set { _ClickNum = value; }

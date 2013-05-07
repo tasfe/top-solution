@@ -114,7 +114,7 @@ namespace TopSite.Account
                     article = new Article();
                     article.Id = articleLogic.GetNewIdentity();
                     article.CreateDate = DateTime.Now;
-                    article.CilckNum = 0;
+                    article.ClickNum = 0;
 
                     break;
                 case EditStateEnum.Edit:

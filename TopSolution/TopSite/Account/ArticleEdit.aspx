@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
+﻿<%@ Page Title="编辑文章" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true" validateRequest="false"
     CodeBehind="ArticleEdit.aspx.cs" Inherits="TopSite.Account.ArticleEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
