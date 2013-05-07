@@ -32,11 +32,11 @@
             <p>
                 <asp:Label ID="TitleLabel" runat="server" AssociatedControlID="txtTitle">分类名称:</asp:Label>
                 <asp:TextBox ID="txtTitle" runat="server" CssClass="textEntry"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="TitleRequired" runat="server" ControlToValidate="SiteName"
+                <asp:RequiredFieldValidator ID="TitleRequired" runat="server" ControlToValidate="txtTitle"
                     CssClass="failureNotification" ErrorMessage="必须填写“分类名称”。" ToolTip="分类名称" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
             </p>
             <p>
-                <asp:Label ID="Label1" runat="server" AssociatedControlID="KeyWords">排序:</asp:Label>
+                <asp:Label ID="LabelOrder" runat="server" AssociatedControlID="KeyWords">排序:</asp:Label>
                 <asp:TextBox ID="Order" runat="server" CssClass="textEntry"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="OrderRequired" runat="server" ControlToValidate="Order"
                     CssClass="failureNotification" ErrorMessage="必须填写“排序”。" ToolTip="必须填写“排序”。" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
