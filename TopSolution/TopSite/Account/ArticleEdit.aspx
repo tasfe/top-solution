@@ -26,7 +26,7 @@
             </p>
             <p>
                 <asp:Label ID="CatalogueLabel" runat="server" AssociatedControlID="DropDownListCatalogue">栏目:</asp:Label>
-                <asp:DropDownList ID="DropDownListCatalogue" runat="server" DataTextField="Id" DataValueField="Title"
+                <asp:DropDownList ID="DropDownListCatalogue" runat="server" DataTextField="Title" DataValueField="Id"
                     CssClass="textEntry">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="CatalogueRequired" runat="server" ControlToValidate="DropDownListCatalogue"

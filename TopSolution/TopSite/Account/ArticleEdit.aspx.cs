@@ -17,6 +17,7 @@ using System.Web.UI.WebControls;
 using TopArticleEntity.Enum;
 using NLog;
 using TopLogic;
+using TopArticleEntity;
 
 namespace TopSite.Account
 {
@@ -47,11 +48,26 @@ namespace TopSite.Account
                     this.OrignSource.Text = "本站";
                     this.KeyWords.Text = string.Empty;
                     this.Summary.Text = string.Empty;
+                    this.btnSaveArticle.CommandArgument = EditStateEnum.New.ToString();
 
                     break;
                 case EditStateEnum.Edit:
-                    string strId=Request.QueryString["id"];
-                    
+                    string strId = Request.QueryString["id"];
+                    int id = 0;
+                    if (int.TryParse(strId, out id))
+                    {
+                        Article article = articleLogic.GetList(p => p.Id == id).FirstOrDefault();
+                        if (article != null)
+                        {
+                            this.txtTitle.Text = article.Title;
+                            this.txtContent.Text = article.Content;
+                            this.OrignSource.Text = article.OrignSource;
+                            this.KeyWords.Text = article.KeyWords;
+                            this.Summary.Text = article.Summary;
+                            this.DropDownListCatalogue.SelectedValue = article.CatalogueId.ToString();
+                            this.btnSaveArticle.CommandArgument = EditStateEnum.Edit.ToString();
+                        }
+                    }
 
                     break;
                 default:
@@ -72,7 +88,56 @@ namespace TopSite.Account
         /// <param name="e"></param>
         protected void btnSaveArticle_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Article article = GetEditingArticle();
+                articleLogic.Save(article);
+            }
+            catch (Exception ex)
+            {
+                log.ErrorException("保存文章失败", ex);
+            }
+        }
 
+        /// <summary>
+        /// 获取正在编辑的文章对象
+        /// </summary>
+        /// <returns></returns>
+        private Article GetEditingArticle()
+        {
+            Article article = null;
+
+            EditStateEnum editEnum = GetAction();
+            switch (editEnum)
+            {
+                case EditStateEnum.New:
+                    article = new Article();
+                    article.Id = articleLogic.GetNewIdentity();
+                    article.CreateDate = DateTime.Now;
+                    article.CilckNum = 0;
+
+                    break;
+                case EditStateEnum.Edit:
+                    string strId = Request.QueryString["id"];
+                    int id = 0;
+                    if (int.TryParse(strId, out id))
+                    {
+                        article = articleLogic.GetList(p => p.Id == id).FirstOrDefault();
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+
+            article.Title = this.txtTitle.Text;
+            article.CatalogueId = int.Parse(DropDownListCatalogue.SelectedValue);
+            article.Content = this.txtContent.Text;
+            article.KeyWords = this.KeyWords.Text;
+            article.OrignSource = this.OrignSource.Text;
+            article.Summary = this.Summary.Text;
+
+            return article;
         }
 
         /// <summary>
@@ -81,7 +146,7 @@ namespace TopSite.Account
         /// <returns></returns>
         private EditStateEnum GetAction()
         {
-            string strAction = Request.QueryString[""];
+            string strAction = Request.QueryString["action"];
             if (string.IsNullOrEmpty(strAction))
             {
                 return EditStateEnum.New;
