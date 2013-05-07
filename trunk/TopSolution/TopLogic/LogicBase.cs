@@ -41,7 +41,7 @@ namespace TopLogic
 
         public virtual void Delete(T obj)
         {
-            client.Save(obj);
+            client.Delete(obj);
         }
 
         public virtual List<T> GetList(Predicate<T> p)

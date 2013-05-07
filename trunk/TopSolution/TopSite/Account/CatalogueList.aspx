@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
+﻿<%@ Page Title="文章分类" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
     CodeBehind="CatalogueList.aspx.cs" Inherits="TopSite.Account.CatalogueList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
@@ -41,7 +41,8 @@
                 <asp:RequiredFieldValidator ID="OrderRequired" runat="server" ControlToValidate="Order"
                     CssClass="failureNotification" ErrorMessage="必须填写“排序”。" ToolTip="必须填写“排序”。" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                 <asp:RangeValidator ID="OrderRangeValidator" runat="server" ControlToValidate="Order"
-                    CssClass="failureNotification" ErrorMessage="*" ForeColor="Red" Type="Integer"></asp:RangeValidator>
+                    CssClass="failureNotification" ErrorMessage="*" ForeColor="Red" 
+                    Type="Integer" MaximumValue="10000" MinimumValue="0"></asp:RangeValidator>
             </p>
             <p>
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="KeyWords">关键词:</asp:Label>

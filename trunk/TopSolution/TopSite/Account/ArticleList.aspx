@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
+﻿<%@ Page Title="文章列表" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
     CodeBehind="ArticleList.aspx.cs" Inherits="TopSite.Account.ArticleList" %>
 
 <%@ Import Namespace="TopArticleEntity.Enum" %>
@@ -17,7 +17,7 @@
                 <ItemTemplate>
                     <asp:HyperLink ID="hlinkEdit" runat="server" NavigateUrl='<%# "ArticleEdit.aspx?action="+EditStateEnum.Edit.ToString()+"&id="+Eval("Id").ToString() %>'>编辑</asp:HyperLink>
                     &nbsp;
-                    <asp:LinkButton ID="lbtnDel" runat="server" OnClientClick="return confirm('确认要删除吗？');"
+                    <asp:LinkButton ID="lbtnDel" runat="server" OnClientClick="return confirm('确认要删除吗？');" CommandArgument='<%#Eval("Id") %>'
                         OnClick="lbtnDel_Click">删除</asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>

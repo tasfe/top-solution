@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
+﻿<%@ Page Title="站点配置" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
     CodeBehind="SiteConfig.aspx.cs" Inherits="TopSite.Account.SiteConfig" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
