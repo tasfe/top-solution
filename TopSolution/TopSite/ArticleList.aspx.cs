@@ -14,14 +14,54 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TopLogic;
+using TopArticleEntity;
 
 namespace TopSite
 {
     public partial class ArticleList : System.Web.UI.Page
     {
+        CatalogueLogic catalogueLogic = new CatalogueLogic();
+        ArticleLogic articleLogic = new ArticleLogic();
+        public int PageCount { get; set; }
+        protected int PageIndex = 1;
+        protected int CataId = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                InitList();
+            }
+        }
 
+        private void InitList()
+        {
+            string strCataID = Request.QueryString["id"];
+            
+            if (int.TryParse(strCataID, out CataId))
+            {
+                Catalogue catalogue = catalogueLogic.GetList(p => p.Id == CataId).FirstOrDefault();
+                if (catalogue != null)
+                {
+                    string strPageIndex = Request.QueryString["page"];
+                    if (int.TryParse(strPageIndex, out PageIndex))
+                    {
+                        this.ArticleList1.PageIndex = PageIndex;
+                    }
+                    this.ArticleList1.articleLogic = articleLogic;
+                    this.ArticleList1.CatalogueId = CataId;
+                    this.ArticleList1.CatalogueTitle = catalogue.Title;
+                    this.Title = catalogue.Title;                    
+                }
+            }
+        }
+
+        protected override void OnUnload(EventArgs e)
+        {
+            base.OnUnload(e);
+            catalogueLogic.Dispose();
+            articleLogic.Dispose();
         }
     }
 }

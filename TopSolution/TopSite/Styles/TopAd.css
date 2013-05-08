@@ -21,25 +21,53 @@
     clear: both;
     margin: 0px;
 }
+
+
+.topad .topaditem h1, .topad .topaditem h2, .topad .topaditem h3 a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.topad .topaditem h1, .topad .topaditem h2, .topad .topaditem h3 a:hover {
+    color: #E2316B;
+}
+
 .topad .topaditem .topsdot
 {
-    height: 40px;
-    background-image: url("../images/rank_top.gif");
-    background-repeat: no-repeat;
+    height: 43px;
+    background: url("../images/rank_top.gif") no-repeat scroll 0 0 transparent;
+    border-right:1px solid #ccc;
 }
 
 .topad .topaditem .topsdot h3
 {
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 12px;
     overflow: hidden;
-    padding-top: 15px;
+    padding-top: 10px;
     text-align: left;
-    text-indent: 30px;
+    padding-left:25px;
+}
+
+.topad .topaditem .topdetail
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color:  #CCCCCC;
+    border-style: none solid solid;
+    border-width: 1px;
+    margin-bottom: 10px;
+    margin-left: 2px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.topad .topaditem .topdetail .topimg
+{
+    overflow: hidden;
 }
 
 .topad .topaditem .topdetail .topmeta
 {
+    margin-top:-100px;
 }
 
 .topad .topaditem .topdetail .topmeta .S_qg
@@ -68,7 +96,7 @@
     font-size: 30px;
 }
 
-#qg
+.topad .topaditem .topdetail .topmeta .S_qg .qgimg
 {
     width: 83px;
     height: 48px;
@@ -76,7 +104,7 @@
     margin-right: 10px;
 }
 .topad .topaditem .topdetail .topmeta .S_small_meta
-{
+{    
     background-color: #F5F5F5;
     border: 1px solid #CCCCCC;
     height: 50px;
@@ -85,16 +113,29 @@
     overflow: hidden;
 }
 
+
+.topad .topaditem .topdetail .topmeta .S_7t
+{
+    margin-top: 10px;
+}
+
 .topad .topaditem .topdetail .topmeta .S_rank
 {
-    border-top: medium none;
-    font-size: 20px;
-    text-indent: 20px;
+    font-size: 15px;
+    text-indent: 30px;
 }
 
 .topad .topaditem .topdetail .topmeta .S_rank span
 {
     color: #E2316B;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
+}
+
+.transparent
+{
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.90;
+    opacity: 0.90;
+    background-color: #000;
 }

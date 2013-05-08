@@ -1,12 +1,72 @@
 ﻿body
 {
+    margin: 0px;
+    text-align: center;
+    background: #EDDBBA;
 }
 image
 {
     border: 0;
 }
 
-.productImg
+.page
 {
-    width:200px;
+    width: 980px;
+    margin: 0px auto;
+}
+
+.page .leftColumn
+{
+    float: left;
+    width: 650px;
+    overflow: hidden;
+}
+
+.page .rightColumn
+{
+    float: right;
+}
+.S_head
+{
+    background: url("../images/hd_bg.gif") no-repeat scroll center top #DA295D;
+    height: 130px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.w980
+{
+    clear: both;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 980px;
+}
+.S_arclist
+{
+    margin: 0px;
+    padding: 10px;
+    text-align: left;
+}
+ul
+{
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+}
+.S_arclist li
+{
+    background: url("../images/dot_6.gif") no-repeat scroll 0 9px transparent;
+    line-height: 23px;
+    overflow: hidden;
+    text-indent: 14px;
+}
+li
+{
+    margin: 0;
+    padding: 0;
+}
+a
+{
+    text-decoration:none;
 }
