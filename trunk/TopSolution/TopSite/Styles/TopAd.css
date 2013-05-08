@@ -1,0 +1,100 @@
+﻿.topad
+{
+    width: 330px;
+    overflow: hidden;
+    text-align: center;
+    font-family: "微软雅黑" , "宋体" ,Arial,serif;
+}
+
+.topad .topaditem
+{
+    width: 320px;
+    overflow: hidden;
+    margin: 5px auto;
+}
+.topad .topaditem img
+{
+    border: 0px;
+}
+.topad .topaditem h1, .topad .topaditem h2, .topad .topaditem h3
+{
+    clear: both;
+    margin: 0px;
+}
+.topad .topaditem .topsdot
+{
+    height: 40px;
+    background-image: url("../images/rank_top.gif");
+    background-repeat: no-repeat;
+}
+
+.topad .topaditem .topsdot h3
+{
+    font-size: 13px;
+    font-weight: bold;
+    overflow: hidden;
+    padding-top: 15px;
+    text-align: left;
+    text-indent: 30px;
+}
+
+.topad .topaditem .topdetail .topmeta
+{
+}
+
+.topad .topaditem .topdetail .topmeta .S_qg
+{
+    background-color: #D8165B;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+}
+
+.topad .topaditem .topdetail .topmeta .S_qg .jiage
+{
+    float: left;
+    margin-left: 10px;
+}
+
+.topad .topaditem .topdetail .topmeta .S_qg .jiage span.S_fh
+{
+    color: #FFFFFF;
+    font-size: 35px;
+}
+
+.topad .topaditem .topdetail .topmeta .S_qg .jiage span.S_je
+{
+    color: #FFFFFF;
+    font-size: 30px;
+}
+
+#qg
+{
+    width: 83px;
+    height: 48px;
+    float: right;
+    margin-right: 10px;
+}
+.topad .topaditem .topdetail .topmeta .S_small_meta
+{
+    background-color: #F5F5F5;
+    border: 1px solid #CCCCCC;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.topad .topaditem .topdetail .topmeta .S_rank
+{
+    border-top: medium none;
+    font-size: 20px;
+    text-indent: 20px;
+}
+
+.topad .topaditem .topdetail .topmeta .S_rank span
+{
+    color: #E2316B;
+    font-size: 25px;
+    font-weight: bold;
+}

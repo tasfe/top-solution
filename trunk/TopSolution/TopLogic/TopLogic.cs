@@ -25,7 +25,11 @@ namespace TopLogic
             TaobaokeItemsCouponGetResponse result = null;
             try
             {
-                TopTool tool = new TopTool();
+                string url = System.Configuration.ConfigurationManager.AppSettings["topurl"];
+                string appkey = System.Configuration.ConfigurationManager.AppSettings["topappkey"];
+                string appsecret = System.Configuration.ConfigurationManager.AppSettings["topappsecret"];
+
+                TopTool tool = new TopTool(url, appkey, appsecret);
                 result = tool.TaobaokeItemsCouponGet(nick, outerCode, keyword, cid, sort);
                 isFromCache = false;
             }
@@ -46,7 +50,7 @@ namespace TopLogic
             }
 
             if (!isFromCache)
-            { 
+            {
                 // Cache
                 System.Web.HttpContext.Current.Cache.Insert(LocalCacheKeys.TaobaokeItemsCouponCache, result);
             }
