@@ -69,6 +69,7 @@
     <Content Include="Account\SiteConfig.aspx" />
     <Content Include="ArticleList.aspx" />
     <Content Include="ArticleShow.aspx" />
+    <Content Include="Controls\TopList.ascx" />
     <Content Include="editor\build-config.js" />
     <Content Include="editor\ckeditor.js" />
     <Content Include="editor\config.js" />
@@ -186,6 +187,9 @@
     <Content Include="editor\skins\moono\images\close.png" />
     <Content Include="editor\skins\moono\images\mini.png" />
     <Content Include="editor\styles.js" />
+    <Content Include="images\7t2.gif" />
+    <Content Include="images\qg.gif" />
+    <Content Include="images\rank_top.gif" />
     <Content Include="Styles\Common.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -193,6 +197,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\TopAd.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -275,6 +280,13 @@
     </Compile>
     <Compile Include="BasePages\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TopList.ascx.cs">
+      <DependentUpon>TopList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TopList.ascx.designer.cs">
+      <DependentUpon>TopList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
