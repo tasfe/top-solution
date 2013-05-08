@@ -69,6 +69,7 @@
     <Content Include="Account\SiteConfig.aspx" />
     <Content Include="ArticleList.aspx" />
     <Content Include="ArticleShow.aspx" />
+    <Content Include="Controls\ArticleList.ascx" />
     <Content Include="Controls\TopList.ascx" />
     <Content Include="editor\build-config.js" />
     <Content Include="editor\ckeditor.js" />
@@ -188,9 +189,14 @@
     <Content Include="editor\skins\moono\images\mini.png" />
     <Content Include="editor\styles.js" />
     <Content Include="images\7t2.gif" />
+    <Content Include="images\dot_6.gif" />
+    <Content Include="images\hd_bg.gif" />
     <Content Include="images\qg.gif" />
     <Content Include="images\rank_top.gif" />
+    <Content Include="images\rank_top.png" />
+    <Content Include="Styles\articlelist.css" />
     <Content Include="Styles\Common.css" />
+    <Content Include="Styles\default.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -280,6 +286,13 @@
     </Compile>
     <Compile Include="BasePages\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ArticleList.ascx.cs">
+      <DependentUpon>ArticleList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ArticleList.ascx.designer.cs">
+      <DependentUpon>ArticleList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\TopList.ascx.cs">
       <DependentUpon>TopList.ascx</DependentUpon>

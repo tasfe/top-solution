@@ -7,18 +7,18 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace TopSite {
+namespace TopSite.Controls {
     
     
-    public partial class _Default {
+    public partial class ArticleList {
         
         /// <summary>
-        /// placeHolder 控件。
+        /// RepeaterArticleList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder placeHolder;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterArticleList;
     }
 }

@@ -23,20 +23,17 @@
                 </a>
             </div>
             <div class="topmeta">
-                <div class="S_small_meta S_rank">
+                <div class="S_small_meta S_rank transparent">
                     <span>第<%=i+1 %>名</span> 月销量<span><%=item.Volume%></span>
                 </div>
-                <div class="S_qg">
+                <div class="S_qg transparent">
                     <div class="jiage">
                         <span class="S_fh">￥</span> <span class="S_je"><strike>
                             <%=item.CouponPrice%></strike> </span>
                     </div>
                     <a href="<%=item.ClickUrl %>" target="_blank">
-                        <img id="qg" src="/images/qg.gif" alt="抢购<%=item.Title %>" title="抢购排行榜第<%=i+1 %>名产品：<%=item.Title %>" />
+                        <img class="qgimg" src="/images/qg.gif" alt="抢购<%=item.Title %>" title="抢购排行榜第<%=i+1 %>名产品：<%=item.Title %>" />
                     </a>
-                </div>
-                <div class="S_small_meta S_7t">
-                    <img src="../images/7t2.gif" alt="产品消保服务" />
                 </div>
             </div>
         </div>
