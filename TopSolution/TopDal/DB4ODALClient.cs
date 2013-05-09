@@ -32,8 +32,8 @@ namespace WebSharing.DB4ODAL
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
         public void Save<T>(T obj)
-        {
-            IObjectContainer.Store(obj);
+        {            
+            IObjectContainer.Ext().Store(obj,5);
         }
 
         /// <summary>
@@ -60,13 +60,13 @@ namespace WebSharing.DB4ODAL
 
         public void Commit()
         {
-            IObjectContainer.Commit();
+            IObjectContainer.Ext().Commit();
         }
 
         public void Dispose()
         {
             if (_IObjectContainer != null)
-            {
+            {                
                 _IObjectContainer.Close();
                 _IObjectContainer.Dispose();
             }

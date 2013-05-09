@@ -60,9 +60,7 @@
             <p style="float: none;">
                 <asp:Label ID="ContentLabel" runat="server" AssociatedControlID="txtContent">文章内容:</asp:Label>
                 <asp:TextBox ID="txtContent" runat="server" CssClass="ckeditor" TextMode="MultiLine"
-                    Rows="10"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="ContentRequired" runat="server" ControlToValidate="txtContent"
-                    CssClass="failureNotification" ErrorMessage="必须填写“文章内容”。" ToolTip="文章内容" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                    Rows="10"></asp:TextBox>                
             </p>
             <div class="clear">
             </div>
