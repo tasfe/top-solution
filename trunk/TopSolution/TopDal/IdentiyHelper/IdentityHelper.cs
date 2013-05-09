@@ -50,6 +50,8 @@ namespace TopDal.IdentiyHelper
 
             client.Save(helper);
 
+            client.Commit();
+
             result = helper._IdentityContainer[type];
 
             return result;
