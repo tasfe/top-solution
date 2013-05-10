@@ -191,6 +191,8 @@
     <Content Include="images\7t2.gif" />
     <Content Include="images\dot_6.gif" />
     <Content Include="images\hd_bg.gif" />
+    <Content Include="images\navbg1.gif" />
+    <Content Include="images\navbg2.gif" />
     <Content Include="images\qg.gif" />
     <Content Include="images\rank_top.gif" />
     <Content Include="images\rank_top.png" />

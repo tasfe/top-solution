@@ -13,7 +13,24 @@
 <body>
     <div class="S_head">
         <h1 class="w980">
+            <%=TopLogic.BasicCache.SiteConfig.SiteName%>
         </h1>
+        <ul class="w980 menu" id="menu">
+            <li><a href="/"><span>首页</span></a></li>
+            <%
+                using (TopLogic.CatalogueLogic logic = new TopLogic.CatalogueLogic())
+                {
+                    List<TopArticleEntity.Catalogue> catalogues = logic.GetList(p => true);
+                    foreach (var item in catalogues)
+                    {
+               
+            %>
+            <li><a href="<%="articlelist.aspx?id="+item.Id.ToString() %>" title="<%=item.Title%>">
+                <span>
+                    <%=item.Title%></span></a></li>
+            <%}
+                }%>
+        </ul>
     </div>
     <div class="page">
         <div class="leftColumn">
@@ -26,7 +43,6 @@
         </div>
     </div>
     <div class="footer">
-
     </div>
 </body>
 </html>

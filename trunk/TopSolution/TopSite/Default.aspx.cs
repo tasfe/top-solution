@@ -20,6 +20,7 @@ namespace TopSite
         {
             if (!IsPostBack)
             {
+                this.Title = string.Format("{0}-{1}", BasicCache.SiteConfig.SiteName, BasicCache.SiteConfig.KeyWords);
                 ShowArticleList();
                 BindKeywords();
             }
@@ -31,7 +32,7 @@ namespace TopSite
             if (master != null)
             {
                 SiteConfig siteConfig = siteLogic.GetList(p => true).FirstOrDefault();
-                if (siteConfig == null||string.IsNullOrEmpty(siteConfig.KeyWords))
+                if (siteConfig == null || string.IsNullOrEmpty(siteConfig.KeyWords))
                 {
                     master.PageKeywords = "减肥";
                 }
