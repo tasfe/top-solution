@@ -1,4 +1,4 @@
-﻿<%@ Page Title="主页" Language="C#" MasterPageFile="~/Masters/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="TopSite._Default" %>
 
 <%@ Register Src="Controls/ArticleList.ascx" TagName="ArticleList" TagPrefix="uc1" %>

@@ -18,5 +18,10 @@ namespace TopLogic
 {
     public class SiteLogic : LogicBase<SiteConfig>
     {
+        public override void Save(SiteConfig obj)
+        {
+            base.Save(obj);
+            BasicCache.SiteConfig = obj;
+        }
     }
 }

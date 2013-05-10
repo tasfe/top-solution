@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using TopArticleEntity;
+using TopLogic;
 
 namespace TopSite
 {
@@ -13,7 +15,7 @@ namespace TopSite
         void Application_Start(object sender, EventArgs e)
         {
             // 在应用程序启动时运行的代码
-
+            BasicCache.Initialize();
         }
 
         void Application_End(object sender, EventArgs e)
