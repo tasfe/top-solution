@@ -3,6 +3,8 @@
 
 <%@ Register Src="Controls/ArticleList.ascx" TagName="ArticleList" TagPrefix="uc1" %>
 <asp:Content runat="server" ID="head" ContentPlaceHolderID="HeadContent">
+    <meta name="keywords" content="<%=TopLogic.BasicCache.SiteConfig.KeyWords%>" />
+    <meta name="description" content="<%=TopLogic.BasicCache.SiteConfig.Summary %>"/>
     <link href="Styles/articlelist.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content runat="server" ID="main" ContentPlaceHolderID="MainContent">

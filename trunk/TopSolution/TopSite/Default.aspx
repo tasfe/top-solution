@@ -2,7 +2,9 @@
     CodeBehind="Default.aspx.cs" Inherits="TopSite._Default" %>
 
 <%@ Register Src="Controls/ArticleList.ascx" TagName="ArticleList" TagPrefix="uc1" %>
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">   
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <meta name="keywords" content="<%=TopLogic.BasicCache.SiteConfig.KeyWords%>" />
+    <meta name="description" content="<%=TopLogic.BasicCache.SiteConfig.Summary %>"/>
     <link href="../Styles/default.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">

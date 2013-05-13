@@ -1,5 +1,9 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Masters/Site.master" AutoEventWireup="true" CodeBehind="ArticleShowMaster.master.cs" Inherits="TopSite.Masters.ArticleShowMaster" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent">
+    </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="MainContent">
+    </asp:ContentPlaceHolder>
 </asp:Content>

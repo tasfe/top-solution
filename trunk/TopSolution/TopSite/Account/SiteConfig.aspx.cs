@@ -70,6 +70,8 @@ namespace TopSite.Account
             config.KeyWords = KeyWords.Text;
             config.SiteName = SiteName.Text;
             config.Summary = Summary.Text;
+            config.TopKeywords = TopKeywords.Text;
+            config.CopyRight = CopyRight.Text;
 
             return config;
         }

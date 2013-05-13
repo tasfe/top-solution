@@ -136,6 +136,7 @@ namespace TopSite.Account
             article.KeyWords = this.KeyWords.Text;
             article.OrignSource = this.OrignSource.Text;
             article.Summary = this.Summary.Text;
+            article.TopKeywords = TopKeywords.Text;
 
             return article;
         }

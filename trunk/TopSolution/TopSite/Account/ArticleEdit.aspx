@@ -46,6 +46,10 @@
                     CssClass="failureNotification" ErrorMessage="必须填写“关键词”。" ToolTip="必须填写“关键词”。"
                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
             </p>
+                        <p>
+                <asp:Label ID="LabelTopKeywords" runat="server" AssociatedControlID="TopKeywords">淘宝客关键词:</asp:Label>
+                <asp:TextBox ID="TopKeywords" runat="server" CssClass="textEntry"></asp:TextBox>
+            </p>
             <div class="clear">
             </div>
             <p>

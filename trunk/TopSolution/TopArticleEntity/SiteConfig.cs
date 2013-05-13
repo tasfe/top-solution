@@ -25,6 +25,15 @@ namespace TopArticleEntity
             set { _SiteName = value; }
         }
 
+        private string _TopKeywords;
+
+        public string TopKeywords
+        {
+            get { return _TopKeywords; }
+            set { _TopKeywords = value; }
+        }
+        
+
         private string _KeyWords;
 
         public string KeyWords
@@ -48,6 +57,15 @@ namespace TopArticleEntity
             get { return _Id; }
             set { _Id = value; }
         }
+
+        private string _CopyRight;
+
+        public string CopyRight
+        {
+            get { return _CopyRight; }
+            set { _CopyRight = value; }
+        }
+        
         
     }
 }

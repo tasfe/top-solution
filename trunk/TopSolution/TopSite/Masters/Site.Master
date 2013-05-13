@@ -43,6 +43,7 @@
         </div>
     </div>
     <div class="footer">
+        <%= TopLogic.BasicCache.SiteConfig.CopyRight%>
     </div>
 </body>
 </html>
