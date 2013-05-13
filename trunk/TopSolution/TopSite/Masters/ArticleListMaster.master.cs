@@ -19,6 +19,15 @@ namespace TopSite.Masters
 {
     public partial class ArticleListMaster : System.Web.UI.MasterPage
     {
+        private string _PageKeywords;
+
+        public string PageKeywords
+        {
+            get { return _PageKeywords; }
+            set { _PageKeywords = value; }
+        }
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

@@ -71,7 +71,7 @@ namespace TopSite
         {
             if (catalogue != null)
             {
-                SiteMaster master = this.Master as SiteMaster;
+                SiteMaster master = this.Master.Master as SiteMaster;
                 if (master != null)
                 {
                     master.PageKeywords = catalogue.TopKeywords;
