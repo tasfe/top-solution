@@ -31,14 +31,14 @@ namespace TopSite
             SiteMaster master = this.Master as SiteMaster;
             if (master != null)
             {
-                SiteConfig siteConfig = siteLogic.GetList(p => true).FirstOrDefault();
+                SiteConfig siteConfig = BasicCache.SiteConfig;
                 if (siteConfig == null || string.IsNullOrEmpty(siteConfig.KeyWords))
                 {
                     master.PageKeywords = "减肥";
                 }
                 else
                 {
-                    master.PageKeywords = siteConfig.KeyWords;
+                    master.PageKeywords = siteConfig.TopKeywords;
                 }
             }
         }
