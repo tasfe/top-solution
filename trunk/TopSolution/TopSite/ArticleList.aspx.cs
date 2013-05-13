@@ -21,29 +21,34 @@ namespace TopSite
 {
     public partial class ArticleList : System.Web.UI.Page
     {
+        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         CatalogueLogic catalogueLogic = new CatalogueLogic();
         ArticleLogic articleLogic = new ArticleLogic();
         public int PageCount { get; set; }
         protected int PageIndex = 1;
         protected int CataId = 0;
+        protected Catalogue curCatalogue;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 InitList();
+                InitKeywords(curCatalogue);
             }
         }
 
         private void InitList()
         {
             string strCataID = Request.QueryString["id"];
-            
+
             if (int.TryParse(strCataID, out CataId))
             {
                 Catalogue catalogue = catalogueLogic.GetList(p => p.Id == CataId).FirstOrDefault();
                 if (catalogue != null)
                 {
+                    curCatalogue = catalogue;
                     string strPageIndex = Request.QueryString["page"];
                     if (int.TryParse(strPageIndex, out PageIndex))
                     {
@@ -53,6 +58,23 @@ namespace TopSite
                     this.ArticleList1.CatalogueId = CataId;
                     this.ArticleList1.CatalogueTitle = catalogue.Title;
                     this.Title = catalogue.Title;                    
+                }
+                else
+                {
+                    logger.Error("不存在id为" + strCataID + "的目录。");
+                    Response.Redirect("~/Default.aspx");
+                }
+            }
+        }
+
+        private void InitKeywords(Catalogue catalogue)
+        {
+            if (catalogue != null)
+            {
+                SiteMaster master = this.Master as SiteMaster;
+                if (master != null)
+                {
+                    master.PageKeywords = catalogue.TopKeywords;
                 }
             }
         }
