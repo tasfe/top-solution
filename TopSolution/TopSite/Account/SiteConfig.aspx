@@ -14,8 +14,7 @@
                 <asp:Label ID="SiteNameLabel" runat="server" AssociatedControlID="SiteName">站点名称:</asp:Label>
                 <asp:TextBox ID="SiteName" runat="server" CssClass="textEntry"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="SiteNameRequired" runat="server" ControlToValidate="SiteName"
-                    CssClass="failureNotification" ErrorMessage="必须填写“站点名称”。" ToolTip="站点名称"
-                    ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                    CssClass="failureNotification" ErrorMessage="必须填写“站点名称”。" ToolTip="站点名称" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
             </p>
             <p>
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="KeyWords">关键词:</asp:Label>
@@ -25,18 +24,26 @@
                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
             </p>
             <p>
+                <asp:Label ID="LabelTopKeywords" runat="server" AssociatedControlID="TopKeywords">淘宝客关键词:</asp:Label>
+                <asp:TextBox ID="TopKeywords" runat="server" CssClass="textEntry"></asp:TextBox>
+            </p>
+            <p>
                 <asp:Label ID="SummaryLabel" runat="server" AssociatedControlID="Summary">站点描述:</asp:Label>
-                <asp:TextBox ID="Summary" runat="server" CssClass="textEntry" 
-                    TextMode="MultiLine" Rows="10"></asp:TextBox>
+                <asp:TextBox ID="Summary" runat="server" CssClass="textEntry" TextMode="MultiLine"
+                    Rows="10"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="SummaryRequired" runat="server" ControlToValidate="Summary"
-                    CssClass="failureNotification" ErrorMessage="必须填写“站点描述”。" 
-                    ToolTip="必须填写“站点描述”。" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                    CssClass="failureNotification" ErrorMessage="必须填写“站点描述”。" ToolTip="必须填写“站点描述”。"
+                    ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+            </p>
+                        <p>
+                <asp:Label ID="LabelCopyRight" runat="server" AssociatedControlID="CopyRight">版权信息:</asp:Label>
+                <asp:TextBox ID="CopyRight" runat="server" CssClass="textEntry" TextMode="MultiLine"
+                    Rows="10"></asp:TextBox>
             </p>
         </fieldset>
         <p class="submitButton">
             <asp:Button ID="btnSaveSiteConfig" runat="server" CommandName="MoveNext" Text="保存设置"
-                ValidationGroup="RegisterUserValidationGroup" 
-                onclick="SaveSiteConfig_Click" />
+                ValidationGroup="RegisterUserValidationGroup" OnClick="SaveSiteConfig_Click" />
         </p>
     </div>
 </asp:Content>

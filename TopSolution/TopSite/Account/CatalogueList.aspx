@@ -41,8 +41,8 @@
                 <asp:RequiredFieldValidator ID="OrderRequired" runat="server" ControlToValidate="Order"
                     CssClass="failureNotification" ErrorMessage="必须填写“排序”。" ToolTip="必须填写“排序”。" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                 <asp:RangeValidator ID="OrderRangeValidator" runat="server" ControlToValidate="Order"
-                    CssClass="failureNotification" ErrorMessage="*" ForeColor="Red" 
-                    Type="Integer" MaximumValue="10000" MinimumValue="0"></asp:RangeValidator>
+                    CssClass="failureNotification" ErrorMessage="*" ForeColor="Red" Type="Integer"
+                    MaximumValue="10000" MinimumValue="0"></asp:RangeValidator>
             </p>
             <p>
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="KeyWords">关键词:</asp:Label>
@@ -50,6 +50,10 @@
                 <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="KeyWords"
                     CssClass="failureNotification" ErrorMessage="必须填写“关键词”。" ToolTip="必须填写“关键词”。"
                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+            </p>
+            <p>
+                <asp:Label ID="LabelTopKeywords" runat="server" AssociatedControlID="TopKeywords">淘宝客关键词:</asp:Label>
+                <asp:TextBox ID="TopKeywords" runat="server" CssClass="textEntry"></asp:TextBox>
             </p>
             <p>
                 <asp:Label ID="SummaryLabel" runat="server" AssociatedControlID="Summary">分类描述:</asp:Label>

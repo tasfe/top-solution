@@ -112,6 +112,7 @@ namespace TopSite.Account
             result.KeyWords = KeyWords.Text;
             result.Summary = Summary.Text;
             result.Order = int.Parse(Order.Text);
+            result.TopKeywords = TopKeywords.Text;
 
             return result;
         }
