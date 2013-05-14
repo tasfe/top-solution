@@ -44,7 +44,8 @@ namespace TopSite
                     CurArticle = CurArticleLogic.GetList(p => p.Id == id).FirstOrDefault();
                     if (CurArticle != null)
                     {
-
+                        CurArticle.ClickNum += 1;
+                        CurArticleLogic.Save(CurArticle);
                     }
                     else
                     {
