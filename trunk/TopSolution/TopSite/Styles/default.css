@@ -3,8 +3,9 @@
     clear:both;
     background: #fff;
     font: 宋体,15px; /*width: 600px;*/
-    margin: 5px 3px 0 0;
+    margin: 0px 3px 0 0;
     border: 1px solid #D0D0D0; /* float:left;*/
+    margin-bottom:3px;
 }
 
 .catalogue_title
@@ -17,7 +18,7 @@
 {
     text-align: left;
     padding: 5px;
-    font-size: 15px;
+    font-size: 16px;
     margin: 0px;
 }
 .catalogue_title a
@@ -28,5 +29,5 @@
 
 .articlelist
 {
-    font-size: 12px;
+    font-size: 14px;
 }

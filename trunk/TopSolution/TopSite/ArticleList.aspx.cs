@@ -57,7 +57,7 @@ namespace TopSite
                     this.ArticleList1.articleLogic = articleLogic;
                     this.ArticleList1.CatalogueId = CataId;
                     this.ArticleList1.CatalogueTitle = catalogue.Title;
-                    this.Title = catalogue.Title;                    
+                    this.Title =string.Format("{0}-{1}", catalogue.Title,BasicCache.SiteConfig.SiteName);                    
                 }
                 else
                 {

@@ -5,7 +5,7 @@
     font: 宋体,15px; /*width: 600px;*/
     margin: 5px 3px 0 0;
     border: 1px solid #D0D0D0; /* float:left;*/
-    border-bottom:0px;
+    border-bottom: 0px;
 }
 
 .catalogue_title
@@ -27,22 +27,45 @@
     color: #E2316B;
 }
 
-.articlelist
+.article
 {
+    background-color: #fff;
+    padding: 0px 15px 0px 10px;
+    text-align: left;
     font-size: 12px;
+    line-height: 25px;
+    margin-right:10px;
 }
-
-.pager
+.article_title
 {
-    background: #fff;
-    margin-right: 3px;
-    border: 1px solid #D0D0D0;
-    border-top-width:0px;
+    font-family: 黑体,宋体;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 66px;
 }
-.pager span
+.article_info
 {
-    font-size: 12px;
-    margin: 0px 2px;
-    height:20px;
-    line-height:25px;
+    text-align: center;
+    border-bottom: 1px dashed #CCCCCC;
+    color: #666666;
+    font-size: 13px;
+}
+.article_info span
+{
+    margin: 0px 10px;
+}
+.article_sumary
+{
+    font-size: 14px;
+    margin: 10px 5px;    
+    border: 1px dashed #CCCC77;
+    color: #CCCCCC;
+    padding: 10px;
+}
+.article_content
+{
+    margin: 0px 5px;
+    line-height: 25px;
+    font-size:14px;
 }
