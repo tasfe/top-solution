@@ -1,11 +1,7 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ArticleList.ascx.cs"
-    Inherits="TopSite.Controls.ArticleList" %>
-<div class="index_newslist">
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RelatedArticleList.ascx.cs" Inherits="TopSite.Controls.RelatedArticleList" %>
     <div class="catalogue_title">
         <h3>
-            <a target="_blank" href="<%="/ArticleList.aspx?id="+CatalogueId.ToString() %>">
-                <%=CatalogueTitle %>
-            </a>
+            相关文章
         </h3>
     </div>
     <div class="articlelist">
@@ -22,4 +18,3 @@
             </FooterTemplate>
         </asp:Repeater>
     </div>
-</div>

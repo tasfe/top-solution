@@ -70,6 +70,7 @@
     <Content Include="ArticleList.aspx" />
     <Content Include="ArticleShow.aspx" />
     <Content Include="Controls\ArticleList.ascx" />
+    <Content Include="Controls\RelatedArticleList.ascx" />
     <Content Include="Controls\TopList.ascx" />
     <Content Include="editor\build-config.js" />
     <Content Include="editor\ckeditor.js" />
@@ -296,6 +297,13 @@
     </Compile>
     <Compile Include="Controls\ArticleList.ascx.designer.cs">
       <DependentUpon>ArticleList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RelatedArticleList.ascx.cs">
+      <DependentUpon>RelatedArticleList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\RelatedArticleList.ascx.designer.cs">
+      <DependentUpon>RelatedArticleList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\TopList.ascx.cs">
       <DependentUpon>TopList.ascx</DependentUpon>
