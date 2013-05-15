@@ -32,9 +32,9 @@
     background-color: #fff;
     padding: 0px 15px 0px 10px;
     text-align: left;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 25px;
-    margin-right:10px;
+    margin-right: 10px;
 }
 .article_title
 {
@@ -58,14 +58,17 @@
 .article_sumary
 {
     font-size: 14px;
-    margin: 10px 5px;    
+    margin: 10px 5px;
     border: 1px dashed #CCCC77;
     color: #CCCCCC;
     padding: 10px;
 }
 .article_content
 {
-    margin: 0px 5px;
-    line-height: 25px;
-    font-size:14px;
+    margin: 0px 5px;    
+    font-size: 14px;
+}
+.article_related
+{
+     margin: 0px 5px;   
 }
