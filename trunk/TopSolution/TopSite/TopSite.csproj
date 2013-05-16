@@ -394,6 +394,7 @@
     <None Include="editor\plugins\wsc\README.md" />
     <None Include="editor\README.md" />
     <None Include="editor\skins\moono\readme.md" />
+    <Content Include="Web - 副本.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
