@@ -5,9 +5,15 @@
         TopLogic.TopLogic logic = new TopLogic.TopLogic();
         Top.Api.Response.TaobaokeItemsCouponGetResponse response = logic.GetTaobaokeItemsCoupon("wenwenxing", "site", KeyWords, 0, "volume_desc");
 
-        for (int i = 0; i < response.TaobaokeItems.Count; i++)
+        if (response.IsError)
         {
-            var item = response.TaobaokeItems[i];
+            Response.Write(response.ErrCode + " " + response.ErrMsg);
+        }
+        else
+        {
+            for (int i = 0; i < response.TaobaokeItems.Count; i++)
+            {
+                var item = response.TaobaokeItems[i];
     %>
     <div class="topaditem">
         <div class="topsdot">
@@ -24,7 +30,7 @@
             </div>
             <div class="topmeta">
                 <div class="S_small_meta S_rank transparent">
-                    <span>第<%=i+1 %>名</span> 月销量<span><%=item.Volume%></span>
+                    <span>第<%=i + 1%>名</span> 月销量<span><%=item.Volume%></span>
                 </div>
                 <div class="S_qg transparent">
                     <div class="jiage">
@@ -38,5 +44,6 @@
             </div>
         </div>
     </div>
-    <% } %>
+    <% }
+        } %>
 </div>

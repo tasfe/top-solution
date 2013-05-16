@@ -49,6 +49,7 @@ namespace TopLogic
             {
                 NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
                 logger.ErrorException("初始化缓存失败", ex);
+                BasicCache._SiteConfig = new SiteConfig { SiteName = "乐人淘宝客系统", KeyWords = "乐人淘宝客", Summary = "乐人淘宝客系统" };
             }
         }
     }
