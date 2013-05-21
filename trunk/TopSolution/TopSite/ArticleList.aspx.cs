@@ -16,6 +16,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TopLogic;
 using TopArticleEntity;
+using TopUtilityTool;
 
 namespace TopSite
 {
@@ -57,7 +58,7 @@ namespace TopSite
                     this.ArticleList1.articleLogic = articleLogic;
                     this.ArticleList1.CatalogueId = CataId;
                     this.ArticleList1.CatalogueTitle = catalogue.Title;
-                    this.Title =string.Format("{0}-{1}", catalogue.Title,BasicCache.SiteConfig.SiteName);                    
+                    this.Title = string.Format("{0}-{1}", catalogue.Title, BasicCache.SiteConfig.SiteName);
                 }
                 else
                 {
@@ -74,7 +75,7 @@ namespace TopSite
                 SiteMaster master = this.Master.Master as SiteMaster;
                 if (master != null)
                 {
-                    master.PageKeywords = catalogue.TopKeywords;
+                    master.PageKeywords = TopUtility.GetRandomKeyword(catalogue.TopKeywords);
                 }
             }
         }

@@ -16,6 +16,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TopArticleEntity;
 using TopLogic;
+using TopUtilityTool;
 
 namespace TopSite
 {
@@ -48,12 +49,12 @@ namespace TopSite
                     {
                         CurArticle.ClickNum += 1;
                         CurArticleLogic.Save(CurArticle);
-                        this.Title = string.Format("{0}-{1}", CurArticle.Title, BasicCache.SiteConfig.SiteName);     
+                        this.Title = string.Format("{0}-{1}", CurArticle.Title, BasicCache.SiteConfig.SiteName);
                     }
                     else
                     {
                         Response.Redirect("~/Default.aspx");
-                        logger.Error("显示文章失败，不存在id为"+strId+"的文章");
+                        logger.Error("显示文章失败，不存在id为" + strId + "的文章");
                     }
                 }
                 else
@@ -76,7 +77,7 @@ namespace TopSite
                 SiteMaster sitemaster = this.Master.Master as SiteMaster;
                 if (sitemaster != null)
                 {
-                    sitemaster.PageKeywords = CurArticle.TopKeywords;
+                    sitemaster.PageKeywords = TopUtility.GetRandomKeyword(CurArticle.TopKeywords);
                 }
             }
         }
