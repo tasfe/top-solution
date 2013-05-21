@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopLogic", "TopLogic\TopLog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDal", "TopDal\TopDal.csproj", "{36C72A84-BB06-4E7A-B024-5D4FFAAAD8DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopUtilityTool", "TopTool\TopUtilityTool.csproj", "{F292D8DE-84D6-465B-BE3C-1CB9562F6719}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -87,6 +89,16 @@ Global
 		{36C72A84-BB06-4E7A-B024-5D4FFAAAD8DF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{36C72A84-BB06-4E7A-B024-5D4FFAAAD8DF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{36C72A84-BB06-4E7A-B024-5D4FFAAAD8DF}.Release|x86.ActiveCfg = Release|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
