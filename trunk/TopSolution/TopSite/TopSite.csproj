@@ -442,6 +442,10 @@
       <Project>{B02CA3DA-C588-4A63-ABDD-64F1D8EA0D10}</Project>
       <Name>TopLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TopUtilityTool\TopUtilityTool.csproj">
+      <Project>{F292D8DE-84D6-465B-BE3C-1CB9562F6719}</Project>
+      <Name>TopUtilityTool</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="editor\CHANGES.md" />
