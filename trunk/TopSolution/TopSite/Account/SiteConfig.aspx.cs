@@ -44,8 +44,10 @@ namespace TopSite.Account
                 {
                     btnSaveSiteConfig.CommandArgument = EditStateEnum.Edit.ToString();
                     this.SiteName.Text = config.SiteName;
+                    this.TopKeywords.Text = config.TopKeywords;
                     this.KeyWords.Text = config.KeyWords;
                     this.Summary.Text = config.Summary;
+                    this.CopyRight.Text = config.CopyRight;
                 }
             }
             catch (Exception)
