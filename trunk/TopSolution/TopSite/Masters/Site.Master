@@ -42,6 +42,11 @@
         <div class="clear">
         </div>
     </div>
+    <div class="clear">
+    </div>
+    <div class="keywords">
+        <strong>全站关键词：</strong><strong><%=TopLogic.BasicCache.SiteConfig.KeyWords %></strong>
+    </div>
     <div class="footer">
         <%= TopLogic.BasicCache.SiteConfig.CopyRight%>
     </div>
