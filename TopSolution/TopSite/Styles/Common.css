@@ -3,10 +3,15 @@
     margin: 0px;
     text-align: center;
     background: #EDDBBA;
+    font-size:14px;
 }
 image
 {
     border: 0;
+}
+.clear
+{
+    clear:both;
 }
 
 .page
@@ -74,7 +79,8 @@ image
     text-decoration: none;
 }
 
-.menu li a:hover {
+.menu li a:hover
+{
     background: url("../images/navbg2.gif") no-repeat scroll 0 0 transparent;
     font-size: 16px;
 }
@@ -109,4 +115,20 @@ li
 a
 {
     text-decoration: none;
+}
+
+.footer
+{
+    font-family: arial;
+    font-size: 13px;
+    padding:15px 0px;
+}
+
+.keywords
+{
+    font-size:13px;
+    background-color: #C7BAA0;
+    height: auto;
+    overflow: hidden;
+    padding: 10px 0;
 }
