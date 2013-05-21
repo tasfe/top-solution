@@ -29,4 +29,14 @@ CKEDITOR.editorConfig = function( config ) {
 	// Remove some buttons, provided by the standard plugins, which we don't
 	// need to have in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript';
+
+    // 集成ckfinder
+	var ckfinderPath = "/ckfinder";
+	//主要是改这里的路径代码
+	config.filebrowserBrowseUrl = ckfinderPath + '/ckfinder.html';
+	config.filebrowserImageBrowseUrl = ckfinderPath + '/ckfinder.html?Type=Images';
+	config.filebrowserFlashBrowseUrl = ckfinderPath + '/ckfinder.html?Type=Flash';
+	config.filebrowserUploadUrl = ckfinderPath + '/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files';
+	config.filebrowserImageUploadUrl = ckfinderPath + '/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images';
+	config.filebrowserFlashUploadUrl = ckfinderPath + '/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash';
 };
