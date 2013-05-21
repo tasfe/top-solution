@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Top.Api.Response;
 using TopLogic;
 using TopArticleEntity;
+using TopUtilityTool;
 
 namespace TopSite
 {
@@ -38,7 +39,7 @@ namespace TopSite
                 }
                 else
                 {
-                    master.PageKeywords = siteConfig.TopKeywords;
+                    master.PageKeywords =TopUtility.GetRandomKeyword(siteConfig.TopKeywords);
                 }
             }
         }

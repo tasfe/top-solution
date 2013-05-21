@@ -18,6 +18,7 @@ using TopArticleEntity.Enum;
 using NLog;
 using TopLogic;
 using TopArticleEntity;
+using TopUtilityTool;
 
 namespace TopSite.Account
 {
@@ -60,7 +61,7 @@ namespace TopSite.Account
                         if (article != null)
                         {
                             this.txtTitle.Text = article.Title;
-                            this.txtContent.Text = article.Content;
+                            this.txtContent.Text = TopUtility.GetUnstressedContent(article.Content, article.KeyWords);
                             this.OrignSource.Text = article.OrignSource;
                             this.KeyWords.Text = article.KeyWords;
                             this.Summary.Text = article.Summary;
@@ -133,7 +134,7 @@ namespace TopSite.Account
 
             article.Title = this.txtTitle.Text;
             article.CatalogueId = int.Parse(DropDownListCatalogue.SelectedValue);
-            article.Content = this.txtContent.Text;
+            article.Content = TopUtility.GetStressedContent(this.txtContent.Text, this.KeyWords.Text);
             article.KeyWords = this.KeyWords.Text;
             article.OrignSource = this.OrignSource.Text;
             article.Summary = this.Summary.Text;
@@ -142,21 +143,6 @@ namespace TopSite.Account
             return article;
         }
 
-        /// <summary>
-        /// 获取强调关键词的内容。
-        /// </summary>
-        /// <param name="content">原内容</param>
-        /// <param name="oldKeywords">旧关键词</param>
-        /// <param name="newKeywords">新关键词</param>
-        /// <returns></returns>
-        private string GetStressedContent(string content, string oldKeywords, string newKeywords)
-        {
-            string result = content;
-
-
-
-            return result;
-        }
 
         /// <summary>
         /// 获取当前界面的操作类型
