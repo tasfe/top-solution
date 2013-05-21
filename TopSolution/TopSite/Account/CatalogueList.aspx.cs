@@ -54,6 +54,7 @@ namespace TopSite.Account
                     this.Order.Text = catalogue.Order.ToString();
                     this.KeyWords.Text = catalogue.KeyWords;
                     this.Summary.Text = catalogue.Summary;
+                    this.TopKeywords.Text = catalogue.TopKeywords;
                     this.txtId.Value = catalogue.Id.ToString();
                 }
             }

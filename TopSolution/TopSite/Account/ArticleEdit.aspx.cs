@@ -64,6 +64,7 @@ namespace TopSite.Account
                             this.OrignSource.Text = article.OrignSource;
                             this.KeyWords.Text = article.KeyWords;
                             this.Summary.Text = article.Summary;
+                            this.TopKeywords.Text = article.TopKeywords;
                             this.DropDownListCatalogue.SelectedValue = article.CatalogueId.ToString();
                             this.btnSaveArticle.CommandArgument = EditStateEnum.Edit.ToString();
                         }
