@@ -5,15 +5,17 @@
         TopLogic.TopLogic logic = new TopLogic.TopLogic();
         Top.Api.Response.TaobaokeItemsCouponGetResponse response = logic.GetTaobaokeItemsCoupon("wenwenxing", "site", KeyWords, 0, "volume_desc");
 
-        if (response.IsError)
+        if (response != null)
         {
-            Response.Write(response.ErrCode + " " + response.ErrMsg);
-        }
-        else
-        {
-            for (int i = 0; i < response.TaobaokeItems.Count; i++)
+            if (response.IsError)
             {
-                var item = response.TaobaokeItems[i];
+                Response.Write(response.ErrCode + " " + response.ErrMsg);
+            }
+            else
+            {
+                for (int i = 0; i < response.TaobaokeItems.Count; i++)
+                {
+                    var item = response.TaobaokeItems[i];
     %>
     <div class="topaditem">
         <div class="topsdot">
@@ -44,6 +46,8 @@
             </div>
         </div>
     </div>
-    <% }
+    <% 
+                }
+            }
         } %>
 </div>
