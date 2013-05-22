@@ -54,6 +54,7 @@
     <Compile Include="ArticleLogic.cs" />
     <Compile Include="BasicCache.cs" />
     <Compile Include="CatalogueLogic.cs" />
+    <Compile Include="DataBaseManagerLogic.cs" />
     <Compile Include="LogicBase.cs" />
     <Compile Include="MembershipLogic.cs" />
     <Compile Include="MemebershipProvider.cs" />

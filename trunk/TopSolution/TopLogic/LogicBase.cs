@@ -20,13 +20,14 @@ namespace TopLogic
 
     public abstract class LogicBase<T> : IDisposable
     {
-        protected static readonly string conn = "datasource=.;dbpath="+System.Web.HttpContext.Current.Server.MapPath("~/App_Data/db.top");
+        protected static readonly string conn = "datasource=.;dbpath=" + System.Web.HttpContext.Current.Server.MapPath("~/App_Data/20130523000112282.db");
+        protected static readonly string dbBackupDir = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/");
         protected DB4ODALClient GetDbClient()
         {
             return DB4ODALServerHelper.GetIDALClient(conn);
         }
 
-        private DB4ODALClient client = null;
+        protected DB4ODALClient client = null;
         public LogicBase()
         {
             client = GetDbClient();

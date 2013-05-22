@@ -33,7 +33,7 @@ namespace WebSharing.DB4ODAL
         /// <param name="obj"></param>
         public void Save<T>(T obj)
         {            
-            IObjectContainer.Ext().Store(obj,5);
+            this.IObjectContainer.Ext().Store(obj,5);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace WebSharing.DB4ODAL
         /// <param name="obj"></param>
         public void Delete<T>(T obj)
         {
-            IObjectContainer.Delete(obj);
+            this.IObjectContainer.Delete(obj);
         }
 
         /// <summary>
@@ -54,13 +54,22 @@ namespace WebSharing.DB4ODAL
         /// <returns></returns>
         public List<T> GetList<T>(Predicate<T> p)
         {
-            var resultLinq = (from T d in IObjectContainer where p(d) select d);
+            var resultLinq = (from T d in this.IObjectContainer where p(d) select d);
             return resultLinq.ToList();
         }
 
         public void Commit()
         {
-            IObjectContainer.Ext().Commit();
+            this.IObjectContainer.Ext().Commit();
+        }
+
+        /// <summary>
+        /// 备份数据库
+        /// </summary>
+        /// <param name="path">备份地址</param>
+        public void BackupDb(string path)
+        {
+            this.IObjectContainer.Ext().Backup(path);
         }
 
         public void Dispose()

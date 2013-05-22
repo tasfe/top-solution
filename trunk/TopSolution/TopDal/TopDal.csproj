@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="ArticleDal.cs" />
     <Compile Include="CatalogueDal.cs" />
-    <Compile Include="DataCacheCal.cs" />
+    <Compile Include="DataCacheDal.cs" />
     <Compile Include="DB4ODALClient.cs" />
     <Compile Include="DB4ODALServerHelper.cs" />
     <Compile Include="IdentiyHelper\IdentityHelper.cs" />
