@@ -250,6 +250,8 @@
     <Content Include="images\qg.gif" />
     <Content Include="images\rank_top.gif" />
     <Content Include="images\rank_top.png" />
+    <Content Include="ScriptsTemplates\common.js" />
+    <Content Include="Scripts\common.js" />
     <Content Include="Styles\articlelist.css" />
     <Content Include="Styles\Common.css" />
     <Content Include="Styles\default.css" />

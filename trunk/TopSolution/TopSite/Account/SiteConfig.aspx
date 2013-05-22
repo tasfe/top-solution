@@ -1,5 +1,5 @@
-﻿<%@ Page Title="站点配置" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true" validateRequest="false"
-    CodeBehind="SiteConfig.aspx.cs" Inherits="TopSite.Account.SiteConfig" %>
+﻿<%@ Page Title="站点配置" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
+    ValidateRequest="false" CodeBehind="SiteConfig.aspx.cs" Inherits="TopSite.Account.SiteConfig" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -15,6 +15,12 @@
                 <asp:TextBox ID="SiteName" runat="server" CssClass="textEntry"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="SiteNameRequired" runat="server" ControlToValidate="SiteName"
                     CssClass="failureNotification" ErrorMessage="必须填写“站点名称”。" ToolTip="站点名称" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+            </p>
+            <p>
+                <asp:Label ID="SiteUrlLabel" runat="server" AssociatedControlID="TextBoxSiteUrl">站点地址:</asp:Label>
+                <asp:TextBox ID="TextBoxSiteUrl" runat="server" CssClass="textEntry"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="TextBoxSiteUrlRequired" runat="server" ControlToValidate="TextBoxSiteUrl"
+                    CssClass="failureNotification" ErrorMessage="必须填写“站点地址”。" ToolTip="站点地址" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
             </p>
             <p>
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="KeyWords">关键词:</asp:Label>
@@ -35,7 +41,7 @@
                     CssClass="failureNotification" ErrorMessage="必须填写“站点描述”。" ToolTip="必须填写“站点描述”。"
                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
             </p>
-                        <p>
+            <p>
                 <asp:Label ID="LabelCopyRight" runat="server" AssociatedControlID="CopyRight">版权信息:</asp:Label>
                 <asp:TextBox ID="CopyRight" runat="server" CssClass="textEntry" TextMode="MultiLine"
                     Rows="10"></asp:TextBox>

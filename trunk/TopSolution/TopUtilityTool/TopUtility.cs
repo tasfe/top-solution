@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using TopArticleEntity;
 
 namespace TopUtilityTool
 {
@@ -74,6 +76,30 @@ namespace TopUtilityTool
             }
             
             return result;
+        }
+
+        /// <summary>
+        /// 更新通用js文件
+        /// </summary>
+        /// <param name="siteConfig"></param>
+        public static void UpdateConmmonJs(SiteConfig siteConfig)
+        {
+
+
+            try
+            {
+                string path = System.Web.HttpContext.Current.Server.MapPath("~/ScriptsTemplates/common.js");
+                string pathTarget = System.Web.HttpContext.Current.Server.MapPath("~/Scripts/common.js");
+
+                string content = File.ReadAllText(path);
+                string contentNew = content.Replace("{sitename}", siteConfig.SiteName);
+                contentNew = contentNew.Replace("{siteurl}", siteConfig.SiteUrl);
+                File.WriteAllText(pathTarget, contentNew);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

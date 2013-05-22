@@ -23,6 +23,8 @@ namespace TopSite.Account
     {
         SiteLogic siteLogic = new SiteLogic();
 
+        NLog.Logger log = NLog.LogManager.GetCurrentClassLogger();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -48,6 +50,7 @@ namespace TopSite.Account
                     this.KeyWords.Text = config.KeyWords;
                     this.Summary.Text = config.Summary;
                     this.CopyRight.Text = config.CopyRight;
+                    this.TextBoxSiteUrl.Text = config.SiteUrl;
                 }
             }
             catch (Exception)
@@ -74,6 +77,7 @@ namespace TopSite.Account
             config.Summary = Summary.Text;
             config.TopKeywords = TopKeywords.Text;
             config.CopyRight = CopyRight.Text;
+            config.SiteUrl = this.TextBoxSiteUrl.Text;
 
             return config;
         }
@@ -86,8 +90,17 @@ namespace TopSite.Account
 
         protected void SaveSiteConfig_Click(object sender, EventArgs e)
         {
-            TopArticleEntity.SiteConfig config = GetSiteConfigForSave();
-            siteLogic.Save(config);
+            try
+            {
+                TopArticleEntity.SiteConfig config = GetSiteConfigForSave();
+                siteLogic.Save(config);
+
+                TopUtilityTool.TopUtility.UpdateConmmonJs(BasicCache.SiteConfig);
+            }
+            catch (Exception ex)
+            {
+                log.ErrorException("保存配置失败。", ex);
+            }
         }
     }
 }

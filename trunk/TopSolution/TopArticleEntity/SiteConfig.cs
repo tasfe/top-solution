@@ -65,7 +65,14 @@ namespace TopArticleEntity
             get { return _CopyRight; }
             set { _CopyRight = value; }
         }
-        
+
+        private string _SiteUrl;
+
+        public string SiteUrl
+        {
+            get { return _SiteUrl; }
+            set { _SiteUrl = value; }
+        }
         
     }
 }
