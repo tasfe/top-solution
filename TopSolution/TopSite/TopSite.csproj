@@ -69,6 +69,7 @@
     <Content Include="Account\CatalogueList.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\DbBackUp.aspx" />
     <Content Include="Account\Default.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
@@ -243,6 +244,7 @@
     <Content Include="images\7t2.gif" />
     <Content Include="images\dot_6.gif" />
     <Content Include="images\hd_bg.gif" />
+    <Content Include="images\loading.gif" />
     <Content Include="images\navbg1.gif" />
     <Content Include="images\navbg2.gif" />
     <Content Include="images\qg.gif" />
@@ -303,6 +305,13 @@
     </Compile>
     <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
       <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\DbBackUp.aspx.cs">
+      <DependentUpon>DbBackUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\DbBackUp.aspx.designer.cs">
+      <DependentUpon>DbBackUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -15,7 +15,7 @@ using System.Text;
 
 namespace TopDal
 {
-    public class DataCacheCal
+    public class DataCacheDal
     {
     }
 }

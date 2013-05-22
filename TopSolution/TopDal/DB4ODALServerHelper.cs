@@ -56,6 +56,42 @@ namespace WebSharing.DB4ODAL
                 return DB4ORemoteServerHelper.GetDB4ODALClient(dic["host"], int.Parse(dic["port"]), dic["username"], dic["password"]);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="backupFileName"></param>
+        public static void BackupDb(string connectionString,string backupFileName)
+        {
+            string realConnString = connectionString.ToLower().Replace(" ", "");
+            string[] strs = realConnString.Trim().Split(';');
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+
+            foreach (var item in strs)
+            {
+                string[] temp = item.Split('=');
+                if (temp.Length == 2)
+                {
+                    dic.Add(temp[0].Trim(), temp[1].Trim());
+                }
+            }
+
+            if (dic["datasource"] == "local" || dic["datasource"] == "." || dic["datasource"] == "127.0.0.1")
+            {
+                dic["datasource"] = "local";
+            }
+
+            bool isLocal = dic["datasource"] == "local" || dic["port"] == "0";
+
+            if (isLocal)
+            {
+                DB4OLocalServerHelper.GetInstance(dic["dbpath"]).BackUp(backupFileName);
+            }
+            else
+            {
+                
+            }
+        }
     }
 
     class DB4OLocalServerHelper
@@ -96,7 +132,7 @@ namespace WebSharing.DB4ODAL
                             IServerConfiguration config = Db4oClientServer.NewServerConfiguration();
                             config.Common.Add(new TransparentPersistenceSupport());
                             config.Common.Add(new TransparentActivationSupport());
-                            _IObjectServer = Db4oClientServer.OpenServer(config, dbpath, 0);
+                            _IObjectServer = Db4oClientServer.OpenServer(config, dbpath, 0);                            
                         }
                     }
                 }
@@ -109,6 +145,15 @@ namespace WebSharing.DB4ODAL
             IObjectContainer o = this.IObjectserver.OpenClient();
             DB4ODALClient client = new DB4ODALClient() { IObjectContainer = o };
             return client;
+        }
+
+        /// <summary>
+        /// 备份数据库
+        /// </summary>
+        /// <param name="path"></param>
+        public void BackUp(string path)
+        {
+            this.IObjectserver.Ext().Backup(path);
         }
     }
 
