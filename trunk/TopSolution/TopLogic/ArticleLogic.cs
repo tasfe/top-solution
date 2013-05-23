@@ -31,7 +31,7 @@ namespace TopLogic
         {
             List<Article> articleList = GetList(p => true);
 
-            string parten = string.Format("[{0}]", keywords);
+            string parten = string.Format("[{0}]", string.Join(",", keywords.Split(',', '，', ' ')));
 
             return (from d in articleList orderby Regex.Matches(d.Content, parten).Count select d).Take(num);
         }
