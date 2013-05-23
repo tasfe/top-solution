@@ -423,6 +423,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Masters\Templates\" />
+    <Folder Include="userfiles\files\" />
+    <Folder Include="userfiles\flash\" />
+    <Folder Include="userfiles\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config">

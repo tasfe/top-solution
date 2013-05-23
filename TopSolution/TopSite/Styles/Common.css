@@ -9,6 +9,26 @@ image
 {
     border: 0;
 }
+ul
+{
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+}
+
+li
+{
+    margin: 0;
+    padding: 0;
+}
+
+a
+{
+    text-decoration: none;
+}
+
 .clear
 {
     clear:both;
@@ -91,31 +111,26 @@ image
     padding: 10px;
     text-align: left;
 }
-ul
-{
-    list-style-position: outside;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    word-break: break-all;
-}
+
 .S_arclist li
 {
-    background: url("../images/dot_6.gif") no-repeat scroll 0 9px transparent;
-    line-height: 23px;
+    background: url("../images/dot_6.gif") no-repeat scroll 0 center transparent;
+    line-height:200%;
     overflow: hidden;
     text-indent: 14px;
 }
-li
+
+.S_arclist li a
 {
-    margin: 0;
-    padding: 0;
+    color:#737373;
 }
 
-a
+.S_arclist li a:hover
 {
-    text-decoration: none;
+   color:#ff0063;
+   text-decoration:underline;
 }
+
 
 .footer
 {
