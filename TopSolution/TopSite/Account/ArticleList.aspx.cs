@@ -27,7 +27,8 @@ namespace TopSite.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ShowList();
+            if (!IsPostBack)
+            { ShowList(1); }
         }
 
         protected void lbtnDel_Click(object sender, EventArgs e)
@@ -58,10 +59,7 @@ namespace TopSite.Account
         }
 
         private void ShowList(int pageIndex = 0)
-        {
-            List<Article> articleList = articleLogic.GetList(p => true).OrderBy(p => p.CreateDate).ToList();
-            this.GridViewArticleList.DataSource = articleList;
-            this.GridViewArticleList.DataBind();
+        { 
             if (GridViewArticleList.PageCount >= pageIndex)
             {
                 GridViewArticleList.PageIndex = pageIndex;
@@ -70,6 +68,9 @@ namespace TopSite.Account
             {
                 GridViewArticleList.PageIndex = GridViewArticleList.PageCount;
             }
+            List<Article> articleList = articleLogic.GetList(p => true).OrderBy(p => p.CreateDate).ToList();
+            this.GridViewArticleList.DataSource = articleList;
+            this.GridViewArticleList.DataBind();
         }
 
         protected void GridViewArticleList_PageIndexChanging(object sender, GridViewPageEventArgs e)
