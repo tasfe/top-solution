@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/ArticleListMaster.master"
     AutoEventWireup="true" CodeBehind="ArticleList.aspx.cs" Inherits="TopSite.ArticleList" %>
 
-<%@ OutputCache Duration="60" VaryByParam="id" %>
+<%@ OutputCache Duration="600" VaryByParam="id;page" %>
 <%@ Register Src="Controls/ArticleList.ascx" TagName="ArticleList" TagPrefix="uc1" %>
 <asp:Content runat="server" ID="head" ContentPlaceHolderID="HeadContent">
     <meta name="keywords" content="<%=curCatalogue.KeyWords%>" />
