@@ -27,10 +27,7 @@ namespace TopSite.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                ShowList();
-            }
+            ShowList();
         }
 
         protected void lbtnDel_Click(object sender, EventArgs e)
