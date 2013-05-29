@@ -36,7 +36,7 @@ namespace TopSite.Controls
                 PageIndex = 1;
             }
 
-            List<Article> allList = articleLogic.GetList(p => p.CatalogueId == CatalogueId);
+            List<Article> allList = articleLogic.GetList(p => p.CatalogueId == CatalogueId).OrderByDescending(p=>p.CreateDate).ToList();
             PageCount = (int)Math.Ceiling((double)allList.Count / PageSize);
             if (PageIndex > PageCount)
             {
