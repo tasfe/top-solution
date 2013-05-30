@@ -43,7 +43,7 @@ namespace TopSite.Controls
                 PageIndex = PageCount;
             }
 
-            IEnumerable<Article> articleList = allList.Skip(PageSize * (PageIndex - 1)).Take(PageSize);
+            IEnumerable<Article> articleList = allList.OrderByDescending(p => p.CreateDate).Skip(PageSize * (PageIndex - 1)).Take(PageSize);
             RepeaterArticleList.DataSource = articleList;
             RepeaterArticleList.DataBind();
         }

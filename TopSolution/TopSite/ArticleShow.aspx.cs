@@ -33,6 +33,7 @@ namespace TopSite
             {
                 ShowArticle();
                 BindTopKeywords();
+                BindRelatedArticle();
             }
         }
 
@@ -80,6 +81,14 @@ namespace TopSite
                     sitemaster.PageKeywords = TopUtility.GetRandomKeyword(CurArticle.TopKeywords);
                 }
             }
+        }
+
+        private void BindRelatedArticle()
+        {
+            this.RelatedArticleList1.TargetId = CurArticle.Id;
+            this.RelatedArticleList1.CurArticleLogic = CurArticleLogic;
+            this.RelatedArticleList1.CurArticleKeywords = CurArticle.KeyWords;
+            this.RelatedArticleList1.ShowNums = 30;
         }
 
         protected override void OnUnload(EventArgs e)
