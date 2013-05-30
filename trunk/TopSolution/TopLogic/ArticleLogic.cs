@@ -27,13 +27,15 @@ namespace TopLogic
         /// <param name="keywords">关键字</param>
         /// <param name="num">要取的数量</param>
         /// <returns></returns>
-        public IEnumerable<Article> GetRelatedArticleList(string keywords, int num)
+        public IEnumerable<Article> GetRelatedArticleList(int id, string keywords, int num)
         {
             List<Article> articleList = GetList(p => true);
 
-            string parten = string.Format("[{0}]", string.Join(",", keywords.Split(',', '，', ' ')));
+            string parten = string.Format("{0}", string.Join("|", keywords.Split(',', '，', ' ')));
 
-            return (from d in articleList orderby Regex.Matches(d.Content, parten).Count select d).Take(num);
+            int c = Regex.Matches(articleList[0].Content, parten).Count;
+
+            return (from d in articleList where d.Id != id orderby Regex.Matches(d.Content, parten).Count descending select d).Take(num);
         }
     }
 }

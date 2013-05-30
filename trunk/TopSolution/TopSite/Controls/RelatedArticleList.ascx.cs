@@ -26,10 +26,18 @@ namespace TopSite.Controls
         /// </summary>
         public int ShowNums
         {
-            get { return _ShowNums = 10; }
+            get { return _ShowNums; }
             set { _ShowNums  = value; }
         }
 
+        private int _TargetId;
+
+        public int TargetId
+        {
+            get { return _TargetId; }
+            set { _TargetId = value; }
+        }
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,7 +56,7 @@ namespace TopSite.Controls
             {
                 if (ShowNums > 0)
                 {
-                    this.RepeaterArticleList.DataSource = CurArticleLogic.GetRelatedArticleList(CurArticleKeywords, ShowNums);
+                    this.RepeaterArticleList.DataSource = CurArticleLogic.GetRelatedArticleList(TargetId,CurArticleKeywords, ShowNums);
                     this.RepeaterArticleList.DataBind();
                 }
             }

@@ -8,9 +8,10 @@
     <meta name="keywords" content="<%=CurArticle.KeyWords%>" />
     <meta name="description" content="<%=CurArticle.Summary %>" />
     <link href="Styles/article.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/common.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content runat="server" ID="main" ContentPlaceHolderID="MainContent">
-    <form id="form1" runat="server">
     <div class="article">
         <div class="article_title">
             <%=CurArticle.Title%></div>
@@ -24,5 +25,4 @@
             <uc1:RelatedArticleList ID="RelatedArticleList1" runat="server" />
         </div>
     </div>
-    </form>
 </asp:Content>
