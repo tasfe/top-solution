@@ -37,5 +37,49 @@ namespace TopLogic
 
             return (from d in articleList where d.Id != id orderby Regex.Matches(d.Content, parten).Count descending select d).Take(num);
         }
+
+        /// <summary>
+        /// 自动获取正确的来源标题
+        /// </summary>
+        /// <param name="orgn">原始的来源，用户输入的信息</param>
+        /// <param name="url">用户输入的来源网址</param>
+        /// <returns></returns>
+        public string GetArticleOrignSourceTitle(string orgn, string url)
+        {
+            string result = orgn;
+            if (url.ToLower().Contains(BasicCache.SiteConfig.SiteUrl.ToLower().Replace("http://", "")))
+            {
+                result = "本站";
+            }
+            if (string.IsNullOrEmpty(orgn))
+            {
+                result = "网络转载";
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取文章来源url
+        /// </summary>
+        /// <param name="url">用户输入的来源地址</param>
+        /// <returns></returns>
+        public string GetArticleOrignSourceUrl(string url)
+        {
+            string result = url.ToLower();
+            if (string.IsNullOrEmpty(url))
+            {
+                result = BasicCache.SiteConfig.SiteUrl;
+            }
+            else
+            {
+                
+            }
+
+            if (result.StartsWith("http://") == false)
+            {
+                result = "http://" + url;
+            }
+            return result;
+        }
     }
 }

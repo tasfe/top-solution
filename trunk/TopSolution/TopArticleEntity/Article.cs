@@ -57,6 +57,14 @@ namespace TopArticleEntity
             set { _OrignSource = value; }
         }
 
+        private string _OrignSourceUrl;
+
+        public string OrignSourceUrl
+        {
+            get { return _OrignSourceUrl; }
+            set { _OrignSourceUrl = value; }
+        }
+        
 
         private int _CatalogueId;
 
