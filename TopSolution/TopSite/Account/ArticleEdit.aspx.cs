@@ -47,6 +47,7 @@ namespace TopSite.Account
                     this.txtTitle.Text = string.Empty;
                     this.txtContent.Text = string.Empty;
                     this.OrignSource.Text = "本站";
+                    this.OrignSourceUrl.Text = BasicCache.SiteConfig.SiteUrl;
                     this.KeyWords.Text = string.Empty;
                     this.Summary.Text = string.Empty;
                     this.btnSaveArticle.CommandArgument = EditStateEnum.New.ToString();
@@ -63,6 +64,7 @@ namespace TopSite.Account
                             this.txtTitle.Text = article.Title;
                             this.txtContent.Text = TopUtility.GetUnstressedContent(article.Content, article.KeyWords);
                             this.OrignSource.Text = article.OrignSource;
+                            this.OrignSourceUrl.Text = article.OrignSourceUrl;
                             this.KeyWords.Text = article.KeyWords;
                             this.Summary.Text = article.Summary;
                             this.TopKeywords.Text = article.TopKeywords;
@@ -136,7 +138,8 @@ namespace TopSite.Account
             article.CatalogueId = int.Parse(DropDownListCatalogue.SelectedValue);
             article.Content = TopUtility.GetStressedContent(this.txtContent.Text, this.KeyWords.Text);
             article.KeyWords = this.KeyWords.Text;
-            article.OrignSource = this.OrignSource.Text;
+            article.OrignSourceUrl = articleLogic.GetArticleOrignSourceUrl(this.OrignSourceUrl.Text);
+            article.OrignSource = articleLogic.GetArticleOrignSourceTitle(this.OrignSource.Text, this.OrignSourceUrl.Text);
             article.Summary = this.Summary.Text;
             article.TopKeywords = TopKeywords.Text;
 

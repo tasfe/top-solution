@@ -1,5 +1,5 @@
-﻿<%@ Page Title="编辑文章" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true" validateRequest="false"
-    CodeBehind="ArticleEdit.aspx.cs" Inherits="TopSite.Account.ArticleEdit" %>
+﻿<%@ Page Title="编辑文章" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
+    ValidateRequest="false" CodeBehind="ArticleEdit.aspx.cs" Inherits="TopSite.Account.ArticleEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
@@ -26,8 +26,8 @@
             </p>
             <p>
                 <asp:Label ID="CatalogueLabel" runat="server" AssociatedControlID="DropDownListCatalogue">栏目:</asp:Label>
-                <asp:DropDownList ID="DropDownListCatalogue" runat="server" DataTextField="Title" DataValueField="Id"
-                    CssClass="textEntry">
+                <asp:DropDownList ID="DropDownListCatalogue" runat="server" DataTextField="Title"
+                    DataValueField="Id" CssClass="textEntry">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="CatalogueRequired" runat="server" ControlToValidate="DropDownListCatalogue"
                     CssClass="failureNotification" ErrorMessage="必须填写“栏目”。" ToolTip="必须填写“栏目”。" ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
@@ -40,13 +40,18 @@
                 <span class="failureNotification" style="visibility: hidden">*</span>
             </p>
             <p>
+                <asp:Label ID="OrignSourceUrlLabel" runat="server" AssociatedControlID="OrignSourceUrl">文章来源地址:</asp:Label>
+                <asp:TextBox ID="OrignSourceUrl" runat="server" CssClass="textEntry"></asp:TextBox>
+                <span class="failureNotification" style="visibility: hidden">*</span>
+            </p>
+            <p>
                 <asp:Label ID="KeyWordsLabel" runat="server" AssociatedControlID="KeyWords">关键词:</asp:Label>
                 <asp:TextBox ID="KeyWords" runat="server" CssClass="textEntry"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="KeyWordsRequired" runat="server" ControlToValidate="KeyWords"
                     CssClass="failureNotification" ErrorMessage="必须填写“关键词”。" ToolTip="必须填写“关键词”。"
                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
             </p>
-                        <p>
+            <p>
                 <asp:Label ID="LabelTopKeywords" runat="server" AssociatedControlID="TopKeywords">淘宝客关键词:</asp:Label>
                 <asp:TextBox ID="TopKeywords" runat="server" CssClass="textEntry"></asp:TextBox>
             </p>
@@ -64,7 +69,7 @@
             <p style="float: none;">
                 <asp:Label ID="ContentLabel" runat="server" AssociatedControlID="txtContent">文章内容:</asp:Label>
                 <asp:TextBox ID="txtContent" runat="server" CssClass="ckeditor" TextMode="MultiLine"
-                    Rows="10"></asp:TextBox>                
+                    Rows="10"></asp:TextBox>
             </p>
             <div class="clear">
             </div>
