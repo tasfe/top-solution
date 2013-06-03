@@ -55,7 +55,7 @@ namespace TopSite
                     {
                         this.ArticleList1.PageIndex = PageIndex;
                     }
-                    this.ArticleList1.articleLogic = articleLogic;
+                    this.ArticleList1.ArticleLogic = articleLogic;
                     this.ArticleList1.CatalogueId = CataId;
                     this.ArticleList1.CatalogueTitle = catalogue.Title;
                     this.ArticleList1.PageSize = 120;
