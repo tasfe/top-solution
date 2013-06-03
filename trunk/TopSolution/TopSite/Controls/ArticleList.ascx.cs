@@ -13,7 +13,7 @@ namespace TopSite.Controls
     {
         public int CatalogueId { get; set; }
         public string CatalogueTitle { get; set; }
-        public ArticleLogic articleLogic { get; set; }
+        public ArticleLogic ArticleLogic { get; set; }
         public int PageSize { get; set; }
         public int PageIndex { get; set; }
         public int PageCount { get; set; }
@@ -36,7 +36,7 @@ namespace TopSite.Controls
                 PageIndex = 1;
             }
 
-            List<Article> allList = articleLogic.GetList(p => p.CatalogueId == CatalogueId).OrderByDescending(p=>p.CreateDate).ToList();
+            List<Article> allList = ArticleLogic.GetList(p => p.CatalogueId == CatalogueId).OrderByDescending(p=>p.CreateDate).ToList();
             PageCount = (int)Math.Ceiling((double)allList.Count / PageSize);
             if (PageIndex > PageCount)
             {

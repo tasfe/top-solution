@@ -51,9 +51,10 @@ namespace TopSite
             foreach (var item in catalogueList)
             {
                 TopSite.Controls.ArticleList list = (Controls.ArticleList)Page.LoadControl("~/Controls/ArticleList.ascx");
+                list.PageSize = 22;
                 list.CatalogueId = item.Id;
                 list.CatalogueTitle = item.Title;
-                list.articleLogic = articleLogic;
+                list.ArticleLogic = articleLogic;
 
                 placeHolder.Controls.Add(list);
             }
