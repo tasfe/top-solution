@@ -100,7 +100,8 @@ namespace TopSite.Account
             catch (Exception ex)
             {
                 log.ErrorException("保存文章失败", ex);
-            }
+            } 
+            Response.Redirect(Request.Url.ToString());
         }
 
         /// <summary>
