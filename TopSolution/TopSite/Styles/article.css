@@ -65,10 +65,18 @@
 }
 .article_content
 {
-    margin: 0px 5px;    
+    margin: 0px 5px;
     font-size: 14px;
 }
 .article_related
 {
-     margin: 0px 5px;   
+    margin: 0px 5px;
+}
+.article a
+{
+    color: #000;
+}
+.article a:hover
+{
+    color: #E2316B;
 }
