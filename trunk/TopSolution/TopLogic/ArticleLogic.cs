@@ -47,14 +47,20 @@ namespace TopLogic
         public string GetArticleOrignSourceTitle(string orgn, string url)
         {
             string result = string.Empty;
-            if (url.ToLower().Contains(BasicCache.SiteConfig.SiteUrl.ToLower().Replace("http://", "")))
+            if (string.IsNullOrEmpty(orgn) && orgn != "本站")
             {
-                result = "本站";
+                result = orgn;
             }
-
-            if (string.IsNullOrEmpty(orgn) && result != "本站")
+            else
             {
-                result = "网络转载";
+                if (string.IsNullOrEmpty(url) == false && url.ToLower().Contains(BasicCache.SiteConfig.SiteUrl.ToLower().Replace("http://", "")))
+                {
+                    result = "本站";
+                }
+                else
+                {
+                    result = "网络转载";
+                }
             }
             return result;
         }
@@ -66,14 +72,14 @@ namespace TopLogic
         /// <returns></returns>
         public string GetArticleOrignSourceUrl(string url)
         {
-            string result = url.ToLower();
+            string result = string.Empty;
             if (string.IsNullOrEmpty(url))
             {
                 result = BasicCache.SiteConfig.SiteUrl;
             }
             else
             {
-
+                result = url;
             }
 
             if (result.StartsWith("http://") == false && result.StartsWith("https://") == false)
