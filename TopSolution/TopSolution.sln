@@ -15,6 +15,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDal", "TopDal\TopDal.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopUtilityTool", "TopUtilityTool\TopUtilityTool.csproj", "{F292D8DE-84D6-465B-BE3C-1CB9562F6719}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GetTopItem", "GetTopItem", "{C29F36CD-4CF3-49C2-9260-65FABA47D250}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetTopItemEntity", "GetTopItemEntity\GetTopItemEntity.csproj", "{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetTopItemLogic", "GetTopItemLogic\GetTopItemLogic.csproj", "{382F40FD-8E9C-4091-B543-A2E76022F72C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetTopItemWindowsForms", "GetTopItemWindowsForms\GetTopItemWindowsForms.csproj", "{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -99,8 +107,43 @@ Global
 		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F292D8DE-84D6-465B-BE3C-1CB9562F6719}.Release|x86.ActiveCfg = Release|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}.Release|x86.ActiveCfg = Release|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{382F40FD-8E9C-4091-B543-A2E76022F72C}.Release|x86.ActiveCfg = Release|Any CPU
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Debug|x86.ActiveCfg = Debug|x86
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Debug|x86.Build.0 = Debug|x86
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Release|Any CPU.ActiveCfg = Release|x86
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Release|Mixed Platforms.Build.0 = Release|x86
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Release|x86.ActiveCfg = Release|x86
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C27DF54A-5E87-4598-BA03-5BEC76BF8B07} = {C29F36CD-4CF3-49C2-9260-65FABA47D250}
+		{382F40FD-8E9C-4091-B543-A2E76022F72C} = {C29F36CD-4CF3-49C2-9260-65FABA47D250}
+		{4E8B12DB-D1A8-4431-B5A6-0836A647DB63} = {C29F36CD-4CF3-49C2-9260-65FABA47D250}
 	EndGlobalSection
 EndGlobal

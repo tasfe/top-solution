@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F292D8DE-84D6-465B-BE3C-1CB9562F6719}</ProjectGuid>
+    <ProjectGuid>{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TopUtilityTool</RootNamespace>
-    <AssemblyName>TopUtilityTool</AssemblyName>
+    <RootNamespace>GetTopItemEntity</RootNamespace>
+    <AssemblyName>GetTopItemEntity</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,15 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TopSecurity.cs" />
-    <Compile Include="TopUtility.cs" />
+    <Compile Include="GetTopItemUrls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TopArticleEntity\TopArticleEntity.csproj">
-      <Project>{30A77456-5B13-4894-970E-6A53CD0DD964}</Project>
-      <Name>TopArticleEntity</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
