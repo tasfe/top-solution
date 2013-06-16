@@ -18,15 +18,15 @@ namespace TopEntity
     [Serializable]
     public class TopItem
     {
-        private string _Keyworda;
+        private string _Keywords;
         /// <summary>
         /// 所属的关键词
         /// </summary>
         [XmlAnyElement("keywords")]
         public string Keywords
         {
-            get { return _Keyworda; }
-            set { _Keyworda = value; }
+            get { return _Keywords; }
+            set { _Keywords = value; }
         }
 
 
