@@ -4,18 +4,13 @@
     <%    
         TopLogic.TopLogic logic = new TopLogic.TopLogic();
         Top.Api.Response.TaobaokeItemsCouponGetResponse response = logic.GetTaobaokeItemsCoupon("site", KeyWords, 0, "volume_desc");
+        IEnumerable<TopEntity.TopItem> items = logic.GetTopItems(KeyWords);
 
-        if (response != null)
+        if (items != null)
         {
-            if (response.IsError)
+            for (int i = 0; i < items.Count(); i++)
             {
-                Response.Write(response.ErrCode + " " + response.ErrMsg);
-            }
-            else
-            {
-                for (int i = 0; i < response.TaobaokeItems.Count; i++)
-                {
-                    var item = response.TaobaokeItems[i];
+                var item = response.TaobaokeItems[i];
     %>
     <div class="topaditem">
         <div class="topsdot">
@@ -46,8 +41,7 @@
             </div>
         </div>
     </div>
-    <% 
+    <%                
                 }
-            }
         } %>
 </div>
