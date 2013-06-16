@@ -66,9 +66,9 @@ namespace TopLogic
         /// </summary>
         /// <param name="keyword">关键字</param>
         /// <returns></returns>
-        public List<TopItem> GetTopItems(string keyword)
+        public IEnumerable<TopItem> GetTopItems(string keyword)
         {
-            List<TopItem> result = new List<TopItem>();
+            IEnumerable<TopItem> result = null;
 
             try
             {
@@ -80,11 +80,12 @@ namespace TopLogic
                 }
                 else
                 {
-
+                    result = client.GetList<TopItem>(p => p.Keywords == keyword).OrderByDescending(p=>p.Volume).Take(10);
                 }
             }
             catch (Exception ex)
             {
+                result = new List<TopItem>();
                 logger.ErrorException("获取广告信息异常", ex);
             }
 
