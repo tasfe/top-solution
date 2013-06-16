@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Security;
 
-namespace TopArticleEntity
+namespace TopEntity
 {
     public class TopUser : MembershipUser
     {

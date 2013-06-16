@@ -14,10 +14,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using TopArticleEntity.Enum;
+using TopEntity.Enum;
 using NLog;
 using TopLogic;
-using TopArticleEntity;
+using TopEntity;
 using TopUtilityTool;
 
 namespace TopSite.Account

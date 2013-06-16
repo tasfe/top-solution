@@ -15,7 +15,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TopLogic;
-using TopArticleEntity;
+using TopEntity;
 using TopUtilityTool;
 
 namespace TopSite

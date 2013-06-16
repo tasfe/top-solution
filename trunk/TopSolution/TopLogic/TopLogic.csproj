@@ -67,9 +67,9 @@
       <Project>{9C11CAE5-5188-4E71-825B-68FC3135728A}</Project>
       <Name>TopSdk</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TopArticleEntity\TopArticleEntity.csproj">
+    <ProjectReference Include="..\TopArticleEntity\TopEntity.csproj">
       <Project>{30A77456-5B13-4894-970E-6A53CD0DD964}</Project>
-      <Name>TopArticleEntity</Name>
+      <Name>TopEntity</Name>
     </ProjectReference>
     <ProjectReference Include="..\TopDal\TopDal.csproj">
       <Project>{36C72A84-BB06-4E7A-B024-5D4FFAAAD8DF}</Project>

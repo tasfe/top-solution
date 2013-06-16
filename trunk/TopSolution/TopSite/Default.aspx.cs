@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Top.Api.Response;
 using TopLogic;
-using TopArticleEntity;
+using TopEntity;
 using TopUtilityTool;
 
 namespace TopSite
@@ -47,7 +47,7 @@ namespace TopSite
         private void ShowArticleList()
         {
 
-            List<TopArticleEntity.Catalogue> catalogueList = catalogueLogic.GetList(p => true);
+            List<TopEntity.Catalogue> catalogueList = catalogueLogic.GetList(p => true);
             foreach (var item in catalogueList)
             {
                 TopSite.Controls.ArticleList list = (Controls.ArticleList)Page.LoadControl("~/Controls/ArticleList.ascx");

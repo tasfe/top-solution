@@ -15,7 +15,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TopLogic;
-using TopArticleEntity.Enum;
+using TopEntity.Enum;
 
 namespace TopSite.Account
 {
@@ -37,7 +37,7 @@ namespace TopSite.Account
         {
             try
             {
-                TopArticleEntity.SiteConfig config = siteLogic.GetList((TopArticleEntity.SiteConfig p) => true).FirstOrDefault();
+                TopEntity.SiteConfig config = siteLogic.GetList((TopEntity.SiteConfig p) => true).FirstOrDefault();
                 if (config == null)
                 {
                     btnSaveSiteConfig.CommandArgument = EditStateEnum.New.ToString(); ;
@@ -59,18 +59,18 @@ namespace TopSite.Account
             }
         }
 
-        private TopArticleEntity.SiteConfig GetSiteConfigForSave()
+        private TopEntity.SiteConfig GetSiteConfigForSave()
         {
-            TopArticleEntity.SiteConfig config = null;
+            TopEntity.SiteConfig config = null;
 
             if (btnSaveSiteConfig.CommandArgument == EditStateEnum.New.ToString())
             {
-                config = new TopArticleEntity.SiteConfig();
+                config = new TopEntity.SiteConfig();
                 config.Id = 0;
             }
             else
             {
-                config = siteLogic.GetList((TopArticleEntity.SiteConfig p) => true).FirstOrDefault();
+                config = siteLogic.GetList((TopEntity.SiteConfig p) => true).FirstOrDefault();
             }
             config.KeyWords = KeyWords.Text;
             config.SiteName = SiteName.Text;
@@ -92,7 +92,7 @@ namespace TopSite.Account
         {
             try
             {
-                TopArticleEntity.SiteConfig config = GetSiteConfigForSave();
+                TopEntity.SiteConfig config = GetSiteConfigForSave();
                 siteLogic.Save(config);
 
                 TopUtilityTool.TopUtility.UpdateConmmonJs(BasicCache.SiteConfig);

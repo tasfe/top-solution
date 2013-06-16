@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Top.Api.Response;
 using WebSharing.TopTool;
-using TopArticleEntity;
+using TopEntity;
 
 namespace TopLogic
 {

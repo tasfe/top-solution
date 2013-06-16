@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TopArticleEntity.Enum
+namespace TopEntity.Enum
 {
     public enum EditStateEnum
     {
