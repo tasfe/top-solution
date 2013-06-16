@@ -3,7 +3,7 @@
 <div class="topad">
     <%    
         TopLogic.TopLogic logic = new TopLogic.TopLogic();
-        Top.Api.Response.TaobaokeItemsCouponGetResponse response = logic.GetTaobaokeItemsCoupon("wenwenxing", "site", KeyWords, 0, "volume_desc");
+        Top.Api.Response.TaobaokeItemsCouponGetResponse response = logic.GetTaobaokeItemsCoupon("site", KeyWords, 0, "volume_desc");
 
         if (response != null)
         {
