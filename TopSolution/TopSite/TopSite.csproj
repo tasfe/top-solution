@@ -50,6 +50,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -264,6 +266,8 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\TopAd.css" />
     <Content Include="Styles\article.css" />
+    <Content Include="WcfService\TopItemService.svc" />
+    <Content Include="WebService\TopItemService.asmx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -419,6 +423,15 @@
     </Compile>
     <Compile Include="Masters\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WcfService\ITopItemService.cs" />
+    <Compile Include="WcfService\TopItemService.svc.cs">
+      <DependentUpon>TopItemService.svc</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebService\TopItemService.asmx.cs">
+      <DependentUpon>TopItemService.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
