@@ -18,6 +18,17 @@ namespace TopEntity
     [Serializable]
     public class TopItem
     {
+        private string _Keyworda;
+        /// <summary>
+        /// 所属的关键词
+        /// </summary>
+        public string Keywords
+        {
+            get { return _Keyworda; }
+            set { _Keyworda = value; }
+        }
+
+
         private string _ClickUrl;
         /// <summary>
         /// 推广点击url
