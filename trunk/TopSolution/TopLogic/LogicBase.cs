@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using WebSharing.DB4ODAL;
 using TopDal.IdentiyHelper;
+using NLog;
 
 namespace TopLogic
 {
@@ -22,6 +23,8 @@ namespace TopLogic
     {
         protected static readonly string conn = "datasource=.;dbpath=" + System.Web.HttpContext.Current.Server.MapPath("~/App_Data/db.top");
         protected static readonly string dbBackupDir = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/");
+        protected static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
         protected DB4ODALClient GetDbClient()
         {
             return DB4ODALServerHelper.GetIDALClient(conn);
