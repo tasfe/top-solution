@@ -22,6 +22,7 @@ namespace TopEntity
         /// <summary>
         /// 所属的关键词
         /// </summary>
+        [XmlAnyElement("keywords")]
         public string Keywords
         {
             get { return _Keyworda; }
