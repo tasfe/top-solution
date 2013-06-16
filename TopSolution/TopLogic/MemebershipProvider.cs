@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Configuration.Common;
 using System.Web.Security;
-using TopArticleEntity;
+using TopEntity;
 
 
 namespace TopLogic

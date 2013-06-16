@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TopArticleEntity;
+using TopEntity;
 using WebSharing.DB4ODAL;
 using TopDal;
 using System.Text.RegularExpressions;

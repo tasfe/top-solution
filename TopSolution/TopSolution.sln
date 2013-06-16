@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSharing.TopTool", "WebSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopSite", "TopSite\TopSite.csproj", "{6482C6F8-1F5A-4395-A226-AE8E7F9C96F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopArticleEntity", "TopArticleEntity\TopArticleEntity.csproj", "{30A77456-5B13-4894-970E-6A53CD0DD964}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopEntity", "TopArticleEntity\TopEntity.csproj", "{30A77456-5B13-4894-970E-6A53CD0DD964}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopLogic", "TopLogic\TopLogic.csproj", "{B02CA3DA-C588-4A63-ABDD-64F1D8EA0D10}"
 EndProject

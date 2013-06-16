@@ -17,7 +17,6 @@ namespace GetTopItemLogic
         private int savestep = 0;
 
         WebBrowser webBrowser = null;
-        WebClient webClient = null;
         System.Windows.Forms.Timer timer = null;
         System.Windows.Forms.Timer timer2 = null;
 
@@ -29,19 +28,17 @@ namespace GetTopItemLogic
 
         public void BeginLoad()
         {
-
             //01.加载阿里妈妈
             this.webBrowser.Navigate(GetTopItemUrls.HomeUrl);
             //02.登录
             this.webBrowser.Navigate(GetTopItemUrls.LoginUrl);
 
-            webClient = new WebClient();
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 3000;
             timer.Tick += new EventHandler(timer_Tick);
 
             timer2 = new System.Windows.Forms.Timer();
-            timer2.Interval = 5000;
+            timer2.Interval = 1000;
             timer2.Tick += new EventHandler(timer2_Tick);
 
             //03.转到获取界面
@@ -51,18 +48,23 @@ namespace GetTopItemLogic
             //05.点击下载
         }
 
+        /// <summary>
+        /// 自动下载Timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void timer_Tick(object sender, EventArgs e)
         {
             switch (savestep)
             {
-                case 0: 
+                case 0:
                     timer.Stop();
                     savestep++;
                     SendKeys.SendWait("{Left}");
                     SendKeys.Flush();
                     timer.Start();
                     break;
-                case 1: 
+                case 1:
                     timer.Stop();
                     savestep++;
                     SendKeys.SendWait("{Enter}");
@@ -81,14 +83,24 @@ namespace GetTopItemLogic
                     break;
                 case 3:
                     timer.Stop();
-                    savestep = 0;
+                    savestep++;
                     SendKeys.SendWait("{Enter}");
                     SendKeys.Flush();
                     break;
+                case 4:
+                    timer.Stop();
+                    savestep = 0;
+                    SendKeys.SendWait("{Enter}");
+                    SendKeys.Flush();
+                    // 处理导出的Excel，提取数据，将整合好的数据存库
+
+                    // 转到检索页面开始下一次导出
+                    webBrowser.Navigate(GetTopItemUrls.UserSelectTaoBaoKeUrl);
+                    break;
             }
 
-            //timer2.Start();
         }
+        
         void timer2_Tick(object sender, EventArgs e)
         {
             timer2.Stop();
@@ -136,17 +148,13 @@ namespace GetTopItemLogic
                                 break;
                             case 1:
                                 //勾选全部
-                                step = 2;
+                                step = 0;
                                 doc = this.webBrowser.Document;
                                 doc.GetElementById("J_checkAll").InvokeMember("click");
                                 //点击下载
                                 webBrowser.FileDownload += new EventHandler(webBrowser_FileDownload);
                                 doc.GetElementById("J_exportlink_btn").InvokeMember("click");
                                 timer.Start();
-                                break;
-                            case 2:
-                                step = 3;
-                                SendKeys.SendWait("{Enter}");
                                 break;
                         }
                     }
@@ -158,6 +166,14 @@ namespace GetTopItemLogic
         void webBrowser_FileDownload(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 处理Excel
+        /// </summary>
+        private void ProcessExcel()
+        { 
+        
         }
     }
 }

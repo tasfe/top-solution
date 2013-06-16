@@ -8,8 +8,8 @@
     <ProjectGuid>{30A77456-5B13-4894-970E-6A53CD0DD964}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TopArticleEntity</RootNamespace>
-    <AssemblyName>TopArticleEntity</AssemblyName>
+    <RootNamespace>TopEntity</RootNamespace>
+    <AssemblyName>TopEntity</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>Svn</SccProjectName>

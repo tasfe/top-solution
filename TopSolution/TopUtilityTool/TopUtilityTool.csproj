@@ -46,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TopArticleEntity\TopArticleEntity.csproj">
+    <ProjectReference Include="..\TopArticleEntity\TopEntity.csproj">
       <Project>{30A77456-5B13-4894-970E-6A53CD0DD964}</Project>
-      <Name>TopArticleEntity</Name>
+      <Name>TopEntity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

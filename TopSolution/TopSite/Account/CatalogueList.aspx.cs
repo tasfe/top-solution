@@ -15,8 +15,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TopLogic;
-using TopArticleEntity;
-using TopArticleEntity.Enum;
+using TopEntity;
+using TopEntity.Enum;
 
 namespace TopSite.Account
 {
