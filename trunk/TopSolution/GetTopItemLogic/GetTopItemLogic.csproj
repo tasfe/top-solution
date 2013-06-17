@@ -36,6 +36,7 @@
       <HintPath>3rddll\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />

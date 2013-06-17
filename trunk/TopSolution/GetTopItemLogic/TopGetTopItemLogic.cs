@@ -8,6 +8,7 @@ using TopUtilityTool;
 using System.Net;
 using System.IO;
 using System.Threading;
+using System.Data;
 
 namespace GetTopItemLogic
 {
@@ -15,6 +16,7 @@ namespace GetTopItemLogic
     {
         private int step = 0;
         private int savestep = 0;
+        private string excelpath = System.Configuration.ConfigurationManager.AppSettings["excelpath"];
 
         WebBrowser webBrowser = null;
         System.Windows.Forms.Timer timer = null;
@@ -75,7 +77,7 @@ namespace GetTopItemLogic
                     timer.Stop();
                     savestep++;
                     //输入路径
-                    string path = @"c:\1.xls";
+                    string path = excelpath;
                     Clipboard.SetDataObject(path);
                     SendKeys.SendWait("^v");
                     SendKeys.Flush();
@@ -174,7 +176,12 @@ namespace GetTopItemLogic
         private void ProcessExcel()
         {
             //01.读取Excel数据
-
+            DataTable dataTable = null;
+            using (Stream stream = File.Open(excelpath, FileMode.Open))
+            {
+                ExcelTool tool = new ExcelTool();
+                dataTable = tool.ReadExcel("table1", stream);
+            }
             //02.实例化需要保存的TopItem，使用Excel数据和网页数据填充属性
 
             //03.调用wcf先删除当前关键字的记录，再将新的保存到数据库
