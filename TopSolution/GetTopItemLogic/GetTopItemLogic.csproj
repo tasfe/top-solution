@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExcelTool.cs" />
+    <Compile Include="ExcelToolWithCom.cs" />
     <Compile Include="Service References\WcfTopItemService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
