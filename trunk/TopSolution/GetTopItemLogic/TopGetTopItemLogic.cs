@@ -9,6 +9,7 @@ using System.Net;
 using System.IO;
 using System.Threading;
 using System.Data;
+using GetTopItemLogic.WcfTopItemService;
 
 namespace GetTopItemLogic
 {
@@ -185,7 +186,7 @@ namespace GetTopItemLogic
             ExcelToolWithCom tool = new ExcelToolWithCom();
             DataTable dataTableFromExcel = tool.GetExcelData(excelpath);
             //02.获取网页数据
-
+            List<TopItem> items = this.GetTopItemsFromPage();
 
             //02.实例化需要保存的TopItem，使用Excel数据和网页数据填充属性
 
@@ -193,6 +194,25 @@ namespace GetTopItemLogic
 
             //04.删除Excel
             File.Delete(excelpath);
+        }
+
+        /// <summary>
+        /// 从页面DOM中提取广告项目
+        /// </summary>
+        /// <returns></returns>
+        private List<TopItem> GetTopItemsFromPage()
+        {
+            List<TopItem> result = new List<TopItem>();
+
+            HtmlDocument doc = this.webBrowser.Document;
+            HtmlElement table = doc.GetElementById("J_listMainTable");
+            for (int i = 0; i < 10; i++)
+            {
+                HtmlElement tr = table.Children[1].Children[i];
+                //TODO 提取属性
+            }
+
+            return result;
         }
     }
 }
