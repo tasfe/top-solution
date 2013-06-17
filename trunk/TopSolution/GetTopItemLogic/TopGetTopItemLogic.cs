@@ -197,7 +197,7 @@ namespace GetTopItemLogic
         }
 
         /// <summary>
-        /// 从页面DOM中提取广告项目
+        /// 从页面DOM中提取前10个广告项目
         /// </summary>
         /// <returns></returns>
         private List<TopItem> GetTopItemsFromPage()
@@ -208,7 +208,7 @@ namespace GetTopItemLogic
             HtmlElement table = doc.GetElementById("J_listMainTable");
             for (int i = 0; i < 10; i++)
             {
-                HtmlElement tr = table.Children[1].Children[i];
+                HtmlElement currenttr = table.Children[1].Children[i];
                 //TODO 提取属性
             }
 
