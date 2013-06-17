@@ -3,14 +3,14 @@
 <div class="topad">
     <%    
         TopLogic.TopLogic logic = new TopLogic.TopLogic();
-        Top.Api.Response.TaobaokeItemsCouponGetResponse response = logic.GetTaobaokeItemsCoupon("site", KeyWords, 0, "volume_desc");
         IEnumerable<TopEntity.TopItem> items = logic.GetTopItems(KeyWords);
 
         if (items != null)
         {
-            for (int i = 0; i < items.Count(); i++)
+            int i = 1;
+            foreach (var item in items)
             {
-                var item = response.TaobaokeItems[i];
+		
     %>
     <div class="topaditem">
         <div class="topsdot">
@@ -27,7 +27,7 @@
             </div>
             <div class="topmeta">
                 <div class="S_small_meta S_rank transparent">
-                    <span>第<%=i + 1%>名</span> 月销量<span><%=item.Volume%></span>
+                    <span>第<%=i %>名</span> 月销量<span><%=item.Volume%></span>
                 </div>
                 <div class="S_qg transparent">
                     <div class="jiage">
@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <%                
-                }
+    <%    i++;
+            }
         } %>
 </div>
