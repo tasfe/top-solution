@@ -99,7 +99,6 @@ namespace GetTopItemLogic
             }
             catch
             {
-
                 return null;
             }
             finally
