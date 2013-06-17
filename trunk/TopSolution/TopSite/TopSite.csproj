@@ -427,7 +427,6 @@
     <Compile Include="WcfService\ITopItemService.cs" />
     <Compile Include="WcfService\TopItemService.svc.cs">
       <DependentUpon>TopItemService.svc</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="WebService\TopItemService.asmx.cs">
       <DependentUpon>TopItemService.asmx</DependentUpon>
