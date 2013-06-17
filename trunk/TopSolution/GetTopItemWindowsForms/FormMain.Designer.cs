@@ -31,13 +31,15 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.tsmiBegin = new System.Windows.Forms.ToolStripMenuItem();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
+            this.测试采集ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiBegin});
+            this.tsmiBegin,
+            this.测试采集ToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(388, 25);
@@ -59,6 +61,13 @@
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.Size = new System.Drawing.Size(388, 307);
             this.webBrowser.TabIndex = 1;
+            // 
+            // 测试采集ToolStripMenuItem
+            // 
+            this.测试采集ToolStripMenuItem.Name = "测试采集ToolStripMenuItem";
+            this.测试采集ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.测试采集ToolStripMenuItem.Text = "测试采集";
+            this.测试采集ToolStripMenuItem.Click += new System.EventHandler(this.测试采集ToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -84,6 +93,7 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem tsmiBegin;
         private System.Windows.Forms.WebBrowser webBrowser;
+        private System.Windows.Forms.ToolStripMenuItem 测试采集ToolStripMenuItem;
     }
 }
 

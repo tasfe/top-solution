@@ -22,5 +22,11 @@ namespace GetTopItemWindowsForms
             TopGetTopItemLogic logic = new TopGetTopItemLogic(this.webBrowser);
             logic.BeginLoad();
         }
+
+        private void 测试采集ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcelToolWithCom tool = new ExcelToolWithCom();
+            DataTable table = tool.GetExcelData(System.Configuration.ConfigurationManager.AppSettings["excelpath"]);
+        }
     }
 }

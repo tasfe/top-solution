@@ -92,6 +92,13 @@ namespace GetTopItemLogic
                     break;
                 case 4:
                     timer.Stop();
+                    savestep++;
+                    SendKeys.SendWait("{Enter}");
+                    SendKeys.Flush();
+                    timer.Start();
+                    break;
+                case 5:
+                    timer.Stop();
                     savestep = 0;
                     // 处理导出的Excel，提取数据，将整合好的数据存库
                     ProcessExcel();
@@ -175,18 +182,17 @@ namespace GetTopItemLogic
         private void ProcessExcel()
         {
             //01.读取Excel数据
-            DataTable dataTable = null;
-            using (Stream stream = File.Open(excelpath, FileMode.Open))
-            {
-                ExcelToolWithCom tool = new ExcelToolWithCom();
-                dataTable = tool.GetExcelData(excelpath);
-            }
+            ExcelToolWithCom tool = new ExcelToolWithCom();
+            DataTable dataTableFromExcel = tool.GetExcelData(excelpath);
+            //02.获取网页数据
+
+
             //02.实例化需要保存的TopItem，使用Excel数据和网页数据填充属性
-            MessageBox.Show(dataTable.Rows[0][0].ToString());
+
             //03.调用wcf先删除当前关键字的记录，再将新的保存到数据库
 
             //04.删除Excel
-
+            File.Delete(excelpath);
         }
     }
 }
