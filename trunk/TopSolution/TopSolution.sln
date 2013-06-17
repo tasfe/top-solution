@@ -20,6 +20,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetTopItemEntity", "GetTopItemEntity\GetTopItemEntity.csproj", "{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetTopItemLogic", "GetTopItemLogic\GetTopItemLogic.csproj", "{382F40FD-8E9C-4091-B543-A2E76022F72C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6482C6F8-1F5A-4395-A226-AE8E7F9C96F9} = {6482C6F8-1F5A-4395-A226-AE8E7F9C96F9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetTopItemWindowsForms", "GetTopItemWindowsForms\GetTopItemWindowsForms.csproj", "{4E8B12DB-D1A8-4431-B5A6-0836A647DB63}"
 	ProjectSection(ProjectDependencies) = postProject

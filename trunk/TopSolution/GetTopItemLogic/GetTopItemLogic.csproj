@@ -39,6 +39,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExcelTool.cs" />
+    <Compile Include="Service References\WcfTopItemService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="TopGetTopItemLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,9 +69,34 @@
       <Name>TopUtilityTool</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="3rddll\DocumentFormat.OpenXml.dll" />
+    <None Include="Service References\WcfTopItemService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WcfTopItemService\configuration.svcinfo" />
+    <None Include="Service References\WcfTopItemService\configuration91.svcinfo" />
+    <None Include="Service References\WcfTopItemService\TopItemService.disco" />
+    <None Include="Service References\WcfTopItemService\TopItemService.wsdl" />
+    <None Include="Service References\WcfTopItemService\TopItemService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfTopItemService\TopItemService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\WcfTopItemService\TopItemService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WcfTopItemService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
