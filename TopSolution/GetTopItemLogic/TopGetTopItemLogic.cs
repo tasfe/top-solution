@@ -100,7 +100,7 @@ namespace GetTopItemLogic
             }
 
         }
-        
+
         void timer2_Tick(object sender, EventArgs e)
         {
             timer2.Stop();
@@ -172,8 +172,15 @@ namespace GetTopItemLogic
         /// 处理Excel
         /// </summary>
         private void ProcessExcel()
-        { 
-        
+        {
+            //01.读取Excel数据
+
+            //02.实例化需要保存的TopItem，使用Excel数据和网页数据填充属性
+
+            //03.调用wcf先删除当前关键字的记录，再将新的保存到数据库
+
+            //04.删除Excel
+
         }
     }
 }
