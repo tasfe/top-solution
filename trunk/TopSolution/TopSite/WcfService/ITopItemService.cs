@@ -12,7 +12,18 @@ namespace TopSite.WcfService
     [ServiceContract]
     public interface ITopItemService
     {
+        /// <summary>
+        /// 向数据库中添加广告项目
+        /// </summary>
+        /// <param name="items"></param>
         [OperationContract]
         void SaveTopItemList(List<TopItem> items);
+        
+        /// <summary>
+        /// 根据关键词删除广告项目
+        /// </summary>
+        /// <param name="keyword"></param>
+        [OperationContract]
+        void DeleteTopItems(string keyword);
     }
 }
