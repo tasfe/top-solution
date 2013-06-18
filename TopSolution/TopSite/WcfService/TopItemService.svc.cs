@@ -21,5 +21,19 @@ namespace TopSite.WcfService
                 }
             }
         }
+
+
+        public void DeleteTopItems(string keyword)
+        {
+            using (TopLogic.TopLogic logic = new TopLogic.TopLogic())
+            {
+                List<TopItem> items = logic.GetList(p => p.Keywords == keyword);
+
+                foreach (var item in items)
+                {
+                    logic.Delete(item);
+                }
+            }
+        }
     }
 }
