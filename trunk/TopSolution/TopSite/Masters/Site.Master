@@ -20,7 +20,7 @@
             <%
                 using (TopLogic.CatalogueLogic logic = new TopLogic.CatalogueLogic())
                 {
-                    List<TopArticleEntity.Catalogue> catalogues = logic.GetList(p => true);
+                    List<TopEntity.Catalogue> catalogues = logic.GetList(p => true);
                     foreach (var item in catalogues)
                     {
                

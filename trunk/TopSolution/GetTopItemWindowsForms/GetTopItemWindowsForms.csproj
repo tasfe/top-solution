@@ -96,6 +96,9 @@
     <None Include="Service References\WcfTopItemService\TopItemService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\WcfTopItemService\TopItemService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GetTopItemLogic\GetTopItemLogic.csproj">

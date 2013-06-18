@@ -35,5 +35,11 @@ namespace TopSite.WcfService
                 }
             }
         }
+
+
+        public List<string> GetAllKeywords()
+        {
+            return new List<string> { "美白","减肥","绿瘦" };
+        }
     }
 }
