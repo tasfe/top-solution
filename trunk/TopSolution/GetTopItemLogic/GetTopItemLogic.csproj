@@ -69,6 +69,10 @@
       <Project>{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}</Project>
       <Name>GetTopItemEntity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TopArticleEntity\TopEntity.csproj">
+      <Project>{30A77456-5B13-4894-970E-6A53CD0DD964}</Project>
+      <Name>TopEntity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TopUtilityTool\TopUtilityTool.csproj">
       <Project>{F292D8DE-84D6-465B-BE3C-1CB9562F6719}</Project>
       <Name>TopUtilityTool</Name>

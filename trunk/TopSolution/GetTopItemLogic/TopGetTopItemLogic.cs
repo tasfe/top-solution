@@ -9,7 +9,7 @@ using System.Net;
 using System.IO;
 using System.Threading;
 using System.Data;
-using GetTopItemLogic.WcfTopItemService;
+using TopEntity;
 
 namespace GetTopItemLogic
 {
@@ -206,10 +206,19 @@ namespace GetTopItemLogic
 
             HtmlDocument doc = this.webBrowser.Document;
             HtmlElement table = doc.GetElementById("J_listMainTable");
-            for (int i = 0; i < 10; i++)
+            HtmlElement tbody = table.Children[1];
+            for (int i = 0; i < tbody.Children.Count; i++)
             {
                 HtmlElement currenttr = table.Children[1].Children[i];
-                //TODO 提取属性
+                if (currenttr.GetAttribute("class") != "downlist")
+                {
+                    TopItem temp = new TopItem();
+
+                    //TODO 提取属性
+                    temp.Title = currenttr.Children[1].Children[0].Children[2].InnerText;
+                    temp.Keywords = "";
+                    temp.Nick = currenttr.Children[1].Children[0].Children[3].InnerText;
+                }
             }
 
             return result;
