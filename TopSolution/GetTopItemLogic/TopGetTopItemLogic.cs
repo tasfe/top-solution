@@ -11,6 +11,8 @@ using System.Threading;
 using System.Data;
 using TopEntity;
 using System.Text.RegularExpressions;
+using ITopItemService = GetTopItemLogic.WcfTopItemService.ITopItemService;
+using TopItemServiceClient = GetTopItemLogic.WcfTopItemService.TopItemServiceClient;
 
 namespace GetTopItemLogic
 {
@@ -34,10 +36,20 @@ namespace GetTopItemLogic
 
         public void BeginLoad()
         {
+            InilizeTimer();
+            InilizeKeywordsQueue();
+
             //01.加载阿里妈妈
             this.webBrowser.Navigate(GetTopItemUrls.HomeUrl);
             //02.登录
             this.webBrowser.Navigate(GetTopItemUrls.LoginUrl);
+        }
+
+        /// <summary>
+        /// 初始化Timer
+        /// </summary>
+        private void InilizeTimer()
+        {
 
             //启动自动模拟操作
             if (timer == null)
@@ -55,7 +67,15 @@ namespace GetTopItemLogic
             timer2.Interval = 24 * 60 * 60 * 1000;
             timer2.Tick -= new EventHandler(timer2_Tick);
             timer2.Tick += new EventHandler(timer2_Tick);
-            timer2.Start();
+        }
+
+        /// <summary>
+        /// 加载关键词队列
+        /// </summary>
+        private void InilizeKeywordsQueue()
+        {
+            ITopItemService service = new TopItemServiceClient();
+            allKeywords = new Queue<string>(service.GetAllKeywords());
         }
 
         /// <summary>
@@ -158,6 +178,11 @@ namespace GetTopItemLogic
                         doc.GetElementById("q").SetAttribute("value", curKeyword);
                         doc.GetElementById("J_searchForm").InvokeMember("submit");
                     }
+                    else
+                    {
+                        //启动timer2
+                        timer2.Start();
+                    }
                     break;
                 default:
                     if (e.Url.AbsoluteUri.StartsWith(GetTopItemUrls.MerchandisePromotion))
@@ -220,7 +245,9 @@ namespace GetTopItemLogic
             }
             //04.调用wcf先删除当前关键字的记录，再将新的保存到数据库
 
-
+            ITopItemService service = new TopItemServiceClient();
+            service.DeleteTopItems(curKeyword);
+            service.SaveTopItemList(items);
 
             //04.删除Excel
             if (File.Exists(excelpath))
@@ -255,7 +282,7 @@ namespace GetTopItemLogic
 
                         //TODO 提取属性
                         temp.Title = currenttr.Children[1].Children[0].Children[currenttr.Children[1].Children[0].Children.Count - 3].InnerText;
-                        temp.Keywords = "";
+                        temp.Keywords = curKeyword;
                         temp.Nick = GetNick(currenttr.Children[1].Children[0].Children[currenttr.Children[1].Children[0].Children.Count - 2].InnerText);
                         temp.CouponRate = currenttr.Children[2].InnerText;
                         temp.CouponPrice = currenttr.Children[3].InnerText;

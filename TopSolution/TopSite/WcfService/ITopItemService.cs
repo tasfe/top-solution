@@ -25,5 +25,12 @@ namespace TopSite.WcfService
         /// <param name="keyword"></param>
         [OperationContract]
         void DeleteTopItems(string keyword);
+
+        /// <summary>
+        /// 获取系统中所有的Keywords
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        List<string> GetAllKeywords();
     }
 }

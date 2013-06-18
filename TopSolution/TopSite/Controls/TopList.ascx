@@ -27,7 +27,7 @@
             </div>
             <div class="topmeta">
                 <div class="S_small_meta S_rank transparent">
-                    <span>第<%=i %>名</span> 月销量<span><%=item.Volume%></span>
+                    <span>第<%=i %>名</span> 月销量<span><%=item.CommissionNum%></span>
                 </div>
                 <div class="S_qg transparent">
                     <div class="jiage">

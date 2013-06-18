@@ -17,6 +17,12 @@ namespace GetTopItemWindowsForms.WcfTopItemService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITopItemService/SaveTopItemList", ReplyAction="http://tempuri.org/ITopItemService/SaveTopItemListResponse")]
         void SaveTopItemList(TopEntity.TopItem[] items);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITopItemService/DeleteTopItems", ReplyAction="http://tempuri.org/ITopItemService/DeleteTopItemsResponse")]
+        void DeleteTopItems(string keyword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITopItemService/GetAllKeywords", ReplyAction="http://tempuri.org/ITopItemService/GetAllKeywordsResponse")]
+        string[] GetAllKeywords();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -48,6 +54,14 @@ namespace GetTopItemWindowsForms.WcfTopItemService {
         
         public void SaveTopItemList(TopEntity.TopItem[] items) {
             base.Channel.SaveTopItemList(items);
+        }
+        
+        public void DeleteTopItems(string keyword) {
+            base.Channel.DeleteTopItems(keyword);
+        }
+        
+        public string[] GetAllKeywords() {
+            return base.Channel.GetAllKeywords();
         }
     }
 }

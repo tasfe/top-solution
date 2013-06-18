@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="文章列表" Language="C#" MasterPageFile="~/Masters/Account.Master" AutoEventWireup="true"
     CodeBehind="ArticleList.aspx.cs" Inherits="TopSite.Account.ArticleList" %>
 
-<%@ Import Namespace="TopArticleEntity.Enum" %>
+<%@ Import Namespace="TopEntity.Enum" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
