@@ -58,6 +58,16 @@ namespace WebSharing.DB4ODAL
             return resultLinq.ToList();
         }
 
+        /// <summary>
+        /// 查询所有
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public List<T> GetList<T>()
+        {
+            return (from T d in this.IObjectContainer select d).ToList();
+        }
+
         public void Commit()
         {
             this.IObjectContainer.Ext().Commit();

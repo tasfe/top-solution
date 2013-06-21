@@ -81,7 +81,7 @@ namespace TopSite.Account
 
         private void BindDropdownlist()
         {
-            this.DropDownListCatalogue.DataSource = catalogueLogc.GetList(p => true).OrderBy(p => p.Order);
+            this.DropDownListCatalogue.DataSource = catalogueLogc.GetList().OrderBy(p => p.Order);
             this.DropDownListCatalogue.DataBind();
         }
 

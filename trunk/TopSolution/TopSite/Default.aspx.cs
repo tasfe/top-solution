@@ -47,7 +47,7 @@ namespace TopSite
         private void ShowArticleList()
         {
 
-            List<TopEntity.Catalogue> catalogueList = catalogueLogic.GetList(p => true);
+            List<TopEntity.Catalogue> catalogueList = catalogueLogic.GetList();
             foreach (var item in catalogueList)
             {
                 TopSite.Controls.ArticleList list = (Controls.ArticleList)Page.LoadControl("~/Controls/ArticleList.ascx");

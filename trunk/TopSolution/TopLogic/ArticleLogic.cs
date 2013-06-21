@@ -29,7 +29,7 @@ namespace TopLogic
         /// <returns></returns>
         public IEnumerable<Article> GetRelatedArticleList(int id, string keywords, int num)
         {
-            List<Article> articleList = GetList(p => true);
+            List<Article> articleList = GetList();
 
             string parten = string.Format("{0}", string.Join("|", keywords.Split(',', '，', ' ')));
 
