@@ -68,7 +68,7 @@ namespace TopSite.Account
             {
                 GridViewArticleList.PageIndex = GridViewArticleList.PageCount;
             }
-            List<Article> articleList = articleLogic.GetList(p => true).OrderBy(p => p.CreateDate).ToList();
+            List<Article> articleList = articleLogic.GetList().OrderBy(p => p.CreateDate).ToList();
             this.GridViewArticleList.DataSource = articleList;
             this.GridViewArticleList.DataBind();
         }

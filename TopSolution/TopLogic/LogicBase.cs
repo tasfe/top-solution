@@ -48,10 +48,23 @@ namespace TopLogic
             client.Delete(obj);
         }
 
+        /// <summary>
+        /// 根据条件筛选
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public virtual List<T> GetList(Predicate<T> p)
         {
-
             return client.GetList<T>(p);
+        }
+
+        /// <summary>
+        /// 获取全部对象
+        /// </summary>
+        /// <returns></returns>
+        public virtual List<T> GetList()
+        {
+            return client.GetList<T>();
         }
 
         /// <summary>

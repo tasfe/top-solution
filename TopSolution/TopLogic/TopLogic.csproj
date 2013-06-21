@@ -59,6 +59,7 @@
     <Compile Include="MembershipLogic.cs" />
     <Compile Include="MemebershipProvider.cs" />
     <Compile Include="SiteLogic.cs" />
+    <Compile Include="TopKeywordsLogic.cs" />
     <Compile Include="TopLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

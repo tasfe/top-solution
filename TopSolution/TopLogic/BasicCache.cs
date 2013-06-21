@@ -41,7 +41,7 @@ namespace TopLogic
             {
 
                 SiteLogic siteLogic = new SiteLogic();
-                SiteConfig siteConfig = siteLogic.GetList(p => true).FirstOrDefault();
+                SiteConfig siteConfig = siteLogic.GetList().FirstOrDefault();
                 BasicCache._SiteConfig = siteConfig;
 
             }

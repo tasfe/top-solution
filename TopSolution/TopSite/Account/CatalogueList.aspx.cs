@@ -34,7 +34,7 @@ namespace TopSite.Account
 
         private void ShowCatalogues()
         {
-            IEnumerable<Catalogue> list = CatalogueLogic.GetList(d => true).OrderBy(d => d.Order);
+            IEnumerable<Catalogue> list = CatalogueLogic.GetList().OrderBy(d => d.Order);
             this.GridViewCatalogue.DataSource = list;
             this.GridViewCatalogue.DataBind();
         }
