@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e3184390-3ba6-420f-9748-7abe224ebdd7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="11c8e313-dc5e-4b28-a49e-9f673e8a5e61" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -23,11 +23,11 @@
     <MetadataSource Address="http://localhost:5000/WcfService/TopItemService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="TopItemService.xsd" MetadataType="Schema" ID="a70639bd-c952-4354-9165-3cae64f049c8" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?xsd=xsd0" />
-    <MetadataFile FileName="TopItemService.disco" MetadataType="Disco" ID="b806ee3b-a42f-4387-a80a-301af52b7246" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?disco" />
-    <MetadataFile FileName="TopItemService.wsdl" MetadataType="Wsdl" ID="a9d9586d-552a-4075-aaa2-0ab4fde40136" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?wsdl" />
-    <MetadataFile FileName="TopItemService1.xsd" MetadataType="Schema" ID="d7b6e8aa-155a-487e-aece-8c19f57ac69d" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?xsd=xsd1" />
-    <MetadataFile FileName="TopItemService2.xsd" MetadataType="Schema" ID="884180ab-d9cc-4c7a-b5d6-81494735aa30" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TopItemService.xsd" MetadataType="Schema" ID="5f85409b-17b6-4841-aba1-d0e096e06430" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TopItemService.disco" MetadataType="Disco" ID="7cdc6cf7-031d-4f0a-8b4a-3eb0076e9a18" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?disco" />
+    <MetadataFile FileName="TopItemService.wsdl" MetadataType="Wsdl" ID="a8196580-69f1-4dfe-be52-1a2896d759f5" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?wsdl" />
+    <MetadataFile FileName="TopItemService1.xsd" MetadataType="Schema" ID="f7556eff-b39d-45be-9aae-244338def2df" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TopItemService2.xsd" MetadataType="Schema" ID="026753bb-0467-43b7-82dd-b3aad43a4f41" SourceId="1" SourceUrl="http://localhost:5000/WcfService/TopItemService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

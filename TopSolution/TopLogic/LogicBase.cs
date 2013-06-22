@@ -21,11 +21,11 @@ namespace TopLogic
 
     public abstract class LogicBase<T> : IDisposable
     {
-        protected static readonly string mainConn = System.Configuration.ConfigurationManager.ConnectionStrings["mainBase"].ConnectionString;
-        protected static readonly string adConn = System.Configuration.ConfigurationManager.ConnectionStrings["adBase"].ConnectionString;
+        protected string mainConn = null;
+        protected string adConn = null;
 
-        protected static readonly string dbBackupDir = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/");
-        protected static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        protected string dbBackupDir = null;
+        protected Logger logger = null;
 
         protected DB4ODALClient GetDbClient(string conn)
         {
@@ -37,6 +37,11 @@ namespace TopLogic
         protected DB4ODALClient mainClient = null;
         public LogicBase()
         {
+            mainConn = System.Configuration.ConfigurationManager.ConnectionStrings["mainBase"].ConnectionString;
+            adConn = System.Configuration.ConfigurationManager.ConnectionStrings["adBase"].ConnectionString;
+            dbBackupDir = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/");
+            logger = LogManager.GetCurrentClassLogger();
+
             mainClient = GetDbClient(mainConn);
         }
 

@@ -83,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="3rddll\DocumentFormat.OpenXml.dll" />
-    <None Include="Properties\DataSources\TopEntity.TopKeywords.datasource" />
     <None Include="Service References\WcfTopItemService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -91,7 +90,11 @@
     <None Include="Service References\WcfTopItemService\configuration.svcinfo" />
     <None Include="Service References\WcfTopItemService\configuration91.svcinfo" />
     <None Include="Service References\WcfTopItemService\TopItemService.disco" />
+    <None Include="Properties\DataSources\TopEntity.TopKeywords.datasource" />
     <None Include="Service References\WcfTopItemService\TopItemService.wsdl" />
+    <None Include="Service References\WcfTopItemService\TopItemService.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\WcfTopItemService\TopItemService1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -101,9 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\WcfTopItemService\TopItemService.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\WcfTopItemService\" />
