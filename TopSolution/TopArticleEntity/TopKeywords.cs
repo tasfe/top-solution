@@ -33,5 +33,16 @@ namespace TopEntity
             get { return _Keywords; }
             set { _Keywords = value; }
         }
+
+        private int _RefCount;
+        /// <summary>
+        /// 被引用的次数
+        /// </summary>
+        public int RefCount
+        {
+            get { return _RefCount; }
+            set { _RefCount = value; }
+        }
+        
     }
 }
