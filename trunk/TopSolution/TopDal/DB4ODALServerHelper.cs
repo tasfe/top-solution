@@ -61,7 +61,7 @@ namespace WebSharing.DB4ODAL
         /// 
         /// </summary>
         /// <param name="backupFileName"></param>
-        public static void BackupDb(string connectionString,string backupFileName)
+        public static void BackupDb(string connectionString, string backupFileName)
         {
             string realConnString = connectionString.ToLower().Replace(" ", "");
             string[] strs = realConnString.Trim().Split(';');
@@ -89,7 +89,7 @@ namespace WebSharing.DB4ODAL
             }
             else
             {
-                
+
             }
         }
     }
@@ -109,10 +109,10 @@ namespace WebSharing.DB4ODAL
 
         public static DB4OLocalServerHelper GetInstance(string dbPath)
         {
-            if (_Pool[dbPath] == null)
+            if (_Pool.ContainsKey(dbPath) == false || _Pool[dbPath] == null)
             {
                 _Pool[dbPath] = new DB4OLocalServerHelper();
-                _Pool[dbPath].dbpath = System.Web.HttpContext.Current.Server.MapPath(dbPath);
+                _Pool[dbPath].dbpath = System.Web.Hosting.HostingEnvironment.MapPath(dbPath);
             }
             return _Pool[dbPath];
         }
@@ -141,7 +141,7 @@ namespace WebSharing.DB4ODAL
                             IServerConfiguration config = Db4oClientServer.NewServerConfiguration();
                             config.Common.Add(new TransparentPersistenceSupport());
                             config.Common.Add(new TransparentActivationSupport());
-                            _IObjectServer = Db4oClientServer.OpenServer(config, dbpath, 0);                            
+                            _IObjectServer = Db4oClientServer.OpenServer(config, dbpath, 0);
                         }
                     }
                 }

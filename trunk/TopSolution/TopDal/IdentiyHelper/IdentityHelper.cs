@@ -35,7 +35,7 @@ namespace TopDal.IdentiyHelper
         {
             int result = 0;
 
-            IdentityHelper helper = client.GetList<IdentityHelper>(p => true).FirstOrDefault();
+            IdentityHelper helper = client.GetList<IdentityHelper>().FirstOrDefault();
             if (helper == null)
             {
                 helper = new IdentityHelper();
