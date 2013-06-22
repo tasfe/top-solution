@@ -18,7 +18,7 @@ namespace TopSite.WcfService
         /// <param name="items"></param>
         [OperationContract]
         void SaveTopItemList(List<TopItem> items);
-        
+
         /// <summary>
         /// 根据关键词删除广告项目
         /// </summary>
@@ -31,6 +31,6 @@ namespace TopSite.WcfService
         /// </summary>
         /// <returns></returns>
         [OperationContract]
-        List<string> GetAllKeywords();
+        List<TopKeywords> GetAllKeywords();
     }
 }

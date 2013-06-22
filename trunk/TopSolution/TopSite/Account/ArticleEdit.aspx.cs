@@ -26,6 +26,7 @@ namespace TopSite.Account
     {
         ArticleLogic articleLogic = new ArticleLogic();
         CatalogueLogic catalogueLogc = new CatalogueLogic();
+        TopKeywordsLogic topKeywordsLogic = new TopKeywordsLogic();
 
         NLog.Logger log = NLog.LogManager.GetCurrentClassLogger();
 
@@ -94,21 +95,21 @@ namespace TopSite.Account
         {
             try
             {
-                Article article = GetEditingArticle();
+                Article article = GetEditingArticleAndProcessKeywords();
                 articleLogic.Save(article);
             }
             catch (Exception ex)
             {
                 log.ErrorException("保存文章失败", ex);
-            } 
+            }
             Response.Redirect(Request.Url.ToString());
         }
 
         /// <summary>
-        /// 获取正在编辑的文章对象
+        /// 获取正在编辑的文章对象，并同步数据库中关键字情况
         /// </summary>
         /// <returns></returns>
-        private Article GetEditingArticle()
+        private Article GetEditingArticleAndProcessKeywords()
         {
             Article article = null;
 
@@ -135,6 +136,10 @@ namespace TopSite.Account
                     break;
             }
 
+            // 处理关键字
+            topKeywordsLogic.AnalyzeAndSave(this.TopKeywords.Text.Trim(), article.TopKeywords);
+
+            // 为属性赋新值
             article.Title = this.txtTitle.Text;
             article.CatalogueId = int.Parse(DropDownListCatalogue.SelectedValue);
             article.Content = TopUtility.GetStressedContent(this.txtContent.Text, this.KeyWords.Text);
@@ -142,11 +147,10 @@ namespace TopSite.Account
             article.OrignSourceUrl = articleLogic.GetArticleOrignSourceUrl(this.OrignSourceUrl.Text);
             article.OrignSource = articleLogic.GetArticleOrignSourceTitle(this.OrignSource.Text, this.OrignSourceUrl.Text);
             article.Summary = this.Summary.Text;
-            article.TopKeywords = TopKeywords.Text;
+            article.TopKeywords = TopKeywords.Text.Trim();
 
             return article;
         }
-
 
         /// <summary>
         /// 获取当前界面的操作类型
@@ -177,6 +181,8 @@ namespace TopSite.Account
         {
             base.OnUnload(e);
             articleLogic.Dispose();
+            catalogueLogc.Dispose();
+            topKeywordsLogic.Dispose();
         }
     }
 }

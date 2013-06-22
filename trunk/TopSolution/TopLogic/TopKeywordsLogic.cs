@@ -32,7 +32,7 @@ namespace TopLogic
                 return;
             }
 
-            if (oldKeywords == null)
+            if (oldKeywords != null)
             {
                 string[] newkeywords = keywords.Split(',', '，');
                 string[] oldkeywords = oldKeywords.Split(',', '，');

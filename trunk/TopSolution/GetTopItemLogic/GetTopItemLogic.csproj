@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="3rddll\DocumentFormat.OpenXml.dll" />
+    <None Include="Properties\DataSources\TopEntity.TopKeywords.datasource" />
     <None Include="Service References\WcfTopItemService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -95,9 +96,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WcfTopItemService\TopItemService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WcfTopItemService\TopItemService3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

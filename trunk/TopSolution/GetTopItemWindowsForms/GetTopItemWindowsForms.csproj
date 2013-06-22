@@ -77,6 +77,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\TopEntity.TopKeywords.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,9 +95,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WcfTopItemService\TopItemService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WcfTopItemService\TopItemService3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

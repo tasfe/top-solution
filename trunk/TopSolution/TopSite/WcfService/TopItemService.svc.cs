@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using TopEntity;
+using TopLogic;
 
 namespace TopSite.WcfService
 {
@@ -37,9 +38,12 @@ namespace TopSite.WcfService
         }
 
 
-        public List<string> GetAllKeywords()
+        public List<TopKeywords> GetAllKeywords()
         {
-            return new List<string> { "美白","减肥","绿瘦" };
+            using (var logic = new TopKeywordsLogic())
+            {
+                return logic.GetList();
+            }
         }
     }
 }

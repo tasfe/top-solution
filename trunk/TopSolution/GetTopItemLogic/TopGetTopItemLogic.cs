@@ -21,8 +21,8 @@ namespace GetTopItemLogic
         private int step = 0;
         private int savestep = 0;
         private string excelpath = System.Configuration.ConfigurationManager.AppSettings["excelpath"];
-        private string curKeyword = null;
-        private Queue<string> allKeywords;
+        private TopKeywords curKeyword = null;
+        private Queue<TopKeywords> allKeywords;
 
         WebBrowser webBrowser = null;
         System.Windows.Forms.Timer timer = null;
@@ -75,7 +75,7 @@ namespace GetTopItemLogic
         private void InilizeKeywordsQueue()
         {
             ITopItemService service = new TopItemServiceClient();
-            allKeywords = new Queue<string>(service.GetAllKeywords());
+            allKeywords = new Queue<TopKeywords>(service.GetAllKeywords());
         }
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace GetTopItemLogic
                         curKeyword = allKeywords.Dequeue();
 
                         doc = this.webBrowser.Document;
-                        doc.GetElementById("q").SetAttribute("value", curKeyword);
+                        doc.GetElementById("q").SetAttribute("value", curKeyword.Keywords);
                         doc.GetElementById("J_searchForm").InvokeMember("submit");
                     }
                     else
@@ -246,7 +246,7 @@ namespace GetTopItemLogic
             //04.调用wcf先删除当前关键字的记录，再将新的保存到数据库
 
             ITopItemService service = new TopItemServiceClient();
-            service.DeleteTopItems(curKeyword);
+            service.DeleteTopItems(curKeyword.Keywords);
             service.SaveTopItemList(items);
 
             //04.删除Excel
@@ -282,7 +282,7 @@ namespace GetTopItemLogic
 
                         //TODO 提取属性
                         temp.Title = currenttr.Children[1].Children[0].Children[currenttr.Children[1].Children[0].Children.Count - 3].InnerText;
-                        temp.Keywords = curKeyword;
+                        temp.Keywords = curKeyword.Keywords;
                         temp.Nick = GetNick(currenttr.Children[1].Children[0].Children[currenttr.Children[1].Children[0].Children.Count - 2].InnerText);
                         temp.CouponRate = currenttr.Children[2].InnerText;
                         temp.CouponPrice = currenttr.Children[3].InnerText;
