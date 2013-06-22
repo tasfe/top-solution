@@ -31,7 +31,9 @@ namespace TopLogic
         {
             return DB4ODALServerHelper.GetIDALClient(conn);
         }
-
+        /// <summary>
+        /// 主数据库管理类
+        /// </summary>
         protected DB4ODALClient mainClient = null;
         public LogicBase()
         {
@@ -79,7 +81,7 @@ namespace TopLogic
             return IdentityHelper.GetNewIdentity(mainClient, type);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             if (mainClient != null)
             {

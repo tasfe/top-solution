@@ -7,11 +7,22 @@ using WebSharing.TopTool;
 using TopEntity;
 using Top.Api.Domain;
 using System.Reflection;
+using WebSharing.DB4ODAL;
 
 namespace TopLogic
 {
     public class TopLogic : LogicBase<TopItem>
     {
+        /// <summary>
+        /// 广告数据库管理类
+        /// </summary>
+        private DB4ODALClient adClient = null;
+
+        public TopLogic()
+        {
+            adClient = GetDbClient(adConn);
+        }
+
         /// <summary>
         /// 获取淘宝客打折信息。
         /// </summary>
@@ -72,6 +83,7 @@ namespace TopLogic
 
             try
             {
+                //配置信息为0表示通过开放平台，否则通过本地库
                 string topgetway = System.Configuration.ConfigurationManager.AppSettings["topgetway"];
                 if (topgetway == "0")
                 {
@@ -80,7 +92,7 @@ namespace TopLogic
                 }
                 else
                 {
-                    result = mainClient.GetList<TopItem>(p => p.Keywords == keyword).OrderByDescending(p=>p.Volume).Take(10);
+                    result = adClient.GetList<TopItem>(p => p.Keywords == keyword).OrderByDescending(p => p.Volume).Take(10);
                 }
             }
             catch (Exception ex)
@@ -92,8 +104,36 @@ namespace TopLogic
             return result;
         }
 
+        public override void Delete(TopItem obj)
+        {
+            adClient.Delete(obj);
+        }
+
+        public override List<TopItem> GetList()
+        {
+            return adClient.GetList<TopItem>();
+        }
+
+        public override List<TopItem> GetList(Predicate<TopItem> p)
+        {
+            return adClient.GetList(p);
+        }
+
+        public override void Save(TopItem obj)
+        {
+            adClient.Save(obj);
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            adClient.Dispose();
+        }
+
+        #region 私有方法
+        
         /// <summary>
-        /// 
+        /// 将淘宝开放平台的API实体映射为系统内部的广告实体
         /// </summary>
         /// <param name="taobaokeItems"></param>
         /// <returns></returns>
@@ -121,5 +161,7 @@ namespace TopLogic
 
             return result;
         }
+
+        #endregion 私有方法
     }
 }
