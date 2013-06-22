@@ -80,7 +80,7 @@ namespace TopLogic
                 }
                 else
                 {
-                    result = client.GetList<TopItem>(p => p.Keywords == keyword).OrderByDescending(p=>p.Volume).Take(10);
+                    result = mainClient.GetList<TopItem>(p => p.Keywords == keyword).OrderByDescending(p=>p.Volume).Take(10);
                 }
             }
             catch (Exception ex)

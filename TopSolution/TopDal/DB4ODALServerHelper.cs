@@ -112,7 +112,7 @@ namespace WebSharing.DB4ODAL
             if (_instance == null)
             {
                 _instance = new DB4OLocalServerHelper();
-                _instance.dbpath = dbPath;
+                _instance.dbpath = System.Web.HttpContext.Current.Server.MapPath(dbPath);
             }
             return _instance;
         }

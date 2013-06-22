@@ -22,7 +22,7 @@ namespace GetTopItemWindowsForms.WcfTopItemService {
         void DeleteTopItems(string keyword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITopItemService/GetAllKeywords", ReplyAction="http://tempuri.org/ITopItemService/GetAllKeywordsResponse")]
-        string[] GetAllKeywords();
+        TopEntity.TopKeywords[] GetAllKeywords();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -60,7 +60,7 @@ namespace GetTopItemWindowsForms.WcfTopItemService {
             base.Channel.DeleteTopItems(keyword);
         }
         
-        public string[] GetAllKeywords() {
+        public TopEntity.TopKeywords[] GetAllKeywords() {
             return base.Channel.GetAllKeywords();
         }
     }
