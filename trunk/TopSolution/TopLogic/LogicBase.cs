@@ -21,31 +21,33 @@ namespace TopLogic
 
     public abstract class LogicBase<T> : IDisposable
     {
-        protected static readonly string conn = "datasource=.;dbpath=" + System.Web.HttpContext.Current.Server.MapPath("~/App_Data/db.top");
+        protected static readonly string mainConn = System.Configuration.ConfigurationManager.ConnectionStrings["mainBase"].ConnectionString;
+        protected static readonly string adConn = System.Configuration.ConfigurationManager.ConnectionStrings["adBase"].ConnectionString;
+
         protected static readonly string dbBackupDir = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/");
         protected static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        protected DB4ODALClient GetDbClient()
+        protected DB4ODALClient GetDbClient(string conn)
         {
             return DB4ODALServerHelper.GetIDALClient(conn);
         }
 
-        protected DB4ODALClient client = null;
+        protected DB4ODALClient mainClient = null;
         public LogicBase()
         {
-            client = GetDbClient();
+            mainClient = GetDbClient(mainConn);
         }
 
 
         public virtual void Save(T obj)
         {
 
-            client.Save(obj);
+            mainClient.Save(obj);
         }
 
         public virtual void Delete(T obj)
         {
-            client.Delete(obj);
+            mainClient.Delete(obj);
         }
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace TopLogic
         /// <returns></returns>
         public virtual List<T> GetList(Predicate<T> p)
         {
-            return client.GetList<T>(p);
+            return mainClient.GetList<T>(p);
         }
 
         /// <summary>
@@ -64,7 +66,7 @@ namespace TopLogic
         /// <returns></returns>
         public virtual List<T> GetList()
         {
-            return client.GetList<T>();
+            return mainClient.GetList<T>();
         }
 
         /// <summary>
@@ -74,15 +76,15 @@ namespace TopLogic
         public int GetNewIdentity()
         {
             Type type = typeof(T);
-            return IdentityHelper.GetNewIdentity(client, type);
+            return IdentityHelper.GetNewIdentity(mainClient, type);
         }
 
         public void Dispose()
         {
-            if (client != null)
+            if (mainClient != null)
             {
-                client.Dispose();
-                client = null;
+                mainClient.Dispose();
+                mainClient = null;
             }
         }
     }

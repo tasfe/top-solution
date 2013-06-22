@@ -20,7 +20,7 @@ namespace TopLogic
         public void BackupDataBase()
         {
             string dbBacupFilename = string.Format(@"{0}{1}.db", dbBackupDir, DateTime.Now.ToString("yyyyMMddHHmmssfff"));
-            DB4ODALServerHelper.BackupDb(conn, dbBacupFilename);
+            DB4ODALServerHelper.BackupDb(mainConn, dbBacupFilename);
         }
     }
 }
