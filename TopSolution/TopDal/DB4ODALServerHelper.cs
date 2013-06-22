@@ -98,24 +98,33 @@ namespace WebSharing.DB4ODAL
     {
         static readonly object syncHelper = new object();
 
+        #region 通过实例池获取实例
+
+        private static Dictionary<string, DB4OLocalServerHelper> _Pool;
+
+        static DB4OLocalServerHelper()
+        {
+            _Pool = new Dictionary<string, DB4OLocalServerHelper>();
+        }
+
+        public static DB4OLocalServerHelper GetInstance(string dbPath)
+        {
+            if (_Pool[dbPath] == null)
+            {
+                _Pool[dbPath] = new DB4OLocalServerHelper();
+                _Pool[dbPath].dbpath = System.Web.HttpContext.Current.Server.MapPath(dbPath);
+            }
+            return _Pool[dbPath];
+        }
+
+        #endregion 通过实例池获取实例
+
         private DB4OLocalServerHelper()
         {
 
         }
 
         private string dbpath = string.Empty;
-
-        private static DB4OLocalServerHelper _instance = null;
-
-        public static DB4OLocalServerHelper GetInstance(string dbPath)
-        {
-            if (_instance == null)
-            {
-                _instance = new DB4OLocalServerHelper();
-                _instance.dbpath = System.Web.HttpContext.Current.Server.MapPath(dbPath);
-            }
-            return _instance;
-        }
 
         private IObjectServer _IObjectServer = null;
 
