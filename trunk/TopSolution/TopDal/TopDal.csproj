@@ -63,16 +63,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArticleDal.cs" />
-    <Compile Include="CatalogueDal.cs" />
-    <Compile Include="DataCacheDal.cs" />
     <Compile Include="DB4ODALClient.cs" />
     <Compile Include="DB4ODALServerHelper.cs" />
     <Compile Include="IdentiyHelper\IdentityHelper.cs" />
-    <Compile Include="SiteConfigDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="3rddll\Cecil.FlowAnalysis.dll" />
+    <Content Include="3rddll\Db4objects.Db4o.CS.dll" />
+    <Content Include="3rddll\DB4objects.Db4o.CS.Optional.dll" />
+    <Content Include="3rddll\DB4objects.Db4o.CS.Optional.xml" />
+    <Content Include="3rddll\Db4objects.Db4o.CS.xml" />
+    <Content Include="3rddll\Db4objects.Db4o.Data.Services.dll" />
+    <Content Include="3rddll\Db4objects.Db4o.dll" />
+    <Content Include="3rddll\Db4objects.Db4o.Instrumentation.dll" />
+    <Content Include="3rddll\Db4objects.Db4o.Instrumentation.xml" />
+    <Content Include="3rddll\Db4objects.Db4o.Linq.dll" />
+    <Content Include="3rddll\Db4objects.Db4o.Linq.xml" />
+    <Content Include="3rddll\Db4objects.Db4o.NativeQueries.dll" />
+    <Content Include="3rddll\Db4objects.Db4o.NativeQueries.xml" />
+    <Content Include="3rddll\Db4objects.Db4o.Optional.dll" />
+    <Content Include="3rddll\Db4objects.Db4o.Optional.xml" />
+    <Content Include="3rddll\Db4objects.Db4o.xml" />
+    <Content Include="3rddll\Mono.Cecil.dll" />
+    <Content Include="3rddll\Mono.Reflection.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

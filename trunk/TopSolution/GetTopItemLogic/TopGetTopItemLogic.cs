@@ -56,7 +56,7 @@ namespace GetTopItemLogic
             {
                 timer = new System.Windows.Forms.Timer();
             }
-            timer.Interval = 1000;
+            timer.Interval = 1500;
             timer.Tick += new EventHandler(timer_Tick);
 
             // 启动24小时执行一次Timer

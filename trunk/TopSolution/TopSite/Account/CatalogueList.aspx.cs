@@ -23,6 +23,7 @@ namespace TopSite.Account
     public partial class CatalogueList : System.Web.UI.Page
     {
         CatalogueLogic CatalogueLogic = new CatalogueLogic();
+        TopKeywordsLogic keywordsLogic = new TopKeywordsLogic();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -72,6 +73,7 @@ namespace TopSite.Account
                     Catalogue catalogue = CatalogueLogic.GetList(p => p.Id == id).FirstOrDefault();
                     if (catalogue != null)
                     {
+                        keywordsLogic.AnalyzeAndSave(string.Empty, catalogue.TopKeywords);
                         CatalogueLogic.Delete(catalogue);
                         ShowCatalogues();
                     }
@@ -84,9 +86,11 @@ namespace TopSite.Account
             base.OnUnload(e);
             CatalogueLogic.Dispose();
             CatalogueLogic = null;
+            keywordsLogic.Dispose();
+            keywordsLogic = null;
         }
 
-        private Catalogue GetCatalogueFrSave()
+        private Catalogue GetCatalogueForSave()
         {
             Catalogue result = null;
 
@@ -109,18 +113,20 @@ namespace TopSite.Account
                 result.Id = CatalogueLogic.GetNewIdentity();
             }
 
+            keywordsLogic.AnalyzeAndSave(TopKeywords.Text.Trim(), result.TopKeywords);
+
             result.Title = txtTitle.Text;
             result.KeyWords = KeyWords.Text;
             result.Summary = Summary.Text;
-            result.Order = int.Parse(Order.Text);
-            result.TopKeywords = TopKeywords.Text;
+            result.Order = int.Parse(Order.Text.Trim());
+            result.TopKeywords = TopKeywords.Text.Trim();
 
             return result;
         }
 
         protected void btnSaveCatalogue_Click(object sender, EventArgs e)
         {
-            Catalogue catalogue = GetCatalogueFrSave();
+            Catalogue catalogue = GetCatalogueForSave();
             CatalogueLogic.Save(catalogue);
             ShowCatalogues();
         }

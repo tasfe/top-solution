@@ -22,6 +22,7 @@ namespace TopSite.Account
     public partial class SiteConfig : System.Web.UI.Page
     {
         SiteLogic siteLogic = new SiteLogic();
+        TopKeywordsLogic keywordsLogic = new TopKeywordsLogic();
 
         NLog.Logger log = NLog.LogManager.GetCurrentClassLogger();
 
@@ -72,10 +73,13 @@ namespace TopSite.Account
             {
                 config = siteLogic.GetList((TopEntity.SiteConfig p) => true).FirstOrDefault();
             }
+
+            keywordsLogic.AnalyzeAndSave(TopKeywords.Text.Trim(), config.TopKeywords);
+
             config.KeyWords = KeyWords.Text;
             config.SiteName = SiteName.Text;
             config.Summary = Summary.Text;
-            config.TopKeywords = TopKeywords.Text;
+            config.TopKeywords = TopKeywords.Text.Trim();
             config.CopyRight = CopyRight.Text;
             config.SiteUrl = this.TextBoxSiteUrl.Text;
 
@@ -86,6 +90,7 @@ namespace TopSite.Account
         {
             base.OnUnload(e);
             this.siteLogic.Dispose();
+            this.keywordsLogic.Dispose();
         }
 
         protected void SaveSiteConfig_Click(object sender, EventArgs e)

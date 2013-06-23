@@ -24,6 +24,7 @@ namespace TopSite.Account
     {
         NLog.Logger log = NLog.LogManager.GetCurrentClassLogger();
         ArticleLogic articleLogic = new ArticleLogic();
+        TopKeywordsLogic keywordsLogic = new TopKeywordsLogic();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,6 +46,8 @@ namespace TopSite.Account
                         Article article = articleLogic.GetList(p => p.Id == id).FirstOrDefault();
                         if (article != null)
                         {
+                            keywordsLogic.AnalyzeAndSave(string.Empty, article.TopKeywords);
+
                             int oldPageIndex = GridViewArticleList.PageIndex;
                             articleLogic.Delete(article);
                             ShowList(oldPageIndex);
@@ -83,6 +86,7 @@ namespace TopSite.Account
         {
             base.OnUnload(e);
             articleLogic.Dispose();
+            keywordsLogic.Dispose();
         }
     }
 }
