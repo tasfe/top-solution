@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Article.cs" />
     <Compile Include="Catalogue.cs" />
-    <Compile Include="DataCacheManger.cs" />
     <Compile Include="Enum\EditStateEnum.cs" />
     <Compile Include="LocalCacheKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
