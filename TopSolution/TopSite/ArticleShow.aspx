@@ -16,7 +16,7 @@
         <div class="article_title">
             <%=CurArticle.Title%></div>
         <div class="article_info">
-            <span>来源：<a href="<%=CurArticle.OrignSourceUrl %>" target="_blank"><%=CurArticle.OrignSource%></a></span><span>时间：<%=CurArticle.CreateDate%></span><span>点击量：<%=CurArticle.ClickNum%></span></div>
+            <span>来源：<a href="<%=CurArticle.OrignSourceUrl %>" target="_blank"><%=CurArticle.OrignSource%></a></span><span>时间：<%=CurArticle.CreateTime%></span><span>点击量：<%=CurArticle.ClickNum%></span></div>
         <div class="article_sumary">
             <%=CurArticle.Summary%></div>
         <div class="article_content">

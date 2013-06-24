@@ -43,6 +43,14 @@ namespace TopEntity
             get { return _RefCount; }
             set { _RefCount = value; }
         }
-        
+
+        private DateTime _LastGetTime;
+
+        public DateTime LastGetTime
+        {
+            get { return _LastGetTime; }
+            set { _LastGetTime = value; }
+        }
+
     }
 }

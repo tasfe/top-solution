@@ -15,7 +15,7 @@ using System.Text;
 
 namespace TopEntity
 {
-    public class SiteConfig
+    public class SiteConfig : EntityBase
     {
         private string _SiteName;
 
@@ -32,7 +32,7 @@ namespace TopEntity
             get { return _TopKeywords; }
             set { _TopKeywords = value; }
         }
-        
+
 
         private string _KeyWords;
 
@@ -50,13 +50,7 @@ namespace TopEntity
             set { _Summary = value; }
         }
 
-        private int _Id;
 
-        public int Id
-        {
-            get { return _Id; }
-            set { _Id = value; }
-        }
 
         private string _CopyRight;
 
@@ -73,6 +67,6 @@ namespace TopEntity
             get { return _SiteUrl; }
             set { _SiteUrl = value; }
         }
-        
+
     }
 }

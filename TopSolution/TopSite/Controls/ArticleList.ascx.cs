@@ -11,7 +11,7 @@ namespace TopSite.Controls
 {
     public partial class ArticleList : System.Web.UI.UserControl
     {
-        public int CatalogueId { get; set; }
+        public long CatalogueId { get; set; }
         public string CatalogueTitle { get; set; }
         public ArticleLogic ArticleLogic { get; set; }
         public int PageSize { get; set; }
@@ -36,14 +36,14 @@ namespace TopSite.Controls
                 PageIndex = 1;
             }
 
-            List<Article> allList = ArticleLogic.GetList(p => p.CatalogueId == CatalogueId).OrderByDescending(p=>p.CreateDate).ToList();
+            List<Article> allList = ArticleLogic.GetList(p => p.CatalogueId == CatalogueId).OrderByDescending(p=>p.CreateTime).ToList();
             PageCount = (int)Math.Ceiling((double)allList.Count / PageSize);
             if (PageIndex > PageCount)
             {
                 PageIndex = PageCount;
             }
 
-            IEnumerable<Article> articleList = allList.OrderByDescending(p => p.CreateDate).Skip(PageSize * (PageIndex - 1)).Take(PageSize);
+            IEnumerable<Article> articleList = allList.OrderByDescending(p => p.CreateTime).Skip(PageSize * (PageIndex - 1)).Take(PageSize);
             RepeaterArticleList.DataSource = articleList;
             RepeaterArticleList.DataBind();
         }

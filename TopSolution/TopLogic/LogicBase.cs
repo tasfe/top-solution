@@ -80,7 +80,7 @@ namespace TopLogic
         /// 获取新的自增Id
         /// </summary>
         /// <returns></returns>
-        public int GetNewIdentity()
+        public long GetNewIdentity()
         {
             Type type = typeof(T);
             return IdentityHelper.GetNewIdentity(mainClient, type);
