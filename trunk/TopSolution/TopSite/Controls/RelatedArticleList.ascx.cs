@@ -30,9 +30,11 @@ namespace TopSite.Controls
             set { _ShowNums  = value; }
         }
 
-        private int _TargetId;
-
-        public int TargetId
+        private long _TargetId;
+        /// <summary>
+        /// 要获取关联文章的文章Id
+        /// </summary>
+        public long TargetId
         {
             get { return _TargetId; }
             set { _TargetId = value; }

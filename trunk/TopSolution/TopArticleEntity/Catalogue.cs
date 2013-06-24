@@ -15,7 +15,7 @@ using System.Text;
 
 namespace TopEntity
 {
-    public class Catalogue
+    public class Catalogue : EntityBase
     {
         private int _Order;
 
@@ -32,15 +32,7 @@ namespace TopEntity
             get { return _Title; }
             set { _Title = value; }
         }
-
-        private int _Id;
-
-        public int Id
-        {
-            get { return _Id; }
-            set { _Id = value; }
-        }
-
+        
         private string _TopKeywords;
 
         public string TopKeywords
@@ -48,7 +40,7 @@ namespace TopEntity
             get { return _TopKeywords; }
             set { _TopKeywords = value; }
         }
-        
+
 
         private string _KeyWords;
 

@@ -5,16 +5,8 @@ using System.Text;
 
 namespace TopEntity
 {
-    public class Article
-    {
-        private int _Id;
-
-        public int Id
-        {
-            get { return _Id; }
-            set { _Id = value; }
-        }
-        
+    public class Article:EntityBase
+    {        
 
         private string _Title;
 
@@ -39,16 +31,7 @@ namespace TopEntity
             get { return _Content; }
             set { _Content = value; }
         }
-
-
-        private DateTime _CreateDate;
-
-        public DateTime CreateDate
-        {
-            get { return _CreateDate; }
-            set { _CreateDate = value; }
-        }
-
+        
         private string _OrignSource;
 
         public string OrignSource

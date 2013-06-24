@@ -27,7 +27,7 @@ namespace TopLogic
         /// <param name="keywords">关键字</param>
         /// <param name="num">要取的数量</param>
         /// <returns></returns>
-        public IEnumerable<Article> GetRelatedArticleList(int id, string keywords, int num)
+        public IEnumerable<Article> GetRelatedArticleList(long id, string keywords, int num)
         {
             List<Article> articleList = GetList();
 

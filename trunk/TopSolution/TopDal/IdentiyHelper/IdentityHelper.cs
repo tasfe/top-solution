@@ -31,9 +31,9 @@ namespace TopDal.IdentiyHelper
         /// <param name="client">客户端</param>
         /// <param name="type">要获取的数据类型</param>
         /// <returns></returns>
-        public static int GetNewIdentity(DB4ODALClient client, Type type)
+        public static long GetNewIdentity(DB4ODALClient client, Type type)
         {
-            int result = 0;
+            long result = 0;
 
             IdentityHelper helper = client.GetList<IdentityHelper>().FirstOrDefault();
             if (helper == null)
