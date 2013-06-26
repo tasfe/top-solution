@@ -35,4 +35,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TopItem" nillable="true" type="tns:TopItem" />
+  <xs:complexType name="ArrayOfTopKeywords">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TopKeywords" nillable="true" type="tns:TopKeywords" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTopKeywords" nillable="true" type="tns:ArrayOfTopKeywords" />
+  <xs:complexType name="TopKeywords">
+    <xs:sequence>
+      <xs:element name="_Id" type="xs:long" />
+      <xs:element name="_Keywords" nillable="true" type="xs:string" />
+      <xs:element name="_LastGetTime" type="xs:dateTime" />
+      <xs:element name="_RefCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TopKeywords" nillable="true" type="tns:TopKeywords" />
 </xs:schema>

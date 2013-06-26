@@ -16,10 +16,7 @@ namespace TopSite.WcfService
         {
             using (TopLogic.TopLogic logic = new TopLogic.TopLogic())
             {
-                foreach (var item in items)
-                {
-                    logic.Save(item);
-                }
+                logic.Save(items);
             }
         }
 
@@ -42,7 +39,7 @@ namespace TopSite.WcfService
         {
             using (var logic = new TopKeywordsLogic())
             {
-                return logic.GetList();
+                return logic.GetList(p => p.LastGetTime.AddHours(24) < DateTime.Now);
             }
         }
     }

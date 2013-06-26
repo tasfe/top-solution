@@ -45,7 +45,9 @@ namespace TopEntity
         }
 
         private DateTime _LastGetTime;
-
+        /// <summary>
+        /// 最后一次从网络抓取相关广告的时间
+        /// </summary>
         public DateTime LastGetTime
         {
             get { return _LastGetTime; }
