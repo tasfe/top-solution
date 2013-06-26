@@ -124,6 +124,31 @@ namespace TopLogic
             adClient.Save(obj);
         }
 
+        /// <summary>
+        /// 保存抓取到的广告信息，并更新想关关键字的获取时间。
+        /// </summary>
+        /// <param name="topItems"></param>
+        public void Save(List<TopItem> topItems)
+        {
+            foreach (var item in topItems)
+            {
+                Save(item);
+            }
+            var keywords = (from d in topItems select d.Keywords).Distinct();
+            using (TopKeywordsLogic logic = new TopKeywordsLogic())
+            {
+                foreach (var item in keywords)
+                {
+                    TopKeywords curkeywords = logic.GetList(p => p.Keywords == item).FirstOrDefault();
+                    if (curkeywords != null)
+                    {
+                        curkeywords.LastGetTime = DateTime.Now;
+                        logic.Save(curkeywords);
+                    }
+                }
+            }
+        }
+
         public override void Dispose()
         {
             base.Dispose();

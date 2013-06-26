@@ -163,7 +163,7 @@ namespace GetTopItemLogic
             HtmlDocument doc = null;
             switch (e.Url.ToString())
             {
-                case GetTopItemUrls.LoginUrl:
+                case GetTopItemUrls.LoginUrl:                    
                     doc = this.webBrowser.Document;
                     doc.GetElementById("J_logname").SetAttribute("value", "yuweiyuan2004@163.com");
                     doc.GetElementById("J_logpassword").SetAttribute("value", "yuweiyuan518");
