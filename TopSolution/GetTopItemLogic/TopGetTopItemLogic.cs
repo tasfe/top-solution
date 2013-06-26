@@ -56,7 +56,8 @@ namespace GetTopItemLogic
             {
                 timer = new System.Windows.Forms.Timer();
             }
-            timer.Interval = 1500;
+            timer.Interval = int.Parse(System.Configuration.ConfigurationManager.AppSettings["clickInterval"]);
+            timer.Tick -= new EventHandler(timer_Tick);
             timer.Tick += new EventHandler(timer_Tick);
 
             // 启动24小时执行一次Timer
@@ -128,13 +129,22 @@ namespace GetTopItemLogic
                 case 5:
                     timer.Stop();
                     savestep = 0;
-                    // 处理导出的Excel，提取数据，将整合好的数据存库
-                    ProcessExcel();
-                    // 转到检索页面开始下一次导出
-                    webBrowser.Navigate(GetTopItemUrls.UserSelectTaoBaoKeUrl);
+                    try
+                    {
+                        // 处理导出的Excel，提取数据，将整合好的数据存库
+                        ProcessExcel();
+                    }
+                    catch
+                    {
+
+                    }
+                    finally
+                    {
+                        // 转到检索页面开始下一次导出
+                        webBrowser.Navigate(GetTopItemUrls.UserSelectTaoBaoKeUrl);
+                    }
                     break;
             }
-
         }
 
         /// <summary>
