@@ -12,7 +12,7 @@
             <asp:BoundField DataField="Id" HeaderText="Id" />
             <asp:BoundField DataField="Title" HeaderText="标题" />
             <asp:BoundField DataField="ClickNum" HeaderText="点击" />
-            <asp:BoundField DataField="CreateDate" HeaderText="发布时间" />
+            <asp:BoundField DataField="CreateTime" HeaderText="发布时间" />
             <asp:TemplateField HeaderText="操作">
                 <ItemTemplate>
                     <asp:HyperLink ID="hlinkEdit" runat="server" NavigateUrl='<%# "ArticleEdit.aspx?action="+EditStateEnum.Edit.ToString()+"&id="+Eval("Id").ToString() %>'>编辑</asp:HyperLink>
