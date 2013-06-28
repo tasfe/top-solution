@@ -39,7 +39,7 @@ namespace TopSite.WcfService
         {
             using (var logic = new TopKeywordsLogic())
             {
-                return logic.GetList(p => p.LastGetTime.AddHours(24) < DateTime.Now);
+                return logic.GetList(p => p.LastGetTime < DateTime.Now.AddHours(-24));
             }
         }
     }

@@ -154,6 +154,7 @@ namespace TopLogic
             base.Dispose();
             adClient.Dispose();
         }
+               
 
         #region 私有方法
         
