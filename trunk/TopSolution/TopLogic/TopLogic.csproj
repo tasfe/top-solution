@@ -55,6 +55,7 @@
     <Compile Include="BasicCache.cs" />
     <Compile Include="CatalogueLogic.cs" />
     <Compile Include="DataBaseManagerLogic.cs" />
+    <Compile Include="LoadAdFromAlimamaLogic.cs" />
     <Compile Include="LogicBase.cs" />
     <Compile Include="MembershipLogic.cs" />
     <Compile Include="MemebershipProvider.cs" />
@@ -75,6 +76,10 @@
     <ProjectReference Include="..\TopDal\TopDal.csproj">
       <Project>{36C72A84-BB06-4E7A-B024-5D4FFAAAD8DF}</Project>
       <Name>TopDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TopUtilityTool\TopUtilityTool.csproj">
+      <Project>{F292D8DE-84D6-465B-BE3C-1CB9562F6719}</Project>
+      <Name>TopUtilityTool</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebSharing.TopTool\WebSharing.TopTool.csproj">
       <Project>{89CEE365-2573-48C1-8FF1-7309ADFA55CB}</Project>
