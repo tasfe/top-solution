@@ -6,6 +6,8 @@ using TopEntity;
 using TopUtilityTool;
 using System.Net;
 using GetTopItemEntity;
+using System.Collections;
+using System.IO;
 
 namespace TopLogic
 {
@@ -26,15 +28,21 @@ namespace TopLogic
         public void LoadAdToDb(List<string> keywords)
         {
             // 01.访问首页
-            TopHttpWebRequest.GetHtmlData(GetTopItemUrls.HomeUrl, cookieContainer);
+            ArrayList htmlData = TopHttpWebRequest.GetHtmlData(GetTopItemUrls.HomeUrl, cookieContainer);
             // 02.传递登陆数据
-            TopHttpWebRequest.PostData(GetTopItemUrls.PostInfo, GetTopItemUrls.PostToUrl, cookieContainer);
+            htmlData = TopHttpWebRequest.PostData(GetTopItemUrls.PostInfo, GetTopItemUrls.PostToUrl, cookieContainer);
             // 03.循环访问关键词页面
             foreach (var item in keywords)
             {
                 // 00.删除指定名称的Excel文件   
+                if (File.Exists(excelpath))
+                {
+                    File.Delete(excelpath);
+                }
 
                 // 01.抓取前10名的ID，拼接Excel地址
+                htmlData=TopHttpWebRequest.GetHtmlData(string.Format(GetTopItemUrls.MerchandisePromotionPageFormat,System.Web.HttpContext.Current.Server.UrlEncode(item)),cookieContainer);
+                
 
                 // 02.下载Excel文件
 
