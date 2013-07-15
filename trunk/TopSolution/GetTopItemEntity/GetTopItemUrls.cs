@@ -31,5 +31,14 @@ namespace GetTopItemEntity
         /// 网站搜索页面地址格式化字符串，获取真正地址时传入关键字即可
         /// </summary>
         public const string MerchandisePromotionPageFormat = "http://u.alimama.com/union/spread/selfservice/merchandisePromotion.htm?cat=&discountId=&pidvid=&_fmu.a._0.t=1&_fmu.a._0.pe=40&_fmu.a._0.l=&_fmu.a._0.so=_totalnum&c=&rewrite=&cat=&mid=&searchType=0&q={0}&_fmu.a._0.u=&_fmu.a._0.s=&_fmu.a._0.sta=&_fmu.a._0.end=&_fmu.a._0.st=&_fmu.a._0.en=&_fmu.a._0.star=0&loc=#";
+        /// <summary>
+        /// post发送的信息
+        /// </summary>
+        public const string PostInfo = "_tb_token_=tZX1cqDCmMm&style=&redirect=&proxy=http%3A%2F%2Fwww.alimama.com%2Fproxy.htm&logname=yuweiyuan2004@163.com&originalLogpasswd=yuweiyuan518&logpasswd=f565015d95bef352fed1429937e79cb0";
+
+        /// <summary>
+        /// 提交到的URL
+        /// </summary>
+        public const string PostToUrl = "http://www.alimama.com/member/minilogin_act.htm";
     }
 }

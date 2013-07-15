@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using GetTopItemLogic;
+using SHDocVw;
+using System.IO;
 
 namespace GetTopItemWindowsForms
 {
@@ -22,11 +24,19 @@ namespace GetTopItemWindowsForms
             TopGetTopItemLogic logic = new TopGetTopItemLogic(this.webBrowser);
             logic.BeginLoad();
         }
-
-        private void 测试采集ToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void FormMain_Load(object sender, EventArgs e)
         {
-            ExcelToolWithCom tool = new ExcelToolWithCom();
-            DataTable table = tool.GetExcelData(System.Configuration.ConfigurationManager.AppSettings["excelpath"]);
+            SHDocVw.WebBrowser wb = (SHDocVw.WebBrowser)webBrowser.ActiveXInstance;
+            wb.BeforeNavigate2 += new DWebBrowserEvents2_BeforeNavigate2EventHandler(wb_BeforeNavigate2);
+        }
+
+        void wb_BeforeNavigate2(object pDisp, ref object URL, ref object Flags, ref object TargetFrameName, ref object PostData, ref object Headers, ref bool Cancel)
+        {
+            string postDataText = System.Text.Encoding.ASCII.GetString(PostData as byte[]);
+            string str = string.Format("{0}\r\n{1}",URL,postDataText);
+            string path = "1.txt";
+            File.AppendAllText(path, str);
         }
     }
 }

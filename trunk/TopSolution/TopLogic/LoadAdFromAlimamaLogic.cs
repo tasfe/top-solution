@@ -5,12 +5,14 @@ using System.Text;
 using TopEntity;
 using TopUtilityTool;
 using System.Net;
+using GetTopItemEntity;
 
 namespace TopLogic
 {
     public class LoadAdFromAlimamaLogic : LogicBase<TopItem>
     {
         private CookieContainer cookieContainer = null;
+        private string excelpath = System.Configuration.ConfigurationManager.AppSettings["excelpath"];
 
         public LoadAdFromAlimamaLogic()
         {
@@ -24,9 +26,9 @@ namespace TopLogic
         public void LoadAdToDb(List<string> keywords)
         {
             // 01.访问首页
-            TopHttpWebRequest.GetHtmlData("", cookieContainer);
+            TopHttpWebRequest.GetHtmlData(GetTopItemUrls.HomeUrl, cookieContainer);
             // 02.传递登陆数据
-            TopHttpWebRequest.PostData("", "", cookieContainer);
+            TopHttpWebRequest.PostData(GetTopItemUrls.PostInfo, GetTopItemUrls.PostToUrl, cookieContainer);
             // 03.循环访问关键词页面
             foreach (var item in keywords)
             {
