@@ -65,6 +65,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GetTopItemEntity\GetTopItemEntity.csproj">
+      <Project>{C27DF54A-5E87-4598-BA03-5BEC76BF8B07}</Project>
+      <Name>GetTopItemEntity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\taobao-sdk-net-online_standard-20130423-source\TopSdk.csproj">
       <Project>{9C11CAE5-5188-4E71-825B-68FC3135728A}</Project>
       <Name>TopSdk</Name>
