@@ -56,15 +56,25 @@ namespace TopLogic
                 loadData = TopHttpWebRequest.GetHtmlData(string.Format(GetTopItemUrls.MerchandisePromotionPageFormat, System.Web.HttpContext.Current.Server.UrlEncode(item)), cookieContainer);
                 if ((bool)loadData[0] == false)
                 {
-                    return;
+                    continue;
                 }
 
                 string htmlData = loadData[2].ToString();
-
+                
+                List<TopItem> topItems = GetTopItemsFromPage(htmlData);
+                string itemIds = "";
+                string excelUrl = string.Format(GetTopItemUrls.ExcelUrlFormat, itemIds);
                 // 02.下载Excel文件
+                
 
+                bool loadResult = TopHttpWebRequest.DowloadCheckImg(excelUrl, cookieContainer, excelpath);
+
+                if (loadResult == false)
+                {
+                    continue;
+                }
                 // 03.处理信息存入数据库
-
+                ProcessExcel();
             }
         }
 
@@ -78,7 +88,19 @@ namespace TopLogic
 
             for (int i = 0; i < count; i++)
             {
+                TopItem temp = new TopItem();
 
+                //TODO 提取属性
+                //temp.Title = currenttr.Children[1].Children[0].Children[currenttr.Children[1].Children[0].Children.Count - 3].InnerText;
+                //temp.Keywords = curKeyword.Keywords;
+                //temp.Nick = GetNick(currenttr.Children[1].Children[0].Children[currenttr.Children[1].Children[0].Children.Count - 2].InnerText);
+                //temp.CouponRate = currenttr.Children[2].InnerText;
+                //temp.CouponPrice = currenttr.Children[3].InnerText;
+                //temp.CommissionRate = currenttr.Children[4].InnerText;
+                //temp.Commission = currenttr.Children[5].Children[0].InnerText;
+                //temp.CommissionNum = currenttr.Children[6].InnerText;
+                //temp.CommissionVolume = currenttr.Children[7].InnerText;
+                result.Add(temp);
             }
 
             return result;
@@ -93,6 +115,40 @@ namespace TopLogic
         {
             string pattern = "(?<=掌柜：).*?(?= )";
             return Regex.Match(oriStr, pattern).Value;
+        }
+
+        /// <summary>
+        /// 处理Excel
+        /// </summary>
+        private void ProcessExcel()
+        {
+            ////01.读取Excel数据
+            //ExcelToolWithCom tool = new ExcelToolWithCom();
+            //DataTable dataTableFromExcel = tool.GetExcelData(excelpath);
+            ////02.获取网页数据
+            //List<TopItem> items = this.GetTopItemsFromPage();
+            ////03.使用Excel数据填充属性
+            //foreach (var item in items)
+            //{
+            //    DataRow dr = dataTableFromExcel.AsEnumerable().Where(p => p["宝贝标题"].ToString() == item.Title).FirstOrDefault();
+            //    if (dr != null)
+            //    {
+            //        item.PicUrl = dr["主图片"].ToString();
+            //        item.ClickUrl = dr["单品链接"].ToString();
+            //        item.ShopClickUrl = dr["店铺链接"].ToString();
+            //    }
+            //}
+            ////04.调用wcf先删除当前关键字的记录，再将新的保存到数据库
+
+            //ITopItemService service = new TopItemServiceClient();
+            //service.DeleteTopItems(curKeyword.Keywords);
+            //service.SaveTopItemList(items);
+
+            ////04.删除Excel
+            //if (File.Exists(excelpath))
+            //{
+            //    File.Delete(excelpath);
+            //}
         }
     }
 }
