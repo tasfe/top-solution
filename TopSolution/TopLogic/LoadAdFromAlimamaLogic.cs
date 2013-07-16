@@ -53,7 +53,7 @@ namespace TopLogic
                 }
 
                 // 01.抓取前10名的ID，拼接Excel地址
-                loadData=TopHttpWebRequest.GetHtmlData(string.Format(GetTopItemUrls.MerchandisePromotionPageFormat,System.Web.HttpContext.Current.Server.UrlEncode(item)),cookieContainer);
+                loadData = TopHttpWebRequest.GetHtmlData(string.Format(GetTopItemUrls.MerchandisePromotionPageFormat, System.Web.HttpContext.Current.Server.UrlEncode(item)), cookieContainer);
                 if ((bool)loadData[0] == false)
                 {
                     return;
@@ -72,9 +72,14 @@ namespace TopLogic
         {
             List<TopItem> result = new List<TopItem>();
 
-            string pattern = "(?<=掌柜：).*?(?= )";
+            string pattern = "(?<=<tr zhekou=\".*\" zhekoujia=\".*\">).*?(?=</tr>)";
             MatchCollection matchs = Regex.Matches(htmlData, pattern, RegexOptions.Singleline);
+            int count = matchs.Count > 10 ? 10 : matchs.Count;
 
+            for (int i = 0; i < count; i++)
+            {
+
+            }
 
             return result;
         }
