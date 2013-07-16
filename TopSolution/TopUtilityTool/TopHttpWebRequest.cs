@@ -44,6 +44,7 @@ namespace TopUtilityTool
                     {
                         cookie.Add(response.Cookies);
                         //保存Cookies
+                        list.Add(true);
                         list.Add(cookie);
                         list.Add(reader.ReadToEnd());
                         list.Add(Guid.NewGuid().ToString());//图片名
@@ -53,6 +54,7 @@ namespace TopUtilityTool
             catch (WebException ex)
             {
                 list.Clear();
+                list.Add(false);
                 list.Add("发生异常/n/r");
                 WebResponse wr = ex.Response;
                 using (Stream st = wr.GetResponseStream())
@@ -66,6 +68,7 @@ namespace TopUtilityTool
             catch (Exception ex)
             {
                 list.Clear();
+                list.Add(false);
                 list.Add("5");
                 list.Add("发生异常：" + ex.Message);
             }
@@ -158,7 +161,10 @@ namespace TopUtilityTool
                     using (StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
                     {
                         if (response.Cookies.Count > 0)
+                        {
                             cookie.Add(response.Cookies);
+                        }
+                        list.Add(true);
                         list.Add(cookie);
                         list.Add(reader.ReadToEnd());
                     }
@@ -166,6 +172,8 @@ namespace TopUtilityTool
             }
             catch (WebException wex)
             {
+                list.Clear();
+                list.Add(false);
                 WebResponse wr = wex.Response;
                 using (Stream st = wr.GetResponseStream())
                 {
@@ -177,6 +185,8 @@ namespace TopUtilityTool
             }
             catch (Exception ex)
             {
+                list.Clear();
+                list.Add(false);
                 list.Add("发生异常/n/r" + ex.Message);
             }
             return list;

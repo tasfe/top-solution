@@ -243,6 +243,7 @@
     <Content Include="editor\skins\moono\images\close.png" />
     <Content Include="editor\skins\moono\images\mini.png" />
     <Content Include="editor\styles.js" />
+    <Content Include="HTMLPage1.htm" />
     <Content Include="images\7t2.gif" />
     <Content Include="images\dot_6.gif" />
     <Content Include="images\hd_bg.gif" />
