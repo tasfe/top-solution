@@ -18,6 +18,17 @@ namespace TopEntity
     [Serializable]
     public class TopItem
     {
+        private string _TopItemId;
+
+        /// <summary>
+        /// 淘宝商品ID
+        /// </summary>
+        public string TopItemId
+        {
+            get { return _TopItemId; }
+            set { _TopItemId = value; }
+        }        
+
         private string _Keywords;
         /// <summary>
         /// 所属的关键词
