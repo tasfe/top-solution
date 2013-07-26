@@ -60,12 +60,12 @@ namespace TopLogic
                 }
 
                 string htmlData = loadData[2].ToString();
-                
+
                 List<TopItem> topItems = GetTopItemsFromPage(htmlData);
                 string itemIds = "";
                 string excelUrl = string.Format(GetTopItemUrls.ExcelUrlFormat, itemIds);
                 // 02.下载Excel文件
-                
+
 
                 bool loadResult = TopHttpWebRequest.DowloadCheckImg(excelUrl, cookieContainer, excelpath);
 
@@ -90,10 +90,12 @@ namespace TopLogic
             {
                 TopItem temp = new TopItem();
 
+                string itemHtml = matchs[i].Value;
                 //TODO 提取属性
+                temp.TopItemId = GetTopItemId(itemHtml);
                 //temp.Title = currenttr.Children[1].Children[0].Children[currenttr.Children[1].Children[0].Children.Count - 3].InnerText;
                 //temp.Keywords = curKeyword.Keywords;
-                //temp.Nick = GetNick(currenttr.Children[1].Children[0].Children[currenttr.Children[1].Children[0].Children.Count - 2].InnerText);
+                temp.Nick = GetNick(itemHtml);
                 //temp.CouponRate = currenttr.Children[2].InnerText;
                 //temp.CouponPrice = currenttr.Children[3].InnerText;
                 //temp.CommissionRate = currenttr.Children[4].InnerText;
@@ -104,6 +106,29 @@ namespace TopLogic
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 从单条记录中获取项目ID
+        /// </summary>
+        /// <param name="itemHtml"></param>
+        /// <returns></returns>
+        private string GetTopItemId(string itemHtml)
+        {
+            string parten = "(?<=name=\"linkexport\" value=\")\\d+?(?=\")";
+            if (Regex.IsMatch(itemHtml, parten))
+            {
+                return Regex.Match(itemHtml, parten, RegexOptions.Singleline).Value;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        private string GetItemTitle(string itemHtml)
+        {
+            return string.Empty;
         }
 
         /// <summary>
