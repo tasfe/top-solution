@@ -38,7 +38,7 @@ namespace GetTopItemEntity
         /// <summary>
         /// post发送的信息
         /// </summary>
-        public const string PostInfo = "_tb_token_=tZX1cqDCmMm&style=&redirect=&proxy=http%3A%2F%2Fwww.alimama.com%2Fproxy.htm&logname=yuweiyuan2004@163.com&originalLogpasswd=yuweiyuan518&logpasswd=f565015d95bef352fed1429937e79cb0";
+        public const string PostInfo = "_tb_token_={0}&style=&redirect=&proxy=http%3A%2F%2Fwww.alimama.com%2Fproxy.htm&logname=yuweiyuan2004%40163.com&originalLogpasswd=yuweiyuan518&logpasswd=f565015d95bef352fed1429937e79cb0";
         /// <summary>
         /// 提交到的URL
         /// </summary>

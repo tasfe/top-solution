@@ -19,6 +19,9 @@ namespace TopSite
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            LoadAdFromAlimamaLogic logicc = new LoadAdFromAlimamaLogic();
+            logicc.LoadAdToDb(new List<string> { "绿瘦" });
+
             if (!IsPostBack)
             {
                 this.Title = string.Format("{0}-{1}", BasicCache.SiteConfig.SiteName, BasicCache.SiteConfig.KeyWords);
