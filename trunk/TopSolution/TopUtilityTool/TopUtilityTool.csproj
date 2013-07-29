@@ -45,6 +45,7 @@
     <Compile Include="TopSecurity.cs" />
     <Compile Include="TopUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XMLTOOL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TopArticleEntity\TopEntity.csproj">

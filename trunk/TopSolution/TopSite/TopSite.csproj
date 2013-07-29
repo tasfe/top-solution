@@ -268,7 +268,9 @@
     <Content Include="Styles\TopAd.css" />
     <Content Include="Styles\article.css" />
     <Content Include="WcfService\TopItemService.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -470,6 +472,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Configurations\AlimamaGetReg.Config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="editor\CHANGES.md" />
     <None Include="editor\LICENSE.md" />
     <None Include="editor\plugins\scayt\LICENSE.md" />
