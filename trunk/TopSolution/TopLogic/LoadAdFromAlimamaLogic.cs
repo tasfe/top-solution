@@ -36,8 +36,17 @@ namespace TopLogic
                 return;
             }
 
+            // 02. 获取token
+            loadData = TopHttpWebRequest.GetHtmlData(GetTopItemUrls.LoginUrl, cookieContainer);
+            if ((bool)loadData[0] == false)
+            {
+                return;
+            }
+            string htmlDataLogin = loadData[2].ToString();
+            string token = GetToken(htmlDataLogin);
+
             // 02.传递登陆数据
-            loadData = TopHttpWebRequest.PostData(GetTopItemUrls.PostInfo, GetTopItemUrls.PostToUrl, cookieContainer);
+            loadData = TopHttpWebRequest.PostData(string.Format(GetTopItemUrls.PostInfo, token), GetTopItemUrls.PostToUrl, cookieContainer);
             if ((bool)loadData[0] == false)
             {
                 return;
@@ -66,6 +75,12 @@ namespace TopLogic
                 string excelUrl = string.Format(GetTopItemUrls.ExcelUrlFormat, itemIds);
 
                 // 02.下载Excel文件
+                string dir = Path.GetDirectoryName(excelpath);
+                if (Directory.Exists(dir) == false)
+                {
+                    Directory.CreateDirectory(dir);
+                }
+
                 bool loadResult = TopHttpWebRequest.DowloadCheckImg(excelUrl, cookieContainer, excelpath);
 
                 if (loadResult == false)
@@ -78,6 +93,17 @@ namespace TopLogic
         }
 
         #region 私有方法
+
+        /// <summary>
+        /// 获取Token
+        /// </summary>
+        /// <param name="htmlStr"></param>
+        /// <returns></returns>
+        private string GetToken(string htmlStr)
+        {
+            string reg = AlimamaFetRegManager.GetTokenReg();
+            return GetValueByConfigReg(htmlStr, reg);
+        }
 
         /// <summary>
         /// 从html字符串中提取出前十名的广告信息
@@ -114,6 +140,7 @@ namespace TopLogic
 
             return result;
         }
+
 
         /// <summary>
         /// 从单条记录中获取项目ID
@@ -228,7 +255,7 @@ namespace TopLogic
             }
             else
             {
-                return TopUtility.GetStringByReg(itemHtml, ConfigReg);
+                return TopUtility.GetStringByReg(ConfigReg,itemHtml );
             }
         }
 
@@ -264,7 +291,7 @@ namespace TopLogic
             //{
             //    File.Delete(excelpath);
             //}
-        } 
+        }
 
         #endregion 私有方法
     }
@@ -275,6 +302,18 @@ namespace TopLogic
     class AlimamaFetRegManager
     {
         static readonly string ConfigFilePath = System.Web.Hosting.HostingEnvironment.MapPath("~/Configurations/AlimamaGetReg.Config");
+
+        private static string _TokenReg = null;
+
+        public static string GetTokenReg()
+        {
+            if (_TokenReg == null)
+            {
+                _TokenReg = XMLTOOL.GetFirstNodeValue(ConfigFilePath, "TokenReg");
+
+            }
+            return _TokenReg;
+        }
 
         /// <summary>
         /// 单条内容正则表达式

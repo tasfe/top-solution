@@ -40,7 +40,7 @@ namespace TopUtilityTool
                 //获取服务器返回的资源
                 using (response = (HttpWebResponse)request.GetResponse())
                 {
-                    using (StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.Default))
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
                     {
                         cookie.Add(response.Cookies);
                         //保存Cookies
@@ -59,7 +59,7 @@ namespace TopUtilityTool
                 WebResponse wr = ex.Response;
                 using (Stream st = wr.GetResponseStream())
                 {
-                    using (StreamReader sr = new StreamReader(st, System.Text.Encoding.Default))
+                    using (StreamReader sr = new StreamReader(st, System.Text.Encoding.UTF8))
                     {
                         list.Add(sr.ReadToEnd());
                     }
@@ -141,9 +141,9 @@ namespace TopUtilityTool
             ArrayList list = new ArrayList();
             HttpWebRequest request;
             HttpWebResponse response;
-            ASCIIEncoding encoding = new ASCIIEncoding();
+            //ASCIIEncoding encoding = Encoding.UTF8;
             request = WebRequest.Create(postUrl) as HttpWebRequest;
-            byte[] b = encoding.GetBytes(postData);
+            byte[] b = Encoding.UTF8.GetBytes(postData);
             request.UserAgent = "Mozilla/4.0";
             request.Method = "POST";
             request.CookieContainer = cookie;
@@ -177,7 +177,7 @@ namespace TopUtilityTool
                 WebResponse wr = wex.Response;
                 using (Stream st = wr.GetResponseStream())
                 {
-                    using (StreamReader sr = new StreamReader(st, System.Text.Encoding.Default))
+                    using (StreamReader sr = new StreamReader(st, System.Text.Encoding.UTF8))
                     {
                         list.Add(sr.ReadToEnd());
                     }
