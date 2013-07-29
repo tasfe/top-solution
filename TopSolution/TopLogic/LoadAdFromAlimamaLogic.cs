@@ -15,7 +15,7 @@ namespace TopLogic
     public class LoadAdFromAlimamaLogic : LogicBase<TopItem>
     {
         private CookieContainer cookieContainer = null;
-        private string excelpath = System.Configuration.ConfigurationManager.AppSettings["excelpath"];
+        private string excelpath = System.Web.Hosting.HostingEnvironment.MapPath(System.Configuration.ConfigurationManager.AppSettings["excelpath"]);
 
         public LoadAdFromAlimamaLogic()
         {
@@ -62,11 +62,10 @@ namespace TopLogic
                 string htmlData = loadData[2].ToString();
 
                 List<TopItem> topItems = GetTopItemsFromPage(htmlData, item);
-                string itemIds = "";
+                string itemIds = string.Join(",", (from d in topItems select d.TopItemId).ToArray());
                 string excelUrl = string.Format(GetTopItemUrls.ExcelUrlFormat, itemIds);
+
                 // 02.下载Excel文件
-
-
                 bool loadResult = TopHttpWebRequest.DowloadCheckImg(excelUrl, cookieContainer, excelpath);
 
                 if (loadResult == false)
@@ -77,6 +76,8 @@ namespace TopLogic
                 ProcessExcel();
             }
         }
+
+        #region 私有方法
 
         /// <summary>
         /// 从html字符串中提取出前十名的广告信息
@@ -212,7 +213,7 @@ namespace TopLogic
             string reg = AlimamaFetRegManager.GetItemCommissionVolumeReg();
             return GetValueByConfigReg(itemHtml, reg);
         }
-        
+
         /// <summary>
         /// 根据配置的获取方式获取网页内容
         /// </summary>
@@ -263,7 +264,9 @@ namespace TopLogic
             //{
             //    File.Delete(excelpath);
             //}
-        }
+        } 
+
+        #endregion 私有方法
     }
 
     /// <summary>
@@ -271,7 +274,7 @@ namespace TopLogic
     /// </summary>
     class AlimamaFetRegManager
     {
-       static readonly string ConfigFilePath = System.Web.Hosting.HostingEnvironment.MapPath("~/Configurations/AlimamaGetReg.Config");
+        static readonly string ConfigFilePath = System.Web.Hosting.HostingEnvironment.MapPath("~/Configurations/AlimamaGetReg.Config");
 
         /// <summary>
         /// 单条内容正则表达式
