@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using TopEntity;
+using System.Text.RegularExpressions;
 
 namespace TopUtilityTool
 {
@@ -76,6 +77,24 @@ namespace TopUtilityTool
             }
             
             return result;
+        }
+
+        /// <summary>
+        /// 使用正则表达式提取字符串
+        /// </summary>
+        /// <param name="pattern">正则表达式</param>
+        /// <param name="oriStr">要从中提取的字符串</param>
+        /// <returns></returns>
+        public static string GetStringByReg(string pattern, string oriStr)
+        {
+            if (Regex.IsMatch(oriStr, pattern))
+            {
+                return Regex.Match(oriStr, pattern, RegexOptions.Singleline).Value;
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
 
         /// <summary>

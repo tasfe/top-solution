@@ -111,24 +111,23 @@ namespace TopLogic
         /// <summary>
         /// 从单条记录中获取项目ID
         /// </summary>
-        /// <param name="itemHtml"></param>
+        /// <param name="itemHtml">单条记录html</param>
         /// <returns></returns>
         private string GetTopItemId(string itemHtml)
         {
-            string parten = "(?<=name=\"linkexport\" value=\")\\d+?(?=\")";
-            if (Regex.IsMatch(itemHtml, parten))
-            {
-                return Regex.Match(itemHtml, parten, RegexOptions.Singleline).Value;
-            }
-            else
-            {
-                return string.Empty;
-            }
+            string pattern = "(?<=name=\"linkexport\" value=\")\\d+?(?=\")";
+            return TopUtility.GetStringByReg(pattern, itemHtml);
         }
 
+        /// <summary>
+        /// 获取记录标题
+        /// </summary>
+        /// <param name="itemHtml">单条记录html</param>
+        /// <returns></returns>
         private string GetItemTitle(string itemHtml)
         {
-            return string.Empty;
+            string reg = "(?<=<a target=\\\"_blank\\\" href=\\\"http://item\\.taobao\\.com:80/item\\.htm\\?id=\\d*\\\" lzlinkno=\\\"\\d*\\\">).*?(?=</a>)";
+            return TopUtility.GetStringByReg(reg,itemHtml);
         }
 
         /// <summary>
@@ -139,7 +138,7 @@ namespace TopLogic
         private string GetNick(string oriStr)
         {
             string pattern = "(?<=掌柜：).*?(?= )";
-            return Regex.Match(oriStr, pattern).Value;
+            return TopUtility.GetStringByReg(oriStr, pattern);
         }
 
         /// <summary>
