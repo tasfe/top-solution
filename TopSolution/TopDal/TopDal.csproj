@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="DB4ODALClient.cs" />
     <Compile Include="DB4ODALServerHelper.cs" />
+    <Compile Include="Enum\OrderEnum.cs" />
     <Compile Include="IdentiyHelper\IdentityHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
