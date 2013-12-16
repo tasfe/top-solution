@@ -16,11 +16,28 @@
         <div class="article_title">
             <%=CurArticle.Title%></div>
         <div class="article_info">
-            <span>来源：<a href="<%=CurArticle.OrignSourceUrl %>"  rel="nofollow"  target="_blank"><%=CurArticle.OrignSource%></a></span><span>时间：<%=CurArticle.CreateTime%></span><span>点击量：<%=CurArticle.ClickNum%></span></div>
+            <span>来源：<a href="<%=CurArticle.OrignSourceUrl %>" rel="nofollow" target="_blank"><%=CurArticle.OrignSource%></a></span><span>时间：<%=CurArticle.CreateTime%></span><span>点击量：<%=CurArticle.ClickNum%></span></div>
         <div class="article_sumary">
             <%=CurArticle.Summary%></div>
         <div class="article_content">
             <%=CurArticle.Content%></div>
+        <div>
+            <!-- Baidu Button BEGIN -->
+            <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+                <a class="bds_tsina"></a><a class="bds_qzone"></a><a class="bds_tqq"></a><a class="bds_renren">
+                </a><a class="bds_t163"></a><a class="bds_tsohu"></a><a class="bds_tqf"></a><a class="bds_sqq">
+                </a><a class="bds_hi"></a><a class="bds_mogujie"></a><a class="bds_meilishuo"></a>
+                <span class="bds_more"></span>
+            </div>
+            <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6816366"></script>
+            <script type="text/javascript" id="bdshell_js"></script>
+            <script type="text/javascript">
+                document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000)
+</script>
+            <!-- Baidu Button END -->
+            <div style="clear: both;">
+            </div>
+        </div>
         <div class="article_related">
             <uc1:RelatedArticleList ID="RelatedArticleList1" runat="server" />
         </div>
