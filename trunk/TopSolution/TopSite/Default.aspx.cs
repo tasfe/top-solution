@@ -19,8 +19,8 @@ namespace TopSite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadAdFromAlimamaLogic logicc = new LoadAdFromAlimamaLogic();
-            logicc.LoadAdToDb(new List<string> { "绿瘦" });
+            //LoadAdFromAlimamaLogic logicc = new LoadAdFromAlimamaLogic();
+            //logicc.LoadAdToDb(new List<string> { "绿瘦" });
 
             if (!IsPostBack)
             {
@@ -50,7 +50,7 @@ namespace TopSite
         private void ShowArticleList()
         {
 
-            List<TopEntity.Catalogue> catalogueList = catalogueLogic.GetList();
+            var catalogueList = catalogueLogic.GetList().OrderBy(p => p.Order); ;
             foreach (var item in catalogueList)
             {
                 TopSite.Controls.ArticleList list = (Controls.ArticleList)Page.LoadControl("~/Controls/ArticleList.ascx");
