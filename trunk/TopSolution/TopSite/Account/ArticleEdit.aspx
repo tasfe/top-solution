@@ -44,6 +44,8 @@
                 <asp:TextBox ID="OrignSourceUrl" runat="server" CssClass="textEntry"></asp:TextBox>
                 <span class="failureNotification" style="visibility: hidden">*</span>
             </p>
+            <div class="clear">
+            </div>
             <p>
                 <asp:Label ID="KeyWordsLabel" runat="server" AssociatedControlID="KeyWords">关键词:</asp:Label>
                 <asp:TextBox ID="KeyWords" runat="server" CssClass="textEntry"></asp:TextBox>
