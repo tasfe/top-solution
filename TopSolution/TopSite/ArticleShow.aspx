@@ -7,9 +7,7 @@
 <asp:Content runat="server" ID="head" ContentPlaceHolderID="HeadContent">
     <meta name="keywords" content="<%=CurArticle.KeyWords%>" />
     <meta name="description" content="<%=CurArticle.Summary %>" />
-    <link href="Styles/article.css" rel="stylesheet" type="text/css" />
-    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
-    <script src="Scripts/common.js" type="text/javascript"></script>
+    <link href="/Styles/article.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content runat="server" ID="main" ContentPlaceHolderID="MainContent">
     <div class="article">

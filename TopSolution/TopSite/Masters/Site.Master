@@ -6,21 +6,26 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <link href="../Styles/Common.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/Common.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/weixin.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="/Scripts/weixin.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <div class="S_head">
-        <h1 class="w980">
-            <%=TopLogic.BasicCache.SiteConfig.SiteName%>
-        </h1>
+        <div>
+            <h1 class="w980">
+                <%=TopLogic.BasicCache.SiteConfig.SiteName%>
+            </h1>
+        </div>
         <ul class="w980 menu" id="menu">
             <li><a href="/"><span>首页</span></a></li>
             <%
                 using (TopLogic.CatalogueLogic logic = new TopLogic.CatalogueLogic())
                 {
-                    var catalogues = logic.GetList().OrderBy(p=>p.Order);
+                    var catalogues = logic.GetList().OrderBy(p => p.Order);
                     foreach (var item in catalogues)
                     {
                
@@ -50,6 +55,14 @@
     <div class="footer">
         <%= TopLogic.BasicCache.SiteConfig.CopyRight%>
     </div>
-    <script src="../Scripts/taodianjin.js" type="text/javascript"></script>
+    <!-- 微信代码开始 -->
+    
+    <div id="code">
+    </div>
+    <div id="code_img">
+    </div>
+    <a id="gotop" href="javascript:void(0)"></a>
+
+    <!-- 微信代码结束 -->
 </body>
 </html>
