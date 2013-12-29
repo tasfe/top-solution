@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TopList.ascx.cs" Inherits="TopSite.Controls.TopList" %>
-<link href="../Styles/TopAd.css" rel="stylesheet" type="text/css" />
 <div class="topad">
     <%    
         TopLogic.TopLogic logic = new TopLogic.TopLogic();
@@ -15,14 +14,14 @@
     <div class="topaditem">
         <div class="topsdot">
             <h3>
-                <a target="_blank" href="<%=item.ClickUrl %>"  rel="nofollow" >
+                <a target="_blank" href="<%=item.ClickUrl %>" rel="nofollow">
                     <%=item.Title%></a>
             </h3>
         </div>
         <div class="topdetail">
             <div class="topimg">
-                <a target="_blank" href="<%=item.ClickUrl %>"  rel="nofollow" >
-                    <img width="315" height="315" border="0" alt="<%=item.Title %>" src="<%=item.PicUrl %>" />
+                <a target="_blank" href="<%=item.ClickUrl %>" rel="nofollow">
+                    <img width="296" height="296" border="0" alt="<%=item.Title %>" src="<%=item.PicUrl %>" />
                 </a>
             </div>
             <div class="topmeta">
@@ -34,7 +33,7 @@
                         <span class="S_fh">￥</span> <span class="S_je"><strike>
                             <%=item.CouponPrice%></strike> </span>
                     </div>
-                    <a href="<%=item.ClickUrl %>" target="_blank"  rel="nofollow" >
+                    <a href="<%=item.ClickUrl %>" target="_blank" rel="nofollow">
                         <img class="qgimg" src="/images/qg.gif" alt="抢购<%=item.Title %>" title="抢购排行榜第<%=i+1 %>名产品：<%=item.Title %>" />
                     </a>
                 </div>
