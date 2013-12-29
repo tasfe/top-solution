@@ -8,6 +8,7 @@
     <title></title>
     <link href="/Styles/Common.css" rel="stylesheet" type="text/css" />
     <link href="/Styles/weixin.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/TopAd.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
     <script src="/Scripts/weixin.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
