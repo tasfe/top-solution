@@ -142,7 +142,7 @@ namespace QQBuySdk
         {
             String tmp = GetSource(method, url_path, parameters, encoding);
 
-            System.IO.File.WriteAllText(@"D:\addSourceString.txt", tmp);
+            //System.IO.File.WriteAllText(@"D:\addSourceString.txt", tmp);
 
             byte[] signatureKey = Encoding.Default.GetBytes(secret);
             HMACSHA1 hmacsha1 = new HMACSHA1(signatureKey);
