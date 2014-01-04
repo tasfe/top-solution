@@ -37,7 +37,7 @@ namespace TopSite
             {
                 InitList();
                 InitKeywords(curCatalogue);
-            }
+            }            
         }
 
         private void InitList()
