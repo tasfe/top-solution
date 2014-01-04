@@ -23,10 +23,13 @@
     }
 
     /**
-     * All configuration settings must be defined here.
+     * All configuration settings must be defined here. 
      */
     public override void SetConfig()
     {
+        // 是否使用随机文件名
+        this.RandomReName = true;
+        
         // Paste your license name and key here. If left blank, CKFinder will
         // be fully functional, in Demo Mode.
         LicenseName = "";
@@ -41,9 +44,9 @@
 
         // Optional: enable extra plugins (remember to copy .dll files first).
         Plugins = new string[] {
-			// "CKFinder.Plugins.FileEditor, CKFinder_FileEditor",
-			// "CKFinder.Plugins.ImageResize, CKFinder_ImageResize",
-			// "CKFinder.Plugins.Watermark, CKFinder_Watermark"
+             //"CKFinder.Plugins.FileEditor, CKFinder_FileEditor",
+             //"CKFinder.Plugins.ImageResize, CKFinder_ImageResize",
+             "CKFinder.Plugins.Watermark, CKFinder_Watermark"
 		};
         // Settings for extra plugins.
         PluginSettings = new Hashtable();
@@ -51,7 +54,7 @@
         PluginSettings.Add("ImageResize_mediumThumb", "120x120");
         PluginSettings.Add("ImageResize_largeThumb", "180x180");
         // Name of the watermark image in plugins/watermark folder
-        PluginSettings.Add("Watermark_source", "logo.gif");
+        PluginSettings.Add("Watermark_source", "logo.png");
         PluginSettings.Add("Watermark_marginRight", "5");
         PluginSettings.Add("Watermark_marginBottom", "5");
         PluginSettings.Add("Watermark_quality", "90");
