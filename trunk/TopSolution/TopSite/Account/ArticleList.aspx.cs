@@ -62,7 +62,7 @@ namespace TopSite.Account
         }
 
         private void ShowList(int pageIndex = 0)
-        { 
+        {
             if (GridViewArticleList.PageCount >= pageIndex)
             {
                 GridViewArticleList.PageIndex = pageIndex;
@@ -71,7 +71,12 @@ namespace TopSite.Account
             {
                 GridViewArticleList.PageIndex = GridViewArticleList.PageCount;
             }
-            List<Article> articleList = articleLogic.GetList().OrderBy(p => p.CreateTime).ToList();
+            List<Article> articleList = articleLogic.GetList().OrderByDescending(p => p.CreateTime).ToList();
+            //List<Article> articleList = articleLogic.GetListByPage(null,
+            //                                                       a => a.CreateTime,
+            //                                                       TopEntity.Enum.OrderEnum.Descending,
+            //                                                       this.GridViewArticleList.PageSize,
+            //                                                       pageIndex);
             this.GridViewArticleList.DataSource = articleList;
             this.GridViewArticleList.DataBind();
         }
@@ -88,5 +93,20 @@ namespace TopSite.Account
             articleLogic.Dispose();
             keywordsLogic.Dispose();
         }
+
+        //protected void GridViewArticleList_DataBound(object sender, EventArgs e)
+        //{
+        //    var top = GridViewArticleList.TopPagerRow;
+        //    if (top != null)
+        //    {
+        //        top.Visible = true;
+        //    }
+
+        //    var bottom = GridViewArticleList.BottomPagerRow;
+        //    if (bottom != null)
+        //    {
+        //        bottom.Visible = true;
+        //    }
+        //}
     }
 }
