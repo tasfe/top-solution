@@ -103,8 +103,6 @@ namespace TopUtilityTool
         /// <param name="siteConfig"></param>
         public static void UpdateConmmonJs(SiteConfig siteConfig)
         {
-
-
             try
             {
                 string path = System.Web.HttpContext.Current.Server.MapPath("~/ScriptsTemplates/common.js");

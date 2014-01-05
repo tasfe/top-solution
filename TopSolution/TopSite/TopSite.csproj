@@ -562,6 +562,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Masters\Templates\" />
     <Folder Include="userfiles\files\" />
     <Folder Include="userfiles\flash\" />
@@ -604,8 +605,6 @@
     <Content Include="Configurations\AlimamaGetReg.Config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="App_Data\ad.top" />
-    <None Include="App_Data\db.top" />
     <None Include="ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <None Include="editor\plugins\scayt\LICENSE.md" />
     <None Include="editor\plugins\scayt\README.md" />

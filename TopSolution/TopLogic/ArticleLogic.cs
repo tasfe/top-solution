@@ -16,6 +16,8 @@ using TopEntity;
 using WebSharing.DB4ODAL;
 using TopDal;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.IO;
 
 namespace TopLogic
 {
@@ -87,6 +89,44 @@ namespace TopLogic
                 result = "http://" + url;
             }
             return result;
+        }
+
+        /// <summary>
+        /// 处理指定文章的内容，上传文章内容中的图片。处理之后的文章内容做相应的变化。
+        /// </summary>
+        /// <param name="article"></param>
+        /// <returns></returns>
+        public bool AutoUploadImage(string content,out string result)
+        {
+            try
+            {
+                StringBuilder resultBuilder = new StringBuilder(content);
+                                
+                string imgDir = System.Web.Hosting.HostingEnvironment.MapPath("~/userfiles/images/");
+                WebClient client = new WebClient();
+
+                Regex pa = new Regex("<img[^>]+src\\s*=\\s*['\"]([^'\"]+)['\"][^>]*>");
+
+                MatchCollection matches = pa.Matches(content);
+                foreach (Match match in matches)
+                {
+                    // 保存文件
+                    string src = match.Groups[0].Value;
+                    string autoFileName=DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(src);
+                    string fileName = Path.Combine(imgDir, autoFileName);
+                    client.DownloadFile(src, fileName);
+                    // 替换地址
+                    resultBuilder = resultBuilder.Replace(src, "/userfiles/images/" + autoFileName);
+                }
+                result = resultBuilder.ToString();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorException("自动上传图片失败。",ex);
+                result = string.Empty;
+                return false;
+            }
         }
     }
 }

@@ -149,6 +149,14 @@ namespace TopSite.Account
             article.Summary = this.Summary.Text;
             article.TopKeywords = TopKeywords.Text.Trim();
 
+            // 处理自动上传图片
+            string content = string.Empty;
+            bool uploadResult = articleLogic.AutoUploadImage(article.Content, out content);
+            if (uploadResult)
+            {
+                article.Content = content;
+            }
+
             return article;
         }
 
