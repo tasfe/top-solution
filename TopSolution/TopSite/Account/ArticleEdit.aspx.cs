@@ -139,23 +139,27 @@ namespace TopSite.Account
             // 处理关键字
             topKeywordsLogic.AnalyzeAndSave(this.TopKeywords.Text.Trim(), article.TopKeywords);
 
+            // 处理自动上传图片
+            string content = string.Empty;
+            bool uploadResult = articleLogic.AutoUploadImage(this.txtContent.Text, out content);
+            if (uploadResult)
+            {
+                article.Content = content;
+            }
+            else
+            {
+                article.Content = this.txtContent.Text;
+            }
+
             // 为属性赋新值
             article.Title = this.txtTitle.Text;
             article.CatalogueId = int.Parse(DropDownListCatalogue.SelectedValue);
-            article.Content = TopUtility.GetStressedContent(this.txtContent.Text, this.KeyWords.Text);
+            article.Content = TopUtility.GetStressedContent(article.Content, this.KeyWords.Text);
             article.KeyWords = this.KeyWords.Text;
             article.OrignSourceUrl = articleLogic.GetArticleOrignSourceUrl(this.OrignSourceUrl.Text);
             article.OrignSource = articleLogic.GetArticleOrignSourceTitle(this.OrignSource.Text, this.OrignSourceUrl.Text);
             article.Summary = this.Summary.Text;
             article.TopKeywords = TopKeywords.Text.Trim();
-
-            // 处理自动上传图片
-            string content = string.Empty;
-            bool uploadResult = articleLogic.AutoUploadImage(article.Content, out content);
-            if (uploadResult)
-            {
-                article.Content = content;
-            }
 
             return article;
         }
