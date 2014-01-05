@@ -84,10 +84,15 @@ namespace TopLogic
                 result = url;
             }
 
-            if (result.StartsWith("http://") == false && result.StartsWith("https://") == false)
+            if (string.IsNullOrEmpty(result) == false)
+            {
+                result = string.Empty;
+            }
+            else if (result.StartsWith("http://") == false && result.StartsWith("https://") == false)
             {
                 result = "http://" + url;
             }
+
             return result;
         }
 
@@ -96,12 +101,12 @@ namespace TopLogic
         /// </summary>
         /// <param name="article"></param>
         /// <returns></returns>
-        public bool AutoUploadImage(string content,out string result)
+        public bool AutoUploadImage(string content, out string result)
         {
             try
             {
                 StringBuilder resultBuilder = new StringBuilder(content);
-                                
+
                 string imgDir = System.Web.Hosting.HostingEnvironment.MapPath("~/userfiles/images/");
                 WebClient client = new WebClient();
 
@@ -111,8 +116,8 @@ namespace TopLogic
                 foreach (Match match in matches)
                 {
                     // 保存文件
-                    string src = match.Groups[0].Value;
-                    string autoFileName=DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(src);
+                    string src = match.Groups[1].Value;
+                    string autoFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(src);
                     string fileName = Path.Combine(imgDir, autoFileName);
                     client.DownloadFile(src, fileName);
                     // 替换地址
@@ -123,7 +128,7 @@ namespace TopLogic
             }
             catch (Exception ex)
             {
-                logger.ErrorException("自动上传图片失败。",ex);
+                logger.ErrorException("自动上传图片失败。", ex);
                 result = string.Empty;
                 return false;
             }
