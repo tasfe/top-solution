@@ -84,7 +84,7 @@ namespace TopLogic
                 result = url;
             }
 
-            if (string.IsNullOrEmpty(result) == false)
+            if (string.IsNullOrEmpty(result))
             {
                 result = string.Empty;
             }
@@ -117,7 +117,22 @@ namespace TopLogic
                 {
                     // 保存文件
                     string src = match.Groups[1].Value;
-                    string autoFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(src);
+
+                    // 不是远程文件跳过
+                    if (!src.StartsWith("http://")&&!src.StartsWith("https://"))
+                    {
+                        continue;
+                    }
+
+                    string ext = Path.GetExtension(src);
+
+                    if (string.IsNullOrEmpty(ext.TrimStart('.')))
+                    {
+                        // 如果是类似mvc形式得不到真正的后缀名，则默认设置为jpg格式
+                        ext = ".jpg";
+                    }
+
+                    string autoFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ext;
                     string fileName = Path.Combine(imgDir, autoFileName);
                     client.DownloadFile(src, fileName);
                     // 替换地址
