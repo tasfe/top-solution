@@ -10,9 +10,17 @@
     <link href="/Styles/weixin.css" rel="stylesheet" type="text/css" />
     <link href="/Styles/TopAd.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
-    <script src="/Scripts/weixin.js" type="text/javascript"></script>
+    <script src="/Scripts/weixin.js" type="text/javascript"></script>    
+    <script src="/Scripts/common.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        $(
+        function () {
+            showAd("<%=this.PageKeywords%>", "rightColumn");
+        }
+        );
+    </script>
 </head>
 <body>
     <div class="S_head">
@@ -42,8 +50,8 @@
         <div class="leftColumn">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
-        <div class="rightColumn">
-            <uc1:TopList ID="TopList" runat="server" />
+        <div id="rightColumn" class="rightColumn">
+            <%--<uc1:TopList ID="TopList" runat="server" />--%>
         </div>
         <div class="clear">
         </div>

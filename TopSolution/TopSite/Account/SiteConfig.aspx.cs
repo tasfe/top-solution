@@ -38,7 +38,7 @@ namespace TopSite.Account
         {
             try
             {
-                TopEntity.SiteConfig config = siteLogic.GetList((TopEntity.SiteConfig p) => true).FirstOrDefault();
+                TopEntity.SiteConfig config = siteLogic.GetList().FirstOrDefault();
                 if (config == null)
                 {
                     btnSaveSiteConfig.CommandArgument = EditStateEnum.New.ToString(); ;
