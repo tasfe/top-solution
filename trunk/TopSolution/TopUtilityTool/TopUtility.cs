@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using TopEntity;
 using System.Text.RegularExpressions;
+using System.Net;
 
 namespace TopUtilityTool
 {
@@ -53,7 +54,7 @@ namespace TopUtilityTool
 
             for (int i = 0; i < newKeywordsArray.Length; i++)
             {
-                result = result.Replace(newKeywordsArray[i], string.Format("<strong>{0}</strong>",newKeywordsArray[i]));
+                result = result.Replace(newKeywordsArray[i], string.Format("<strong>{0}</strong>", newKeywordsArray[i]));
             }
 
             return result;
@@ -65,7 +66,7 @@ namespace TopUtilityTool
         /// <param name="content">内容</param>
         /// <param name="oldKeywords">旧的关键字</param>
         /// <returns></returns>
-        public static string GetUnstressedContent(string content,string oldKeywords)
+        public static string GetUnstressedContent(string content, string oldKeywords)
         {
             string result = content;
             char[] spliter = new char[] { ',', '，' };
@@ -75,7 +76,7 @@ namespace TopUtilityTool
             {
                 result = result.Replace(string.Format("<strong>{0}</strong>", oldKeywordsArray[i]), oldKeywordsArray[i]);
             }
-            
+
             return result;
         }
 
@@ -98,24 +99,77 @@ namespace TopUtilityTool
         }
 
         /// <summary>
-        /// 更新通用js文件
+        /// 更新js模板文件夹中的所有通用js文件
         /// </summary>
         /// <param name="siteConfig"></param>
         public static void UpdateConmmonJs(SiteConfig siteConfig)
         {
             try
             {
-                string path = System.Web.HttpContext.Current.Server.MapPath("~/ScriptsTemplates/common.js");
-                string pathTarget = System.Web.HttpContext.Current.Server.MapPath("~/Scripts/common.js");
+                string sourceDir = System.Web.Hosting.HostingEnvironment.MapPath("~/ScriptsTemplates/");
+                string targetDir = System.Web.Hosting.HostingEnvironment.MapPath("~/Scripts/");
 
-                string content = File.ReadAllText(path);
-                string contentNew = content.Replace("{sitename}", siteConfig.SiteName);
-                contentNew = contentNew.Replace("{siteurl}", siteConfig.SiteUrl);
-                File.WriteAllText(pathTarget, contentNew);
+                if (Directory.Exists(sourceDir))
+                {
+                    foreach (string file in Directory.GetFiles(sourceDir, "*.js"))
+                    {
+                        string pathTarget = Path.Combine(targetDir, Path.GetFileName(file));
+                        string content = File.ReadAllText(file);
+                        string contentNew = content.Replace("{sitename}", siteConfig.SiteName);
+                        contentNew = contentNew.Replace("{siteurl}", siteConfig.SiteUrl);
+                        File.WriteAllText(pathTarget, contentNew);
+                    }
+                }
             }
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+
+        /// <summary>
+        /// 将指定url的网页内容写入文件
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="encoding"></param>
+        /// <param name="fileName"></param>
+        /// <param name="webClient"></param>
+        public static void WriteHtmlToFile(string url, Encoding encoding, string fileName, WebClient webClient = null)
+        {
+            bool needClear = false;
+            try
+            {
+                string dir = Path.GetDirectoryName(fileName);
+                if (Directory.Exists(dir) == false)
+                {
+                    Directory.CreateDirectory(dir);
+                }
+
+                if (webClient == null)
+                {
+                    webClient = new WebClient();
+                    needClear = true;
+                }
+                webClient.Encoding = encoding;
+
+                string content = webClient.DownloadString(url);
+                if (string.IsNullOrEmpty(content) == false)
+                {
+                    File.WriteAllText(content, fileName);
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (needClear && webClient != null)
+                {
+                    webClient.Dispose();
+                    webClient = null;
+                }
             }
         }
     }

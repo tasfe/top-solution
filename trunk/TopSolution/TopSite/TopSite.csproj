@@ -368,6 +368,7 @@
     <Content Include="editor\skins\moono\images\refresh.png" />
     <Content Include="editor\styles.js" />
     <Content Include="HTMLPage1.htm" />
+    <Content Include="HTMLPage2.htm" />
     <Content Include="images\7t2.gif" />
     <Content Include="images\dot_6.gif" />
     <Content Include="images\hd_bg.gif" />
@@ -382,8 +383,8 @@
     <Content Include="images\weixin.png" />
     <Content Include="images\weixin原图.png" />
     <Content Include="ScriptsTemplates\common.js" />
+    <Content Include="ScriptsTemplates\jumpmobile.js" />
     <Content Include="Scripts\common.js" />
-    <Content Include="Scripts\taodianjin.js" />
     <Content Include="Scripts\weixin.js" />
     <Content Include="Styles\articlelist.css" />
     <Content Include="Styles\Common.css" />
@@ -524,6 +525,9 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GetAdsHandler.ashx.cs">
+      <DependentUpon>GetAdsHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -611,6 +615,7 @@
     <None Include="editor\plugins\wsc\LICENSE.md" />
     <None Include="editor\plugins\wsc\README.md" />
     <None Include="editor\skins\moono\readme.md" />
+    <Content Include="GetAdsHandler.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

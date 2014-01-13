@@ -14,7 +14,8 @@
                 <ul class="S_arclist">
             </HeaderTemplate>
             <ItemTemplate>
-                <li><a target="_blank" title="<%#Eval("Title") %>" href="<%#"ArticleShow.aspx?id="+Eval("id") %>">
+                <li><a target="_blank" title="<%#Eval("Title")+" - "+ CatalogueTitle %>"
+                    href="<%#"ArticleShow.aspx?id="+Eval("id") %>">
                     <%#Eval("Title") %></a></li>
             </ItemTemplate>
             <FooterTemplate>
