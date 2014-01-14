@@ -55,6 +55,7 @@
     <Compile Include="BasicCache.cs" />
     <Compile Include="CatalogueLogic.cs" />
     <Compile Include="DataBaseManagerLogic.cs" />
+    <Compile Include="HtmlFileGenerater.cs" />
     <Compile Include="LoadAdFromAlimamaLogic.cs" />
     <Compile Include="LogicBase.cs" />
     <Compile Include="MembershipLogic.cs" />

@@ -29,7 +29,7 @@ namespace TopSite
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            
+
             string keyword = context.Request.Form["keyword"];
 
             if (string.IsNullOrEmpty(keyword))

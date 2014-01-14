@@ -130,7 +130,7 @@ namespace TopUtilityTool
         /// <summary>
         /// 将指定url的网页内容写入文件
         /// </summary>
-        /// <param name="url"></param>
+        /// <param name="url">获取内容的url地址</param>
         /// <param name="encoding"></param>
         /// <param name="fileName"></param>
         /// <param name="webClient"></param>
@@ -155,9 +155,8 @@ namespace TopUtilityTool
                 string content = webClient.DownloadString(url);
                 if (string.IsNullOrEmpty(content) == false)
                 {
-                    File.WriteAllText(content, fileName);
+                    File.WriteAllText(fileName, content, encoding);
                 }
-
             }
             catch (Exception)
             {
