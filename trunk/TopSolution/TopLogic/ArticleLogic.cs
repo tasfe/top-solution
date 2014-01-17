@@ -119,7 +119,7 @@ namespace TopLogic
                     string src = match.Groups[1].Value;
 
                     // 不是远程文件跳过
-                    if (!src.StartsWith("http://")&&!src.StartsWith("https://"))
+                    if (!src.StartsWith("http://") && !src.StartsWith("https://"))
                     {
                         continue;
                     }
@@ -148,5 +148,15 @@ namespace TopLogic
                 return false;
             }
         }
+
+        /// <summary>
+        /// 查询所有文章的Id集合
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<long> GetAllIds()
+        {
+            return this.GetList().Select(p => p.Id);
+        }
+
     }
 }

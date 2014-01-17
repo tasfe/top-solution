@@ -46,13 +46,19 @@ namespace TopLogic
         /// 生成文章内容Html页
         /// </summary>
         /// <param name="ids">要生成的文章Id列表，如果为null，会生成全站文章</param>
-        public void GenerateArticlePage(List<int> ids)
+        public void GenerateArticlePage(IEnumerable<long> ids)
         {
             try
             {
                 string fromUrlBuilder = GetFullUrl("~/ArticleShow.aspx?id=");
                 string outFileBase = HttpContext.Current.Server.MapPath("~/articles/");
                 int oriLength = fromUrlBuilder.Length;
+
+                if (ids == null) 
+                
+                {
+                    ids = new ArticleLogic().GetAllIds();
+                }
 
                 using (WebClient client = new WebClient())
                 {
