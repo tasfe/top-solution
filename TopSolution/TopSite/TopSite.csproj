@@ -73,6 +73,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\DbBackUp.aspx" />
     <Content Include="Account\Default.aspx" />
+    <Content Include="Account\HtmlGenerate.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\SiteConfig.aspx" />
@@ -367,8 +368,6 @@
     <Content Include="editor\skins\moono\images\lock.png" />
     <Content Include="editor\skins\moono\images\refresh.png" />
     <Content Include="editor\styles.js" />
-    <Content Include="HTMLPage1.htm" />
-    <Content Include="HTMLPage2.htm" />
     <Content Include="images\7t2.gif" />
     <Content Include="images\dot_6.gif" />
     <Content Include="images\hd_bg.gif" />
@@ -408,6 +407,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\ArticleEdit.aspx.cs">
@@ -458,6 +458,13 @@
     </Compile>
     <Compile Include="Account\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\HtmlGenerate.aspx.cs">
+      <DependentUpon>HtmlGenerate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\HtmlGenerate.aspx.designer.cs">
+      <DependentUpon>HtmlGenerate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -563,6 +570,13 @@
     <Compile Include="WcfService\ITopItemService.cs" />
     <Compile Include="WcfService\TopItemService.svc.cs">
       <DependentUpon>TopItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
