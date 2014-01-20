@@ -459,6 +459,9 @@
     <Compile Include="Account\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\HtmlGenerater.ashx.cs">
+      <DependentUpon>HtmlGenerater.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Account\HtmlGenerate.aspx.cs">
       <DependentUpon>HtmlGenerate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -534,6 +537,9 @@
     </Compile>
     <Compile Include="GetAdsHandler.ashx.cs">
       <DependentUpon>GetAdsHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetClickNumHandler.ashx.cs">
+      <DependentUpon>GetClickNumHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -623,6 +629,7 @@
     <Content Include="Configurations\AlimamaGetReg.Config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Account\HtmlGenerater.ashx" />
     <None Include="ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <None Include="editor\plugins\scayt\LICENSE.md" />
     <None Include="editor\plugins\scayt\README.md" />
@@ -630,6 +637,7 @@
     <None Include="editor\plugins\wsc\README.md" />
     <None Include="editor\skins\moono\readme.md" />
     <Content Include="GetAdsHandler.ashx" />
+    <Content Include="GetClickNumHandler.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

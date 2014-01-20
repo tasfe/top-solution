@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/ArticleShowMaster.master"
     AutoEventWireup="true" CodeBehind="ArticleShow.aspx.cs" Inherits="TopSite.ArticleShow" %>
 
-<%@ OutputCache Duration="3600" VaryByParam="id" %>
+<%--<%@ OutputCache Duration="3600" VaryByParam="id" %>--%>
 <%@ Register Src="Controls/RelatedArticleList.ascx" TagName="RelatedArticleList"
     TagPrefix="uc1" %>
 <asp:Content runat="server" ID="head" ContentPlaceHolderID="HeadContent">
