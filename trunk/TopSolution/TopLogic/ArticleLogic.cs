@@ -158,5 +158,14 @@ namespace TopLogic
             return this.GetList().Select(p => p.Id);
         }
 
+        /// <summary>
+        /// 根据Id获取文章
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Article GetById(long id)
+        {
+            return GetList(p => p.Id == id).FirstOrDefault();
+        }
     }
 }

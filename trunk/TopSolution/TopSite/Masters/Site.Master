@@ -39,7 +39,7 @@
                     {
                
             %>
-            <li><a href="<%="articlelist.aspx?id="+item.Id.ToString() %>" title="<%=item.Title%>">
+            <li><a href="<%="/articlelist.aspx?id="+item.Id.ToString() %>" title="<%=item.Title%>">
                 <span>
                     <%=item.Title%></span></a></li>
             <%}

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="TopSite._Default" %>
 
-<%@ OutputCache Duration="3600" VaryByParam="none" %>
+<%--<%@ OutputCache Duration="3600" VaryByParam="none" %>--%>
 <%@ Register Src="Controls/ArticleList.ascx" TagName="ArticleList" TagPrefix="uc1" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <meta name="keywords" content="<%=TopLogic.BasicCache.SiteConfig.KeyWords%>" />

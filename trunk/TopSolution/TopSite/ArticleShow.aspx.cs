@@ -35,6 +35,10 @@ namespace TopSite
                 BindTopKeywords();
                 BindRelatedArticle();
             }
+
+            //Response.Cache.SetExpires(DateTime.Now.AddSeconds(30));
+            //Response.Cache.VaryByParams["name"] = true;
+            //Response.Cache.VaryByParams["id"] = true;
         }
 
         private void ShowArticle()

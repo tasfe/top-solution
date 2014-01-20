@@ -40,6 +40,7 @@
                         <asp:MenuItem NavigateUrl="~/Account/SiteConfig.aspx" Text="站点基本信息" />
                         <asp:MenuItem NavigateUrl="~/Account/ArticleList.aspx" Text="文章列表" />
                         <asp:MenuItem NavigateUrl="~/Account/ArticleEdit.aspx" Text="添加文章" />
+                        <asp:MenuItem NavigateUrl="~/Account/HtmlGenerate.aspx" Text="静态化" />
                         <asp:MenuItem NavigateUrl="~/Account/CatalogueList.aspx" Text="文章分类" />
                         <asp:MenuItem NavigateUrl="~/Account/DbBackUp.aspx" Text="备份数据库" />
                     </Items>
