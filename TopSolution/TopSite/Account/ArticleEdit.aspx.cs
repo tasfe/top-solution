@@ -98,6 +98,7 @@ namespace TopSite.Account
             {
                 article = GetEditingArticleAndProcessKeywords();
                 articleLogic.Save(article);
+                articleLogic.Commit();
             }
             catch (Exception ex)
             {

@@ -126,6 +126,14 @@ namespace TopLogic
             return IdentityHelper.GetNewIdentity(mainClient, type);
         }
 
+        public virtual void Commit()
+        {
+            if (mainClient != null)
+            {
+                mainClient.Commit();
+            }
+        }
+
         public virtual void Dispose()
         {
             if (mainClient != null)
