@@ -368,6 +368,7 @@
     <Content Include="editor\skins\moono\images\lock.png" />
     <Content Include="editor\skins\moono\images\refresh.png" />
     <Content Include="editor\styles.js" />
+    <Content Include="history.txt" />
     <Content Include="images\7t2.gif" />
     <Content Include="images\dot_6.gif" />
     <Content Include="images\hd_bg.gif" />

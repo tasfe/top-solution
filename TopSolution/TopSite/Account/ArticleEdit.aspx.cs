@@ -93,15 +93,27 @@ namespace TopSite.Account
         /// <param name="e"></param>
         protected void btnSaveArticle_Click(object sender, EventArgs e)
         {
+            Article article = null;
             try
             {
-                Article article = GetEditingArticleAndProcessKeywords();
+                article = GetEditingArticleAndProcessKeywords();
                 articleLogic.Save(article);
             }
             catch (Exception ex)
             {
                 log.ErrorException("保存文章失败", ex);
             }
+
+            try
+            {
+                HtmlFileGenerater g = new HtmlFileGenerater();
+                g.GenerateArticlePage(new long[] { article.Id });
+            }
+            catch (Exception ex)
+            {
+                Loger.LogErr(ex);
+            }
+
             Response.Redirect(Request.Url.ToString());
         }
 
