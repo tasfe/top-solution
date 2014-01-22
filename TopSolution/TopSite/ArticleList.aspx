@@ -5,13 +5,13 @@
 <%@ Register Src="Controls/ArticleList.ascx" TagName="ArticleList" TagPrefix="uc1" %>
 <asp:Content runat="server" ID="head" ContentPlaceHolderID="HeadContent">
     <meta name="keywords" content="<%=curCatalogue.KeyWords%>" />
-    <meta name="description" content="<%=curCatalogue.Summary %>"/>
+    <meta name="description" content="<%=curCatalogue.Summary %>" />
     <link href="Styles/articlelist.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content runat="server" ID="main" ContentPlaceHolderID="MainContent">
     <uc1:ArticleList ID="ArticleList1" runat="server" />
     <div class="pager">
-        <span><a href="/ArticleList.aspx?id=<%=CataId.ToString() %>&page=1">第一页</a></span>
+        <span><a href="/ArticleList.aspx?id=<%=CataId.ToString() %>&page=1">首页</a></span>
         <%
             PageCount = this.ArticleList1.PageCount;
             int pageMin = PageIndex - 5 > 1 ? PageIndex - 5 : 1;
@@ -38,6 +38,6 @@
             title="后5页">……</a> </span>
         <%} %>
         <span><a href="/ArticleList.aspx?id=<%=CataId.ToString() %>&page=<%=PageCount.ToString() %>">
-            最后一页</a></span>
+            末页</a></span>
     </div>
 </asp:Content>
