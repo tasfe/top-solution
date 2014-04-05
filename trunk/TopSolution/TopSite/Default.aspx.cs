@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Top.Api.Response;
 using TopLogic;
 using TopEntity;
 using TopUtilityTool;
@@ -58,6 +57,7 @@ namespace TopSite
                 list.CatalogueId = item.Id;
                 list.CatalogueTitle = item.Title;
                 list.ArticleLogic = articleLogic;
+                list.CalculatePageCount = false;
 
                 placeHolder.Controls.Add(list);
             }

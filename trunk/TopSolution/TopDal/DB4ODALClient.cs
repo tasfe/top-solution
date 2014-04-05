@@ -72,7 +72,36 @@ namespace WebSharing.DB4ODAL
 
         /// <summary>
         /// 分页查询
-        /// </summary>
+        /// </summary> 
+        /// <typeparam name="TSource">要查询的数据类型</typeparam>
+        /// <typeparam name="TKey">排序字段类型</typeparam>
+        /// <param name="totalCount">输出总的条目数</param>
+        /// <param name="searchCondition">检索条件</param>
+        /// <param name="orderKeySelector">排序字段</param>
+        /// <param name="order">排序方式</param>
+        /// <param name="pageSize">页面大小默认为10</param>
+        /// <param name="pageIndex">页面索引</param>
+        /// <returns></returns>
+        public List<TSource> GetListByPage<TSource, TKey>(out int totalCount,
+                                                          Predicate<TSource> searchCondition = null,
+                                                          Expression<Func<TSource, TKey>> orderKeySelector = null,
+                                                          OrderEnum order = OrderEnum.Ascending,
+                                                          int pageSize = 10,
+                                                          int pageIndex = 1)
+        {
+
+            return this.GetListByPage<TSource, TKey>(out totalCount,
+                                                     true,
+                                                     searchCondition,
+                                                     orderKeySelector,
+                                                     order,
+                                                     pageSize,
+                                                     pageIndex);
+        }
+
+        /// <summary>
+        /// 分页查询
+        /// </summary> 
         /// <typeparam name="TSource">要查询的数据类型</typeparam>
         /// <typeparam name="TKey">排序字段类型</typeparam>
         /// <param name="searchCondition">检索条件</param>
@@ -86,6 +115,37 @@ namespace WebSharing.DB4ODAL
                                                           OrderEnum order = OrderEnum.Ascending,
                                                           int pageSize = 10,
                                                           int pageIndex = 1)
+        {
+            int temp = 0;
+            return this.GetListByPage<TSource, TKey>(out temp,
+                                                     false,
+                                                     searchCondition,
+                                                     orderKeySelector,
+                                                     order,
+                                                     pageSize,
+                                                     pageIndex);
+        }
+
+        /// <summary>
+        /// 分页查询
+        /// </summary> 
+        /// <typeparam name="TSource">要查询的数据类型</typeparam>
+        /// <typeparam name="TKey">排序字段类型</typeparam>
+        /// <param name="totalCount">输出总的条目数</param>
+        /// <param name="getTotal">是否输出总条数</param>
+        /// <param name="searchCondition">检索条件</param>
+        /// <param name="orderKeySelector">排序字段</param>
+        /// <param name="order">排序方式</param>
+        /// <param name="pageSize">页面大小默认为10</param>
+        /// <param name="pageIndex">页面索引</param>
+        /// <returns></returns>
+        private List<TSource> GetListByPage<TSource, TKey>(out int totalCount,
+                                                            bool getTotal,
+                                                            Predicate<TSource> searchCondition = null,
+                                                            Expression<Func<TSource, TKey>> orderKeySelector = null,
+                                                            OrderEnum order = OrderEnum.Ascending,
+                                                            int pageSize = 10,
+                                                            int pageIndex = 1)
         {
             IDb4oLinqQuery<TSource> linqResult = null;
 
@@ -115,8 +175,16 @@ namespace WebSharing.DB4ODAL
 
             // 获取合理的页大小
             pageSize = pageSize > 0 ? pageSize : 1;
+            var linqPagedResult = linqResult.Skip(skipCount).Take(pageSize);
 
-            var linqPagedResult = linqResult.Skip(pageIndex).Take(pageSize);
+            if (getTotal)
+            {
+                totalCount = linqResult.Count();
+            }
+            else
+            {
+                totalCount = 0;
+            }
 
             return linqPagedResult.ToList();
         }

@@ -83,6 +83,47 @@ namespace TopLogic
         /// </summary>
         /// <typeparam name="T">要查询的数据类型</typeparam>
         /// <typeparam name="TKey">排序字段类型</typeparam>
+        /// <param name="totalCount">输出总条数</param>
+        /// <param name="searchCondition">检索条件</param>
+        /// <param name="orderKeySelector">排序字段</param>
+        /// <param name="order">排序方式</param>
+        /// <param name="pageSize">页面大小默认为10</param>
+        /// <param name="pageIndex">页面索引</param>
+        /// <returns></returns>
+        public virtual List<T> GetListByPage<TKey>(out int totalCount,
+                                                    Predicate<T> searchCondition = null,
+                                                    Expression<Func<T, TKey>> orderKeySelector = null,
+                                                    OrderEnum order = OrderEnum.Ascending,
+                                                    int pageSize = 10,
+                                                    int pageIndex = 1)
+        {
+            TopDal.Enum.OrderEnum baseOrder = TopDal.Enum.OrderEnum.Ascending;
+
+            switch (order)
+            {
+                case OrderEnum.Ascending:
+                    baseOrder = TopDal.Enum.OrderEnum.Ascending;
+                    break;
+                case OrderEnum.Descending:
+                    baseOrder = TopDal.Enum.OrderEnum.Descending;
+                    break;
+                default:
+                    break;
+            }
+
+            return mainClient.GetListByPage<T, TKey>(out totalCount,
+                                                        searchCondition,
+                                                        orderKeySelector,
+                                                        baseOrder,
+                                                        pageSize,
+                                                        pageIndex);
+        }
+
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <typeparam name="T">要查询的数据类型</typeparam>
+        /// <typeparam name="TKey">排序字段类型</typeparam>
         /// <param name="searchCondition">检索条件</param>
         /// <param name="orderKeySelector">排序字段</param>
         /// <param name="order">排序方式</param>
@@ -90,10 +131,10 @@ namespace TopLogic
         /// <param name="pageIndex">页面索引</param>
         /// <returns></returns>
         public virtual List<T> GetListByPage<TKey>(Predicate<T> searchCondition = null,
-                                                  Expression<Func<T, TKey>> orderKeySelector = null,
-                                                  OrderEnum order = OrderEnum.Ascending,
-                                                  int pageSize = 10,
-                                                  int pageIndex = 1)
+                                                    Expression<Func<T, TKey>> orderKeySelector = null,
+                                                    OrderEnum order = OrderEnum.Ascending,
+                                                    int pageSize = 10,
+                                                    int pageIndex = 1)
         {
             TopDal.Enum.OrderEnum baseOrder = TopDal.Enum.OrderEnum.Ascending;
 
@@ -110,10 +151,10 @@ namespace TopLogic
             }
 
             return mainClient.GetListByPage<T, TKey>(searchCondition,
-                                                            orderKeySelector,
-                                                            baseOrder,
-                                                            pageSize,
-                                                            pageIndex);
+                                                     orderKeySelector,
+                                                     baseOrder,
+                                                     pageSize,
+                                                     pageIndex);
         }
 
         /// <summary>

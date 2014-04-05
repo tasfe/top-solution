@@ -1,0 +1,43 @@
+[2014-01-05 12:14:08][Error] 保存文章失败 详情：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 TopLogic.ArticleLogic.GetArticleOrignSourceTitle(String orgn, String url) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\ArticleLogic.cs:行号 58
+   在 TopSite.Account.ArticleEdit.GetEditingArticleAndProcessKeywords() 位置 D:\网络资料\top-solution\TopSolution\TopSite\Account\ArticleEdit.aspx.cs:行号 148
+   在 TopSite.Account.ArticleEdit.btnSaveArticle_Click(Object sender, EventArgs e) 位置 D:\网络资料\top-solution\TopSolution\TopSite\Account\ArticleEdit.aspx.cs:行号 98 
+
+[2014-01-05 13:46:52][Error] 自动上传图片失败。 详情：System.ArgumentException: 路径中具有非法字符。
+   在 System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   在 System.IO.Path.GetExtension(String path)
+   在 TopLogic.ArticleLogic.AutoUploadImage(String content, String& result) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\ArticleLogic.cs:行号 115 
+
+[2014-01-05 13:50:10][Error] 自动上传图片失败。 详情：System.ArgumentException: 路径中具有非法字符。
+   在 System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   在 System.IO.Path.GetExtension(String path)
+   在 TopLogic.ArticleLogic.AutoUploadImage(String content, String& result) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\ArticleLogic.cs:行号 115 
+
+[2014-01-14 13:38:01][Error] 获取广告信息异常 详情：System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 QQBuySdk.WebUtils.DoPost(String url, IDictionary`2 parameters) 位置 D:\网络资料\top-solution\TopSolution\QQBuySdk\WebUtils.cs:行号 52
+   在 QQBuySdk.OpenApiOauth.InvokeOpenApi(String serverUrl, IDictionary`2 txtParams, IDictionary`2 fileParams) 位置 D:\网络资料\top-solution\TopSolution\QQBuySdk\OpenApiOauth.cs:行号 109
+   在 TopLogic.TopLogic.GetFromQQApi(String keyword) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\TopLogic.cs:行号 230
+   在 TopLogic.TopLogic.GetTopItems(String keyword) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\TopLogic.cs:行号 61 
+
+[2014-01-14 13:38:32][Error] 获取广告信息异常 详情：System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 QQBuySdk.WebUtils.DoPost(String url, IDictionary`2 parameters) 位置 D:\网络资料\top-solution\TopSolution\QQBuySdk\WebUtils.cs:行号 52
+   在 QQBuySdk.OpenApiOauth.InvokeOpenApi(String serverUrl, IDictionary`2 txtParams, IDictionary`2 fileParams) 位置 D:\网络资料\top-solution\TopSolution\QQBuySdk\OpenApiOauth.cs:行号 109
+   在 TopLogic.TopLogic.GetFromQQApi(String keyword) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\TopLogic.cs:行号 230
+   在 TopLogic.TopLogic.GetTopItems(String keyword) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\TopLogic.cs:行号 61 
+
+[2014-01-14 13:38:32][Error] 获取广告信息异常 详情：System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 QQBuySdk.WebUtils.DoPost(String url, IDictionary`2 parameters) 位置 D:\网络资料\top-solution\TopSolution\QQBuySdk\WebUtils.cs:行号 52
+   在 QQBuySdk.OpenApiOauth.InvokeOpenApi(String serverUrl, IDictionary`2 txtParams, IDictionary`2 fileParams) 位置 D:\网络资料\top-solution\TopSolution\QQBuySdk\OpenApiOauth.cs:行号 109
+   在 TopLogic.TopLogic.GetFromQQApi(String keyword) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\TopLogic.cs:行号 230
+   在 TopLogic.TopLogic.GetTopItems(String keyword) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\TopLogic.cs:行号 61 
+
+[2014-01-14 13:39:54][Error] 获取广告信息异常 详情：System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 QQBuySdk.WebUtils.DoPost(String url, IDictionary`2 parameters) 位置 D:\网络资料\top-solution\TopSolution\QQBuySdk\WebUtils.cs:行号 52
+   在 QQBuySdk.OpenApiOauth.InvokeOpenApi(String serverUrl, IDictionary`2 txtParams, IDictionary`2 fileParams) 位置 D:\网络资料\top-solution\TopSolution\QQBuySdk\OpenApiOauth.cs:行号 109
+   在 TopLogic.TopLogic.GetFromQQApi(String keyword) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\TopLogic.cs:行号 230
+   在 TopLogic.TopLogic.GetTopItems(String keyword) 位置 D:\网络资料\top-solution\TopSolution\TopLogic\TopLogic.cs:行号 61 
+
