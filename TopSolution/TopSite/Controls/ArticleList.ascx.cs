@@ -17,6 +17,10 @@ namespace TopSite.Controls
         public int PageSize { get; set; }
         public int PageIndex { get; set; }
         public int PageCount { get; set; }
+        /// <summary>
+        /// 是否计算页数，如果不计算PageCount将为0
+        /// </summary>
+        public bool CalculatePageCount { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -36,14 +40,33 @@ namespace TopSite.Controls
                 PageIndex = 1;
             }
 
-            List<Article> allList = ArticleLogic.GetList(p => p.CatalogueId == CatalogueId).OrderByDescending(p=>p.CreateTime).ToList();
-            PageCount = (int)Math.Ceiling((double)allList.Count / PageSize);
             if (PageIndex > PageCount)
             {
                 PageIndex = PageCount;
             }
 
-            IEnumerable<Article> articleList = allList.OrderByDescending(p => p.CreateTime).Skip(PageSize * (PageIndex - 1)).Take(PageSize);
+
+            IEnumerable<Article> articleList = null;
+            if (CalculatePageCount)
+            {
+                int totalCount = 0;
+                articleList = ArticleLogic.GetListByPage(out totalCount,
+                                                        p => p.CatalogueId == CatalogueId,
+                                                        p => p.Id,
+                                                        TopEntity.Enum.OrderEnum.Descending,
+                                                        PageSize,
+                                                        PageIndex);
+                PageCount = (int)Math.Ceiling((double)totalCount / PageSize);
+            }
+            else
+            {
+                articleList = ArticleLogic.GetListByPage(p => p.CatalogueId == CatalogueId,
+                                                        p => p.Id,
+                                                        TopEntity.Enum.OrderEnum.Descending,
+                                                        PageSize,
+                                                        PageIndex);
+            }
+
             RepeaterArticleList.DataSource = articleList;
             RepeaterArticleList.DataBind();
         }

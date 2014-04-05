@@ -59,6 +59,7 @@ namespace TopSite
                     this.ArticleList1.CatalogueId = CataId;
                     this.ArticleList1.CatalogueTitle = catalogue.Title;
                     this.ArticleList1.PageSize = 120;
+                    this.ArticleList1.CalculatePageCount = true;
                     this.Title = string.Format("{0}-{1}", catalogue.Title, BasicCache.SiteConfig.SiteName);
                 }
                 else
