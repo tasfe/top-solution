@@ -8,13 +8,20 @@
     <meta name="keywords" content="<%=CurArticle.KeyWords%>" />
     <meta name="description" content="<%=CurArticle.Summary %>" />
     <link href="/Styles/article.css" rel="stylesheet" type="text/css" />
+    <%if (Request.QueryString["o"] == "1")
+      { %>
+    <script type="text/javascript">
+        $(function () { $("#clicknum").load("/GetClickNumHandler.ashx?id=<%=CurArticle.Id %>") });
+    </script>
+    <% }%>
 </asp:Content>
 <asp:Content runat="server" ID="main" ContentPlaceHolderID="MainContent">
     <div class="article">
         <div class="article_title">
             <%=CurArticle.Title%></div>
         <div class="article_info">
-            <span>来源：<a href="<%=CurArticle.OrignSourceUrl %>" rel="nofollow" target="_blank"><%=CurArticle.OrignSource%></a></span><span>时间：<%=CurArticle.CreateTime%></span><span>点击量：<%=CurArticle.ClickNum%></span></div>
+            <span>来源：<a href="<%=CurArticle.OrignSourceUrl %>" rel="nofollow" target="_blank"><%=CurArticle.OrignSource%></a></span><span>时间：<%=CurArticle.CreateTime%></span><span>点击量：<span
+                id="clicknum"><%=CurArticle.ClickNum%></span></span></div>
         <div class="article_sumary">
             <%=CurArticle.Summary%></div>
         <div class="article_content">

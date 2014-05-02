@@ -51,7 +51,7 @@ namespace TopEntity
 
         private string _UserName;
 
-        public string UserName
+        public new string UserName
         {
             get { return _UserName; }
             set { _UserName = value; }

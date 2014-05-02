@@ -50,7 +50,7 @@ namespace TopLogic
         {
             try
             {
-                string fromUrlBuilder = GetFullUrl("~/ArticleShow.aspx?id=");
+                string fromUrlBuilder = GetFullUrl("~/ArticleShow.aspx?o=1&id=");
                 string outFileBase = HttpContext.Current.Server.MapPath("~/articles/");
                 int oriLength = fromUrlBuilder.Length;
 
