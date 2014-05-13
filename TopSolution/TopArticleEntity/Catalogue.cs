@@ -57,5 +57,16 @@ namespace TopEntity
             get { return _Summary; }
             set { _Summary = value; }
         }
+
+        private long _ArticleCount;
+        /// <summary>
+        /// 栏目下的文章数量
+        /// </summary>
+        public long ArticleCount
+        {
+            get { return _ArticleCount; }
+            set { _ArticleCount = value; }
+        }
+        
     }
 }
